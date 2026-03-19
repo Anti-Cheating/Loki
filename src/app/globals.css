@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-truoyy-bg: #0B1A10;
+  --color-truoyy-surface: #122318;
+  --color-truoyy-surface-alt: #0D1F13;
+  --color-truoyy-accent: #4CD964;
+  --color-truoyy-accent-hover: #3CB853;
+  --color-truoyy-border: rgba(76, 217, 100, 0.12);
+  --color-truoyy-text: #FFFFFF;
+  --color-truoyy-text-secondary: #E5E7EB;
+  --color-truoyy-text-muted: rgba(255, 255, 255, 0.5);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0B1A10;
+  color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grid pattern background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(76, 217, 100, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(76, 217, 100, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Radial glow */
+.bg-radial-glow {
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(76, 217, 100, 0.08) 0%, transparent 70%);
+}
+
+/* Glow animation */
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(76, 217, 100, 0.1); }
+  to { box-shadow: 0 0 40px rgba(76, 217, 100, 0.25); }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Scroll margin for anchor links (navbar height) */
+section[id] {
+  scroll-margin-top: 80px;
+}
