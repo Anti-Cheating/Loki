@@ -27,7 +27,7 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <TruoyyLogo className="h-6 w-auto mb-4" />
+            <TruoyyLogo className="h-9 w-auto mb-4" />
             <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">
               AI-powered interview integrity platform. Detect cheating in real-time during remote interviews.
             </p>
