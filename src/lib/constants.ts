@@ -20,7 +20,7 @@ import {
 export const NAV_LINKS = [
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Waitlist', href: '#waitlist' },
   { label: 'FAQ', href: '#faq' },
 ];
 

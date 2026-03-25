@@ -118,7 +118,7 @@ export function Hero() {
 
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="#pricing"
+                  href="#waitlist"
                   className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl bg-[#4CD964] text-[#0B1A10] hover:bg-[#3CB853] transition-colors"
                 >
                   Book a Demo <ArrowRight size={16} />
