@@ -101,7 +101,7 @@ export function Hero() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4CD964]/10 border border-[#4CD964]/20 mb-6">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#4CD964] animate-pulse-dot" />
-                <span className="text-xs font-medium text-[#4CD964]">Now in Beta</span>
+                <span className="text-xs font-medium text-[#4CD964]">Early Access</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
