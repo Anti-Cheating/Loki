@@ -7,7 +7,7 @@ import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Features } from '@/components/sections/Features';
 import { DashboardPreview } from '@/components/sections/DashboardPreview';
 import { Security } from '@/components/sections/Security';
-import { Pricing } from '@/components/sections/Pricing';
+import { Waitlist } from '@/components/sections/Waitlist';
 import { FAQ } from '@/components/sections/FAQ';
 import { CTA } from '@/components/sections/CTA';
 
@@ -22,7 +22,7 @@ export default function PageContent() {
         <Features />
         <DashboardPreview />
         <Security />
-        <Pricing />
+        <Waitlist />
         <FAQ />
         <CTA />
       </main>
