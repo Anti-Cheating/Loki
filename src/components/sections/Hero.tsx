@@ -1,6 +1,32 @@
 'use client';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
+
+function CountUpNumber({ end, color, delay = 0 }: { end: number; color: string; delay?: number }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const duration = 1500;
+      const startTime = performance.now();
+
+      function animate(currentTime: number) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCount(Math.round(eased * end));
+        if (progress < 1) requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    }, delay);
+
+    return () => clearTimeout(timeout);
+  }, [end, delay]);
+
+  return <span style={{ color }}>{count}</span>;
+}
 
 function DashboardMockup() {
   return (
@@ -21,11 +47,15 @@ function DashboardMockup() {
         {/* Score row */}
         <div className="grid grid-cols-4 gap-2 mb-3">
           <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-lg font-bold text-[#f59e0b]">73</div>
+            <div className="text-lg font-bold">
+              <CountUpNumber end={73} color="#f59e0b" delay={800} />
+            </div>
             <div className="text-[9px] text-[rgba(255,255,255,0.4)]">Recent</div>
           </div>
           <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-lg font-bold text-[#4CD964]">45</div>
+            <div className="text-lg font-bold">
+              <CountUpNumber end={45} color="#4CD964" delay={1000} />
+            </div>
             <div className="text-[9px] text-[rgba(255,255,255,0.4)]">Session</div>
           </div>
           <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
@@ -33,7 +63,9 @@ function DashboardMockup() {
             <div className="text-[9px] text-[rgba(255,255,255,0.4)] mt-0.5">Risk</div>
           </div>
           <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-lg font-bold text-[#E5E7EB]">12</div>
+            <div className="text-lg font-bold">
+              <CountUpNumber end={12} color="#E5E7EB" delay={1200} />
+            </div>
             <div className="text-[9px] text-[rgba(255,255,255,0.4)]">Windows</div>
           </div>
         </div>
@@ -47,7 +79,15 @@ function DashboardMockup() {
                 <stop offset="100%" stopColor="#4CD964" stopOpacity="0" />
               </linearGradient>
             </defs>
-            <path d="M0,30 Q20,28 40,25 T80,18 T120,22 T160,12 T200,15" fill="none" stroke="#4CD964" strokeWidth="1.5" />
+            <motion.path
+              d="M0,30 Q20,28 40,25 T80,18 T120,22 T160,12 T200,15"
+              fill="none"
+              stroke="#4CD964"
+              strokeWidth="1.5"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 2, delay: 1, ease: 'easeInOut' }}
+            />
             <path d="M0,30 Q20,28 40,25 T80,18 T120,22 T160,12 T200,15 V40 H0 Z" fill="url(#chartGrad)" />
           </svg>
         </div>
@@ -55,16 +95,19 @@ function DashboardMockup() {
         {/* Modality bars */}
         <div className="space-y-2">
           {[
-            { label: 'Apps', score: 65, color: '#f59e0b' },
-            { label: 'Keystrokes', score: 30, color: '#4CD964' },
-            { label: 'Voice', score: 15, color: '#4CD964' },
+            { label: 'Apps', score: 65, color: '#f59e0b', delay: 1.2 },
+            { label: 'Keystrokes', score: 30, color: '#4CD964', delay: 1.4 },
+            { label: 'Voice', score: 15, color: '#4CD964', delay: 1.6 },
           ].map((m) => (
             <div key={m.label} className="flex items-center gap-2">
               <span className="text-[9px] text-[rgba(255,255,255,0.5)] w-14">{m.label}</span>
               <div className="flex-1 h-1.5 bg-[#0B1A10] rounded-full overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all"
-                  style={{ width: `${m.score}%`, backgroundColor: m.color }}
+                <motion.div
+                  className="h-full rounded-full"
+                  style={{ backgroundColor: m.color }}
+                  initial={{ width: 0 }}
+                  animate={{ width: `${m.score}%` }}
+                  transition={{ duration: 1, delay: m.delay, ease: 'easeOut' }}
                 />
               </div>
               <span className="text-[9px] font-mono" style={{ color: m.color }}>{m.score}</span>
@@ -73,19 +116,63 @@ function DashboardMockup() {
         </div>
 
         {/* Pulse alert */}
-        <div className="mt-3 bg-[rgba(248,113,113,0.08)] border border-[rgba(248,113,113,0.15)] rounded-lg px-2 py-1.5 flex items-center gap-2">
+        <motion.div
+          className="mt-3 bg-[rgba(248,113,113,0.08)] border border-[rgba(248,113,113,0.15)] rounded-lg px-2 py-1.5 flex items-center gap-2"
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 2 }}
+        >
           <div className="w-1.5 h-1.5 rounded-full bg-[#F87171]" />
           <span className="text-[9px] font-semibold text-[#F87171]">AI TOOLS</span>
           <span className="text-[9px] text-[rgba(255,255,255,0.4)] ml-auto">ChatGPT</span>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 }
 
-export function Hero() {
+function GlowingCatches() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <motion.span
+      className="relative inline-block"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
+      <span className="bg-gradient-to-r from-[#4CD964] to-[#6DE884] bg-clip-text text-transparent">
+        Catches
+      </span>
+      {/* Glow effect behind the word */}
+      <motion.span
+        className="absolute inset-0 bg-gradient-to-r from-[#4CD964]/20 to-[#6DE884]/20 blur-2xl rounded-full -z-10"
+        initial={{ opacity: 0 }}
+        animate={isVisible ? { opacity: [0, 0.8, 0.4] } : {}}
+        transition={{ duration: 1.5, ease: 'easeOut' }}
+      />
+    </motion.span>
+  );
+}
+
+export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Parallax: dashboard moves up slower than scroll
+  const dashboardY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const dashboardOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  return (
+    <section ref={sectionRef} className="relative min-h-screen flex items-center pt-16 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-grid" />
       <div className="absolute inset-0 bg-radial-glow" />
@@ -106,17 +193,25 @@ export function Hero() {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
                 Interview Intelligence That{' '}
-                <span className="bg-gradient-to-r from-[#4CD964] to-[#6DE884] bg-clip-text text-transparent">
-                  Catches
-                </span>{' '}
+                <GlowingCatches />{' '}
                 What You Can&apos;t
               </h1>
 
-              <p className="text-lg text-[#E5E7EB] leading-relaxed mb-8 max-w-lg">
+              <motion.p
+                className="text-lg text-[#E5E7EB] leading-relaxed mb-8 max-w-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 AI-powered monitoring that detects cheating in real-time during live remote interviews. Know exactly when candidates use AI tools, switch apps, or read from scripts.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-4">
+              <motion.div
+                className="flex flex-wrap gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
                 <a
                   href="#waitlist"
                   className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl bg-[#4CD964] text-[#0B1A10] hover:bg-[#3CB853] transition-colors"
@@ -129,15 +224,16 @@ export function Hero() {
                 >
                   <Play size={14} /> See How It Works
                 </a>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
-          {/* Right: Dashboard mockup */}
+          {/* Right: Dashboard mockup with parallax */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
+            style={{ y: dashboardY, opacity: dashboardOpacity }}
             className="flex justify-center lg:justify-end"
           >
             <DashboardMockup />

@@ -15,8 +15,8 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || mobileOpen
-            ? 'bg-[#0B1A10] border-b border-[rgba(76,217,100,0.1)]'
-            : 'bg-transparent'
+            ? 'bg-[#0B1A10]/80 backdrop-blur-xl border-b border-[rgba(76,217,100,0.1)] shadow-lg shadow-black/10'
+            : 'bg-transparent backdrop-blur-none'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,7 +62,7 @@ export function Navbar() {
 
       {/* Mobile full-screen menu overlay */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-[#0B1A10] flex flex-col pt-16">
+        <div className="md:hidden fixed inset-0 z-40 bg-[#0B1A10]/95 backdrop-blur-xl flex flex-col pt-16">
           <div className="flex flex-col gap-1 px-6 pt-8">
             {NAV_LINKS.map((link) => (
               <a
