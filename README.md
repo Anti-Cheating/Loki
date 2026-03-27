@@ -4,7 +4,7 @@ The public-facing marketing and landing page for **Trueyy**, an AI-powered inter
 
 Part of the Trueyy platform:
 - **Falcon** — Electron + React desktop client
-- **Cortex** — Node.js/Express backend (BullMQ, Prisma, Socket.io)
+- **Cortex** — Node.js/Express backend (BullMQ, Prisma, Socket.io,LLM)
 - **Sentinel** — Python screen monitor (PyInstaller binary)
 - **Loki** — Next.js marketing website _(this repo)_
 
