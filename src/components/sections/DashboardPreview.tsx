@@ -50,13 +50,13 @@ export function DashboardPreview() {
                     </div>
                   </div>
 
-                  {/* Zoom placeholder */}
+                  {/* Meeting area placeholder */}
                   <div className="bg-[#122318] rounded-xl flex-1 min-h-[180px] sm:min-h-[220px] flex items-center justify-center border border-[rgba(76,217,100,0.06)]">
                     <div className="text-center">
                       <div className="w-12 h-12 rounded-xl bg-[rgba(255,255,255,0.04)] flex items-center justify-center mx-auto mb-2">
                         <span className="text-lg">🎥</span>
                       </div>
-                      <span className="text-[10px] text-[rgba(255,255,255,0.3)]">Zoom Meeting Area</span>
+                      <span className="text-[10px] text-[rgba(255,255,255,0.3)]">Meeting Area</span>
                     </div>
                   </div>
                 </div>
