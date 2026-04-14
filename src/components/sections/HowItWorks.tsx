@@ -16,7 +16,7 @@ export function HowItWorks() {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">How It Works</h2>
           <p className="text-[#94A3B8] max-w-xl mx-auto text-base leading-relaxed">
-            Get started in minutes. Trueyy integrates seamlessly with Zoom to provide real-time interview monitoring.
+            Get started in minutes. Trueyy integrates seamlessly with your meeting platform to provide real-time interview monitoring.
           </p>
         </AnimatedSection>
 

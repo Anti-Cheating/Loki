@@ -91,7 +91,7 @@ export const STEPS: Step[] = [
     icon: Video,
     number: 2,
     title: 'Join',
-    description: 'Candidate joins the embedded Zoom meeting directly within the Trueyy platform.',
+    description: 'Candidate joins the meeting directly within the Trueyy platform.',
   },
   {
     icon: Eye,
