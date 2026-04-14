@@ -5,6 +5,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Problem } from '@/components/sections/Problem';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Features } from '@/components/sections/Features';
+import { Comparison } from '@/components/sections/Comparison';
 import { DashboardPreview } from '@/components/sections/DashboardPreview';
 import { Security } from '@/components/sections/Security';
 import { Waitlist } from '@/components/sections/Waitlist';
@@ -20,6 +21,7 @@ export default function PageContent() {
         <Problem />
         <HowItWorks />
         <Features />
+        <Comparison />
         <DashboardPreview />
         <Security />
         <Waitlist />
