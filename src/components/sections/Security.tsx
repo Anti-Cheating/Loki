@@ -37,7 +37,7 @@ export function Security() {
           <div className="h-px bg-gradient-to-r from-transparent via-[rgba(76,217,100,0.15)] to-transparent mb-10" />
           <p className="text-xs text-white/30 uppercase tracking-widest font-medium mb-5">Supported Platforms</p>
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {['Google Meet', 'Microsoft Teams', 'Zoom', 'Chrome Extension', 'macOS', 'Windows'].map((name) => (
+            {['Google Meet', 'Microsoft Teams', 'Zoom'].map((name) => (
               <span key={name} className="text-sm text-white/40 font-medium hover:text-white/70 transition-colors">
                 {name}
               </span>
