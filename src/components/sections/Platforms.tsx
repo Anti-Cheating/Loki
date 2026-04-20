@@ -1,7 +1,7 @@
 'use client';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { motion } from 'framer-motion';
-import { Video, Chrome, Monitor, Globe } from 'lucide-react';
+import { Video, Chrome, Globe } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Platform {
@@ -14,9 +14,6 @@ const PLATFORMS: Platform[] = [
   { icon: Video, name: 'Google Meet', desc: 'Full support' },
   { icon: Video, name: 'Microsoft Teams', desc: 'Full support' },
   { icon: Video, name: 'Zoom', desc: 'Full support' },
-  { icon: Chrome, name: 'Chrome Extension', desc: 'One-click install' },
-  { icon: Monitor, name: 'macOS', desc: 'Native monitoring' },
-  { icon: Monitor, name: 'Windows', desc: 'Native monitoring' },
   { icon: Globe, name: 'Any Browser', desc: 'Web dashboard' },
   { icon: Globe, name: 'Desktop App', desc: 'Standalone client' },
 ];
