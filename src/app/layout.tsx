@@ -56,13 +56,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning on <html>/<body>: browser extensions
+    // (Grammarly, Dark Reader, etc.) routinely inject attributes like
+    // data-gptw / data-darkreader before React hydrates, which Next
+    // would otherwise flag as a server/client mismatch. The warning
+    // is harmless in that case but pollutes dev consoles, and the
+    // suppress flag only ignores attribute diffs on this exact element
+    // (children still get the normal hydration check).
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased" suppressHydrationWarning>{children}</body>
     </html>
   );
 }
