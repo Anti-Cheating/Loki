@@ -23,7 +23,7 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="#" className="flex-shrink-0">
-              <TruoyyLogo className="h-10 w-auto" />
+              <TruoyyLogo className="h-13 w-auto" />
             </a>
 
             {/* Desktop nav links */}
