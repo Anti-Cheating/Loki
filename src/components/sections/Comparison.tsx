@@ -36,7 +36,7 @@ export function Comparison() {
           </div>
         </div>
         <div className="center" style={{ marginTop: '28px' }}>
-          <a className="btn btn--ghost" href="#security">
+          <a className="btn btn--ghost" href="/security">
             Read our security approach <span className="arw">&rarr;</span>
           </a>
         </div>

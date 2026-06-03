@@ -1,34 +1,36 @@
+import Link from 'next/link';
+
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="wrap">
         <div className="foot-grid">
           <div className="foot-brand">
-            <a className="brand" href="#">
+            <Link className="brand" href="/">
               <span className="dot" />
               Trueyy
-            </a>
+            </Link>
             <p>Real-time interview integrity for remote hiring teams that care about a fair process.</p>
           </div>
           <div className="foot-col">
             <h4>Product</h4>
-            <a href="#detection">Detection</a>
-            <a href="#how">How it works</a>
-            <a href="#why">Compare</a>
-            <a href="#waitlist">Pricing</a>
+            <Link href="/features">Detection</Link>
+            <Link href="/how-it-works">How it works</Link>
+            <Link href="/comparison">Compare</Link>
+            <Link href="/pricing">Pricing</Link>
           </div>
           <div className="foot-col">
             <h4>Company</h4>
-            <a href="#faq">Resources</a>
-            <a href="#security">Security</a>
-            <a href="#waitlist">Book a demo</a>
-            <a href="#waitlist">Contact</a>
+            <Link href="/resources">Resources</Link>
+            <Link href="/security">Security</Link>
+            <Link href="/demo">Book a demo</Link>
+            <Link href="/demo">Contact</Link>
           </div>
           <div className="foot-col">
             <h4>Legal</h4>
-            <a href="#security">Privacy</a>
-            <a href="#security">Terms</a>
-            <a href="#security">Compliance</a>
+            <Link href="/security">Privacy</Link>
+            <Link href="/security">Terms</Link>
+            <Link href="/security">Compliance</Link>
           </div>
         </div>
         <div className="foot-bot">
