@@ -20,9 +20,9 @@ export function DashboardPreview() {
         <div className="cc-grid">
           <div className="cc-copy reveal">
             <span className="kicker">Your command center</span>
-            <h2 className="h2">See the read while the interview is still happening</h2>
+            <h2 className="h2">Know the score before the debrief</h2>
             <p className="lead">
-              Trueyy turns raw signals into something your interviewer can actually use in the moment. A calm live feed, a single integrity score, and a timeline they can scrub through after the call. No guesswork, no gut feeling.
+              Trueyy runs a second feed alongside the call. Integrity score updates every 30 seconds. Every flag lands with a timestamp your team can scrub back to. After the call, one click drops the full session log onto the scorecard.
             </p>
             <ul className="cc-list">
               <li className="checkrow">
@@ -31,7 +31,7 @@ export function DashboardPreview() {
                     <path d="M5 12l4 4L19 6" />
                   </svg>
                 </span>
-                <span>A live integrity score that updates as the conversation moves.</span>
+                <span>Integrity score recalculates every 30 seconds across three signal layers.</span>
               </li>
               <li className="checkrow">
                 <span className="ck">
@@ -39,7 +39,7 @@ export function DashboardPreview() {
                     <path d="M5 12l4 4L19 6" />
                   </svg>
                 </span>
-                <span>Time-stamped flags you can jump straight to afterward.</span>
+                <span>Every flag links to a specific timestamp you can scrub to in the session log.</span>
               </li>
               <li className="checkrow">
                 <span className="ck">
@@ -47,7 +47,15 @@ export function DashboardPreview() {
                     <path d="M5 12l4 4L19 6" />
                   </svg>
                 </span>
-                <span>A shareable summary that drops onto the candidate scorecard.</span>
+                <span>One-click session summary attaches to any ATS scorecard or hiring workflow.</span>
+              </li>
+              <li className="checkrow">
+                <span className="ck">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                    <path d="M5 12l4 4L19 6" />
+                  </svg>
+                </span>
+                <span>Interviewers see the feed live. Nothing needs to be reviewed after the fact to act on it.</span>
               </li>
             </ul>
           </div>
@@ -86,17 +94,17 @@ export function DashboardPreview() {
                 <div className="cc-row ok">
                   <span className="cc-t">13:08</span>
                   <span className="cc-dot" />
-                  <span className="cc-msg">Answer cadence within range</span>
+                  <span className="cc-msg">Answer cadence within expected range</span>
                 </div>
                 <div className="cc-row flag">
                   <span className="cc-t">13:44</span>
                   <span className="cc-dot" />
-                  <span className="cc-msg">Large clipboard paste flagged</span>
+                  <span className="cc-msg">Large clipboard paste — AI signature match</span>
                 </div>
                 <div className="cc-row ok">
                   <span className="cc-t">14:10</span>
                   <span className="cc-dot" />
-                  <span className="cc-msg">Back on camera, no second screen</span>
+                  <span className="cc-msg">Back on camera, no off-screen signals</span>
                 </div>
               </div>
             </div>

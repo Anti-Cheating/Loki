@@ -4,9 +4,9 @@ export function HowItWorks() {
       <div className="wrap">
         <div className="center reveal">
           <span className="kicker kicker--center">How it works</span>
-          <h2 className="h2">Four steps, zero friction for your interviewers</h2>
+          <h2 className="h2">Four steps. Your interviewers do one of them.</h2>
           <p className="lead" style={{ margin: '14px auto 0' }}>
-            Trueyy slots into the way you already hire. Set it up once, then let it run in the background of every call.
+            Trueyy fits into the hiring process you already run. Set it up once, then let it run silently in the background of every call while your team focuses on the conversation.
           </p>
         </div>
         <div className="steps">
@@ -19,7 +19,7 @@ export function HowItWorks() {
               </svg>
             </div>
             <h3>Schedule</h3>
-            <p>Drop a Trueyy link into the calendar invite. Nothing changes about how your team books the interview.</p>
+            <p>Drop a Trueyy link into the calendar invite alongside the Zoom or Meet link. Nothing else changes about how your team books the interview.</p>
           </div>
           <div className="step card reveal" data-d="2">
             <span className="step-no">02</span>
@@ -30,7 +30,7 @@ export function HowItWorks() {
               </svg>
             </div>
             <h3>Connect</h3>
-            <p>The candidate joins through the browser. Consent is clear and the session opens right beside your video call.</p>
+            <p>The candidate clicks their link, reads what is being monitored and why, and consents before anything starts. The session opens beside the video call. No download required.</p>
           </div>
           <div className="step card reveal" data-d="3">
             <span className="step-no">03</span>
@@ -41,7 +41,7 @@ export function HowItWorks() {
               </svg>
             </div>
             <h3>Monitor</h3>
-            <p>Trueyy reads device-level signals as the conversation happens and quietly scores the moments that matter.</p>
+            <p>Trueyy reads device signals as the conversation runs and scores integrity every 30 seconds. Your interviewer sees a live feed without having to ask the candidate anything different.</p>
           </div>
           <div className="step card reveal" data-d="4">
             <span className="step-no">04</span>
@@ -51,7 +51,7 @@ export function HowItWorks() {
               </svg>
             </div>
             <h3>Review</h3>
-            <p>Every session ends with a plain-language timeline and an integrity score you can attach to the scorecard.</p>
+            <p>The session ends with a plain-language timeline, a final integrity score, and a shareable summary that attaches directly to the candidate scorecard in your ATS.</p>
           </div>
         </div>
         <div className="center" style={{ marginTop: '34px' }}>

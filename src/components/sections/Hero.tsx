@@ -143,12 +143,12 @@ export function Hero() {
     <section className="hero">
       <div ref={hostRef} id="hero-canvas" aria-hidden="true" />
       <div className="wrap hero-inner">
-        <span className="kicker reveal">Live interview integrity</span>
+        <span className="kicker reveal">AI cheating is happening right now</span>
         <h1 className="display reveal" data-d="1">
-          Catch what the <span className="tx-green">interview</span> can&apos;t show you
+          The candidate is talking to you. <span className="tx-green">Their AI is answering.</span>
         </h1>
         <p className="lead reveal" data-d="2">
-          Remote candidates can read from a second screen, run an AI assistant off camera, or paste answers in seconds. Trueyy watches the signals you miss and gives your interviewers a clear, honest read on every conversation.
+          Cluely, InterviewCoder, ChatGPT. The tools that ghost-write interviews have gotten disturbingly good. Trueyy reads every signal they leave behind and gives your team a real read before you extend the offer.
         </p>
         <div className="hero-cta reveal" data-d="3">
           <a className="btn btn--primary btn--lg" href="#waitlist">
@@ -160,8 +160,8 @@ export function Hero() {
         </div>
         <div className="hero-meta reveal" data-d="4">
           <span><i className="live-dot" /> Works inside Zoom, Meet &amp; Teams</span>
-          <span>No clunky candidate install</span>
-          <span>Privacy-first by design</span>
+          <span>No candidate install required</span>
+          <span>Consent-first by design</span>
         </div>
       </div>
     </section>

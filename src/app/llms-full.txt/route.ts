@@ -8,133 +8,159 @@ const content = `# Trueyy — Full site content
 
 ## Hero
 
-Catch what the interview can't show you.
+The candidate is talking to you. Their AI is answering.
 
-Remote candidates can read from a second screen, run an AI assistant off camera, or paste answers in seconds. Trueyy watches the signals you miss and gives your interviewers a clear, honest read on every conversation.
+Cluely, InterviewCoder, ChatGPT. The tools that ghost-write interviews have gotten disturbingly good. Trueyy reads every signal they leave behind and gives your team a real read before you extend the offer.
 
-Works inside Zoom, Meet and Teams. No clunky candidate install. Privacy-first by design.
+Works inside Zoom, Meet and Teams. No candidate install required. Consent-first by design.
 
 ---
 
-## The trust gap
+## The real cost of a bad hire
 
-Remote interviews got easier to fake.
+You hired their prompts. Not them.
 
-A polished answer no longer proves much. The hard part is no longer running the interview, it is knowing whether the person on the call actually did the thinking. That gap costs teams real money and real time.
+An answer that arrives in two seconds and covers every edge case perfectly is not impressive. It is suspicious. The signals that separate a sharp candidate from a well-prompted one are in the session data. Most teams never look at them.
 
-- 67% of recruiters say they have caught a candidate using outside help during a remote interview.
-- 3x jump in suspected AI-assisted answers reported across remote hiring since 2023.
-- 89% of hiring teams want a clear integrity signal before they extend an offer.
+- 72% of hiring managers suspect they have extended an offer to a candidate who used AI or outside help during the live interview.
+- 4x surge in AI-assisted interview cheating reports since GPT-4 became widely available, with no sign of the trend reversing.
+- $47K typical cost of replacing a wrong technical hire once onboarding, lost productivity, and rehire expenses are totalled.
 
 ---
 
 ## How it works
 
-Four steps, zero friction for your interviewers. Trueyy slots into the way you already hire. Set it up once, then let it run in the background of every call.
+Four steps. Your interviewers do one of them.
 
-1. Schedule — Drop a Trueyy link into the calendar invite. Nothing changes about how your team books the interview.
-2. Connect — The candidate joins through the browser. Consent is clear and the session opens right beside your video call.
-3. Monitor — Trueyy reads device-level signals as the conversation happens and quietly scores the moments that matter.
-4. Review — Every session ends with a plain-language timeline and an integrity score you can attach to the scorecard.
+Trueyy fits into the hiring process you already run. Set it up once, then let it run silently in the background of every call while your team focuses on the conversation.
 
----
-
-## Multi-signal detection
-
-One signal can lie. Together they don't.
-
-No single tell proves a candidate is cheating. Trueyy reads several signals at once and weighs them against each other, so an honest pause never looks the same as a hidden assistant feeding answers.
-
-### AI assistant use
-Spots the rhythm of answers piped in from an AI tool, including the tell-tale lag between a question and a suspiciously complete reply.
-
-### App and window switching
-Notices when focus leaves the interview for another app or a hidden window mid-answer, and logs exactly when it happened.
-
-### Clipboard activity
-Catches large pastes that arrive faster than anyone could type, a common sign of pre-written or generated answers.
-
-### Reading behavior
-Reads gaze and timing patterns that suggest a candidate is reading from a script or a second screen instead of speaking freely.
-
-### Second-device signals
-Surfaces patterns that point to a phone or extra monitor just out of frame, where help is most often hiding.
-
-### Answer cadence
-Models how a person naturally builds an answer, so unnatural fluency and perfect structure stand out instead of slipping by.
+1. Schedule — Drop a Trueyy link into the calendar invite alongside the Zoom or Meet link. Nothing else changes about how your team books the interview.
+2. Connect — The candidate clicks their link, reads what is being monitored and why, and consents before anything starts. The session opens beside the video call. No download required.
+3. Monitor — Trueyy reads device signals as the conversation runs and scores integrity every 30 seconds. Your interviewer sees a live feed without having to ask the candidate anything different.
+4. Review — The session ends with a plain-language timeline, a final integrity score, and a shareable summary that attaches directly to the candidate scorecard in your ATS.
 
 ---
 
-## Command center
+## Six detection layers
 
-See the read while the interview is still happening.
+What one signal misses, the next one catches.
 
-Trueyy turns raw signals into something your interviewer can actually use in the moment. A calm live feed, a single integrity score, and a timeline they can scrub through after the call. No guesswork, no gut feeling.
+Cheating tools leave traces. Not obvious ones. Subtle ones. Trueyy reads them in combination so a single odd moment stays in context rather than firing a false alarm.
 
-- A live integrity score that updates as the conversation moves.
-- Time-stamped flags you can jump straight to afterward.
-- A shareable summary that drops onto the candidate scorecard.
+### AI tool fingerprinting
+Trueyy recognizes the structural output signatures of ChatGPT, Claude, Gemini, Cluely, and InterviewCoder. Not by flagging certain words. By reading the pattern their outputs leave in a live answer.
+
+### App and window focus
+When a candidate tabs to another app mid-question, the timestamp lands in the feed. Context switches are logged even when the candidate returns to the call in under a second.
+
+### Paste velocity
+A 200-word answer pasted in 0.3 seconds was not typed. Trueyy flags paste events that exceed any plausible human input rate and logs the exact text length and timing for review.
+
+### Reading gaze patterns
+Eyes scanning a fixed invisible line look different from eyes freely watching a speaker. Trueyy distinguishes the two without needing a camera lock or face-tracking software.
+
+### Off-screen device signals
+Specific audio artifacts, ambient light shifts, and response timing gaps point to a phone below frame or a monitor just out of shot. These surface as low-confidence signals in the feed, not accusations.
+
+### Answer structure analysis
+Someone thinking through a problem builds an answer that meanders slightly. An AI-generated answer arrives in four clean bullet points with exactly parallel structure. Trueyy learns to tell them apart.
+
+---
+
+## Your command center
+
+Know the score before the debrief.
+
+Trueyy runs a second feed alongside the call. Integrity score updates every 30 seconds. Every flag lands with a timestamp your team can scrub back to. After the call, one click drops the full session log onto the scorecard.
+
+- Integrity score recalculates every 30 seconds across three signal layers.
+- Every flag links to a specific timestamp you can scrub to in the session log.
+- One-click session summary attaches to any ATS scorecard or hiring workflow.
+- Interviewers see the feed live. Nothing needs to be reviewed after the fact to act on it.
 
 ---
 
 ## Why Trueyy
 
-Built for live interviews, not locked-down exams.
+Proctoring tools were built for test centers, not conversations.
 
-Old-school proctoring was made for timed tests. It locks browsers and watches faces. Live hiring conversations need something that reads intent, not just movement.
+Traditional proctoring locks browsers and watches faces. That works for a timed exam where the question is: did this person copy? It does almost nothing for a 45-minute live conversation where the question is: did this person actually think through the problem?
 
 Capability comparison:
 - Runs during a live two-way interview: Traditional proctoring No, Trueyy Yes
-- Detects AI assistant use in real time: Traditional proctoring Limited, Trueyy Yes
-- Works inside Zoom, Meet and Teams: Traditional proctoring No, Trueyy Yes
-- Weighs several signals together: Traditional proctoring Rule-based, Trueyy Yes
-- Light footprint for the candidate: Traditional proctoring Heavy, Trueyy Yes
-- Plain-language timeline after the call: Traditional proctoring No, Trueyy Yes
+- Detects AI tool use in real time: Traditional proctoring Limited, Trueyy Yes
+- Works inside Zoom, Meet, and Teams: Traditional proctoring No, Trueyy Yes
+- Specifically detects Cluely and InterviewCoder: Traditional proctoring No, Trueyy Yes
+- Weighs signals together instead of single triggers: Traditional proctoring Rule-based, Trueyy Yes
+- No heavy browser install for candidates: Traditional proctoring Heavy, Trueyy Yes
+- Timestamped session log after the call: Traditional proctoring No, Trueyy Yes
+- No video stored on third-party servers: Traditional proctoring No, Trueyy Yes
+- Consent-first with full candidate disclosure: Traditional proctoring No, Trueyy Yes
 
 ---
 
 ## Security and privacy
 
-Honest monitoring, handled with care.
+Monitoring candidates is not the same as surveilling them.
 
-Watching for cheating should never mean treating candidates badly. Trueyy is built to be transparent with people and strict with their data.
+There is a real difference between knowing what a candidate's device was doing and watching their face through a camera for signs of distress. Trueyy is the first thing, firmly.
 
-### Transparent by default
-Candidates are told what is being monitored before the interview starts. No hidden tracking, no surprises.
+### Consent before anything
+Candidates see exactly what Trueyy observes, in plain language, before the session opens. The list is specific. Nothing is buried in a privacy policy.
 
-### Encrypted end to end
-Session data is encrypted in transit and at rest. You control how long it lives and who on your team can see it.
+### No video on our servers
+Trueyy reads device signals. Video stays inside Zoom, Meet, or Teams. Nothing is recorded, stored, or analyzed on Trueyy infrastructure.
 
-### Compliance ready
-Built around GDPR and SOC 2 expectations, with consent flows and retention controls baked in from the start.
+### GDPR and SOC 2 ready
+Consent flows, audit logs, and data-subject request tooling are part of the product from day one. Not add-ons. Not planned for a future release.
+
+### End-to-end encryption
+All signal data is encrypted in transit and at rest. Only team members you authorize can access a session log. Access is logged and auditable.
+
+### You control retention
+Your organization sets how long session data lives. You can configure per-team retention windows and delete individual sessions on request at any time.
+
+### Candidate review path
+Candidates who believe a flag was incorrect can request a formal review. The process is documented and runs through your HR team, not ours.
 
 ---
 
 ## Frequently asked questions
 
-### How does Trueyy detect cheating during an interview?
-Trueyy runs quietly beside the live call and reads device-level signals like app and window switching, clipboard activity, AI assistant patterns, and reading behavior. It weighs them together, scores each moment, and shows your interviewer a clear timeline rather than a single noisy alert.
+### How does Trueyy detect AI tool use during a live interview?
+Trueyy reads device-level signals from the candidate's browser session: which apps are in focus, what is being pasted and how fast, gaze patterns through the webcam, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score, not a single noisy alert firing mid-conversation.
 
-### Does the candidate need to install anything heavy?
-No. Candidates join through a lightweight browser session with clear consent. The interviewer sees the integrity signals on their own dashboard, so the candidate experience stays simple.
+### Which AI tools does Trueyy specifically detect?
+Trueyy has recognition patterns for ChatGPT, Claude, Gemini, GitHub Copilot, Cluely, and InterviewCoder. Detection is based on structural output signatures, not keyword lists, so prompt rewrites do not defeat it. We update detection patterns regularly as new tools enter the market.
+
+### Does the candidate need to install anything?
+No. Candidates join through a standard browser tab with a consent screen before anything starts. Nothing is downloaded or installed. The monitoring runs through the browser session Trueyy opens alongside the video call.
 
 ### Which video platforms does it work with?
-Trueyy is built to sit beside the calls you already run on Zoom, Google Meet, and Microsoft Teams, so you do not have to move your interviews onto a new platform.
+Trueyy sits beside the calls you already run on Zoom, Google Meet, and Microsoft Teams. The interview happens where it always has. Trueyy is the second tab your team opens on their side.
+
+### How does Trueyy handle false positives?
+No signal is treated as proof. The score is context. An interviewer who sees a flag at 13:44 can jump to that timestamp, review what was happening, and weigh it alongside everything else they observed in the call. The flag is one input. Your team makes the call.
 
 ### Will candidates feel like they are being spied on?
-They are told up front what is monitored and why. Trueyy is designed to confirm honest work, not to punish nerves. Most candidates appreciate a process that protects the people who are not cutting corners.
+They will know exactly what is being observed, because they are told before the session opens. Most candidates are more comfortable with that than with a black-box proctoring tool that locks their browser and records their face without explanation. Transparency and surveillance are not the same thing.
+
+### Can Trueyy accommodate candidates with disabilities?
+Yes. Signals like slower typing speed or atypical gaze patterns can be calibrated at the session level. If a candidate discloses a condition that may affect how specific signals read, the session can be flagged for manual review with the relevant context attached for the hiring team.
 
 ### Is Trueyy compliant with privacy regulations?
-Yes. Trueyy is built privacy-first with encryption in transit and at rest, consent prompts, and retention controls designed to support GDPR and SOC 2 requirements.
+Yes. Consent flows, data-subject request handling, configurable retention windows, and audit logs are built into the product from the start. The architecture is designed to support GDPR and SOC 2 requirements, not patch around them later. No video is stored on Trueyy servers.
 
-### When can my team start using it?
-Trueyy is rolling out to early-access teams now. Book a demo and we will get you set up, walk through a live session, and share early-access pricing.
+### When can my team start?
+Trueyy is accepting early-access teams now. Book a 20-minute demo and we will run a mock session live, walk you through the dashboard, and share founding-cohort pricing that stays locked in as the product matures.
 
 ---
 
 ## Early access
 
-Trueyy is launching soon. Join the waitlist for early access and founding member pricing.
+Join the founding cohort.
+
+We are accepting early-access teams now. Founding cohort pricing is locked in at signup and does not change as the product matures.
 
 Sign up at: https://trueyy.com/#waitlist
 

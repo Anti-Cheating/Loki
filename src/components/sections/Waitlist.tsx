@@ -41,9 +41,9 @@ export function Waitlist() {
         <div style={{ maxWidth: '560px', margin: '0 auto' }}>
           <div className="center reveal" style={{ marginBottom: '40px' }}>
             <span className="kicker kicker--center">Early access</span>
-            <h2 className="h2">Be first in line</h2>
+            <h2 className="h2">Join the founding cohort</h2>
             <p className="lead" style={{ margin: '14px auto 0' }}>
-              Trueyy is launching soon. Join the waitlist for early access and founding member pricing.
+              We are accepting early-access teams now. Founding cohort pricing is locked in at signup and does not change as the product matures.
             </p>
           </div>
 
@@ -57,10 +57,10 @@ export function Waitlist() {
                   </svg>
                 </div>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', marginBottom: '10px' }}>
-                  You&apos;re on the list!
+                  You&apos;re in.
                 </h3>
                 <p style={{ color: 'var(--text-mut)' }}>
-                  We will reach out as soon as Trueyy launches with your early access details.
+                  We will reach out within 48 hours with your early-access details and next steps.
                 </p>
               </div>
             ) : (
@@ -113,10 +113,10 @@ export function Waitlist() {
                   disabled={state === 'loading'}
                   style={{ width: '100%', justifyContent: 'center', marginTop: '8px' }}
                 >
-                  {state === 'loading' ? 'Joining...' : 'Join the waitlist'}
+                  {state === 'loading' ? 'Joining...' : 'Request early access'}
                 </button>
                 <p className="form-note" style={{ textAlign: 'center', marginTop: '16px' }}>
-                  No spam. Early-access pricing locked in at signup.
+                  No spam. Founding pricing is locked in at signup.
                 </p>
               </form>
             )}

@@ -4,9 +4,9 @@ export function Comparison() {
       <div className="wrap">
         <div className="center reveal">
           <span className="kicker kicker--center">Why Trueyy</span>
-          <h2 className="h2">Built for live interviews, not locked-down exams</h2>
+          <h2 className="h2">Proctoring tools were built for test centers, not conversations</h2>
           <p className="lead" style={{ margin: '14px auto 0' }}>
-            Old-school proctoring was made for timed tests. It locks browsers and watches faces. Live hiring conversations need something that reads intent, not just movement.
+            Traditional proctoring locks browsers and watches faces. That works for a timed exam where the question is: did this person copy? It does almost nothing for a 45-minute live conversation where the question is: did this person actually think through the problem?
           </p>
         </div>
         <div className="cmp reveal" data-d="1">
@@ -18,11 +18,14 @@ export function Comparison() {
           <div className="cmp-rows">
             {[
               ['Runs during a live two-way interview', 'No', 'Yes'],
-              ['Detects AI assistant use in real time', 'Limited', 'Yes'],
-              ['Works inside Zoom, Meet and Teams', 'No', 'Yes'],
-              ['Weighs several signals together', 'Rule-based', 'Yes'],
-              ['Light footprint for the candidate', 'Heavy', 'Yes'],
-              ['Plain-language timeline after the call', 'No', 'Yes'],
+              ['Detects AI tool use in real time', 'Limited', 'Yes'],
+              ['Works inside Zoom, Meet, and Teams', 'No', 'Yes'],
+              ['Specifically detects Cluely and InterviewCoder', 'No', 'Yes'],
+              ['Weighs signals together instead of single triggers', 'Rule-based', 'Yes'],
+              ['No heavy browser install for candidates', 'Heavy', 'Yes'],
+              ['Timestamped session log after the call', 'No', 'Yes'],
+              ['No video stored on third-party servers', 'No', 'Yes'],
+              ['Consent-first with full candidate disclosure', 'No', 'Yes'],
             ].map(([feat, old, neo]) => (
               <div key={feat} className="cmp-row">
                 <div className="cmp-cell cmp-feat">{feat}</div>
