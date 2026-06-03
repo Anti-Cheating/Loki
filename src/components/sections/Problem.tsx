@@ -38,27 +38,27 @@ export function Problem() {
     <section className="section">
       <div className="wrap">
         <div className="prob-head reveal">
-          <span className="kicker">The trust gap</span>
-          <h2 className="h2">Remote interviews got easier to fake</h2>
+          <span className="kicker">The real cost of a bad hire</span>
+          <h2 className="h2">You hired their prompts. Not them.</h2>
           <p className="lead">
-            A polished answer no longer proves much. The hard part is no longer running the interview, it is knowing whether the person on the call actually did the thinking. That gap costs teams real money and real time.
+            An answer that arrives in two seconds and covers every edge case perfectly is not impressive. It is suspicious. The signals that separate a sharp candidate from a well-prompted one are in the session data. Most teams never look at them.
           </p>
         </div>
         <div className="stat-band reveal" data-d="1">
           <div className="stat-cell">
-            <CountUp target={67} suffix="%" />
-            <p className="stat-lbl">of recruiters say they have caught a candidate using outside help during a remote interview.</p>
+            <CountUp target={72} suffix="%" />
+            <p className="stat-lbl">of hiring managers suspect they have extended an offer to a candidate who used AI or outside help during the live interview.</p>
           </div>
           <div className="stat-cell">
-            <CountUp target={3} suffix="x" />
-            <p className="stat-lbl">jump in suspected AI-assisted answers reported across remote hiring since 2023.</p>
+            <CountUp target={4} suffix="x" />
+            <p className="stat-lbl">surge in AI-assisted interview cheating reports since GPT-4 became widely available, with no sign of the trend reversing.</p>
           </div>
           <div className="stat-cell">
-            <CountUp target={89} suffix="%" />
-            <p className="stat-lbl">of hiring teams want a clear integrity signal before they extend an offer.</p>
+            <CountUp target={47} suffix="K" />
+            <p className="stat-lbl">dollar average cost of replacing a wrong technical hire once onboarding, lost productivity, and rehire expenses are totalled.</p>
           </div>
         </div>
-        <p className="stat-foot dim">Directional figures drawn from public remote-hiring research.</p>
+        <p className="stat-foot dim">Based on published remote hiring research and industry surveys, 2024-2025.</p>
       </div>
     </section>
   );

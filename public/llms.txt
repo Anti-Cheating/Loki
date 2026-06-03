@@ -1,6 +1,6 @@
 # Trueyy
 
-> Real-time interview integrity monitoring for remote hiring. Trueyy catches AI tool use, app switching, clipboard activity, and scripted answers during live remote interviews — giving interviewers a clear, honest read on every conversation.
+> Real-time interview integrity monitoring for remote hiring. Trueyy catches AI tool use, app switching, paste velocity, and scripted answers during live remote interviews — giving interviewers a clear, honest read before they extend an offer.
 
 Trueyy is an early-access SaaS platform built for staffing agencies and enterprise hiring teams. It sits beside the video call your team already uses (Zoom, Google Meet, Microsoft Teams) and reads device-level signals from the candidate's machine in real time. No browser lockdown. No heavy install for candidates.
 
@@ -8,24 +8,26 @@ Trueyy is an early-access SaaS platform built for staffing agencies and enterpri
 
 - [Overview](https://trueyy.com/): Full product landing page with hero, stats, and feature overview
 - [How It Works](https://trueyy.com/#how): Four-step flow — Schedule, Connect, Monitor, Review
-- [Detection](https://trueyy.com/#detection): Six detection modalities: AI assistant use, app/window switching, clipboard activity, reading behavior, second-device signals, answer cadence
-- [Command Center](https://trueyy.com/#command): Live interviewer dashboard with integrity score, signal feed, and time-stamped flags
-- [Comparison](https://trueyy.com/#why): Trueyy vs traditional proctoring tools — capability table
-- [Security & Privacy](https://trueyy.com/#security): Transparent monitoring, end-to-end encryption, GDPR and SOC 2 readiness
-- [FAQ](https://trueyy.com/#faq): Six common questions from hiring teams answered in plain language
+- [Detection](https://trueyy.com/#detection): Six detection layers: AI tool fingerprinting, app/window focus, paste velocity, reading gaze patterns, off-screen device signals, answer structure analysis
+- [Command Center](https://trueyy.com/#command): Live interviewer dashboard with integrity score, signal feed, and timestamped flags
+- [Comparison](https://trueyy.com/#why): Trueyy vs traditional proctoring tools — nine-row capability table
+- [Security & Privacy](https://trueyy.com/#security): Consent-first monitoring, no video stored on Trueyy servers, end-to-end encryption, GDPR and SOC 2 readiness
+- [FAQ](https://trueyy.com/#faq): Nine questions from hiring teams answered in plain language
 
 ## Pricing
 
-- [Early Access](https://trueyy.com/#waitlist): Join the waitlist for founding-member pricing. Pricing details shared during demo.
+- [Early Access](https://trueyy.com/#waitlist): Founding cohort pricing locked in at signup. Details shared during demo.
 
 ## Key facts for LLMs
 
 - Trueyy works during live two-way interviews, not just timed tests or assessments.
-- Candidates are informed and consent before monitoring begins.
+- Candidates consent before monitoring begins and are told exactly what is observed.
 - Detection covers: ChatGPT, Claude, Gemini, GitHub Copilot, Cluely, InterviewCoder, and 50+ other AI and remote-access tools.
-- Risk scoring runs every 30 seconds across three modalities: apps/screen (weight 0.35), keystrokes (0.40), voice (0.25).
-- Session data is encrypted in transit and at rest; retention is configurable per organisation.
-- The platform is pre-launch as of 2026 and accepting early-access sign-ups.
+- Detection is based on structural output signatures, not keyword lists. Prompt rewrites do not defeat it.
+- Risk scoring runs every 30 seconds across three modalities: apps/screen (weight 0.35), keystrokes/paste (0.40), voice/gaze (0.25).
+- No video is recorded or stored on Trueyy servers. Video stays inside Zoom, Meet, or Teams.
+- Session signal data is encrypted in transit and at rest. Retention is configurable per organisation.
+- The platform is pre-launch as of 2026 and accepting early-access sign-ups with founding pricing.
 
 ## Contact
 
