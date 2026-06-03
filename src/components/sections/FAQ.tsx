@@ -1,63 +1,62 @@
 'use client';
 import { useState } from 'react';
-import { FAQ_ITEMS } from '@/lib/constants';
-import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/ui/AnimatedSection';
-import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [isOpen, setIsOpen] = useState(false);
+const ITEMS = [
+  {
+    q: 'How does Trueyy detect cheating during an interview?',
+    a: 'Trueyy runs quietly beside the live call and reads device-level signals like app and window switching, clipboard activity, AI assistant patterns, and reading behavior. It weighs them together, scores each moment, and shows your interviewer a clear timeline rather than a single noisy alert.',
+  },
+  {
+    q: 'Does the candidate need to install anything heavy?',
+    a: 'No. Candidates join through a lightweight browser session with clear consent. The interviewer sees the integrity signals on their own dashboard, so the candidate experience stays simple.',
+  },
+  {
+    q: 'Which video platforms does it work with?',
+    a: 'Trueyy is built to sit beside the calls you already run on Zoom, Google Meet, and Microsoft Teams, so you do not have to move your interviews onto a new platform.',
+  },
+  {
+    q: 'Will candidates feel like they are being spied on?',
+    a: 'They are told up front what is monitored and why. Trueyy is designed to confirm honest work, not to punish nerves. Most candidates appreciate a process that protects the people who are not cutting corners.',
+  },
+  {
+    q: 'Is Trueyy compliant with privacy regulations?',
+    a: 'Yes. Trueyy is built privacy-first with encryption in transit and at rest, consent prompts, and retention controls designed to support GDPR and SOC 2 requirements.',
+  },
+  {
+    q: 'When can my team start using it?',
+    a: 'Trueyy is rolling out to early-access teams now. Book a demo and we will get you set up, walk through a live session, and share early-access pricing.',
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-[rgba(76,217,100,0.08)] rounded-xl overflow-hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[rgba(255,255,255,0.02)] transition-colors"
-      >
-        <span className="text-sm font-medium text-white pr-4">{question}</span>
-        <ChevronDown
-          size={16}
-          className={`text-[rgba(255,255,255,0.4)] flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-        />
+    <div className={`faq-item${open ? ' open' : ''}`}>
+      <button className="faq-q" onClick={() => setOpen(o => !o)}>
+        {q}
+        <span className="pm" />
       </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div className="px-5 pb-4">
-              <p className="text-sm text-[rgba(255,255,255,0.5)] leading-relaxed">{answer}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className="faq-a" style={{ maxHeight: open ? '400px' : undefined }}>
+        <div className="faq-a-inner">{a}</div>
+      </div>
     </div>
   );
 }
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 relative">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-[#E5E7EB]">
-            Everything you need to know about Trueyy.
-          </p>
-        </AnimatedSection>
-
-        <StaggerContainer className="space-y-3">
-          {FAQ_ITEMS.map((item) => (
-            <StaggerItem key={item.question}>
-              <FAQItem question={item.question} answer={item.answer} />
-            </StaggerItem>
+    <section className="section" id="faq">
+      <div className="wrap faq-wrap">
+        <div className="reveal">
+          <span className="kicker">Questions, answered</span>
+          <h2 className="h2">What teams ask before they switch</h2>
+        </div>
+        <div className="faq reveal" data-d="1">
+          {ITEMS.map((item) => (
+            <FAQItem key={item.q} q={item.q} a={item.a} />
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

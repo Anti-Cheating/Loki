@@ -1,243 +1,167 @@
 'use client';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-function CountUpNumber({ end, color, delay = 0 }: { end: number; color: string; delay?: number }) {
-  const [count, setCount] = useState(0);
+export function Hero() {
+  const hostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const duration = 1500;
-      const startTime = performance.now();
+    const host = hostRef.current;
+    if (!host) return;
 
-      function animate(currentTime: number) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.round(eased * end));
-        if (progress < 1) requestAnimationFrame(animate);
-      }
+    let sketchInstance: { remove: () => void } | null = null;
 
-      requestAnimationFrame(animate);
-    }, delay);
+    function initSketch() {
+      if (!host) return;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const P5 = (window as any).p5;
+      if (!P5) return;
 
-    return () => clearTimeout(timeout);
-  }, [end, delay]);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      sketchInstance = new P5(function (p: any) {
+        let W: number, H: number;
+        const nodes: Array<{ x: number; y: number; vx: number; vy: number; r: number; ph: number; sp: number }> = [];
+        const flags: Array<{ x: number; y: number; life: number; max: number }> = [];
+        let scan = 0;
+        let t = 0;
 
-  return <span style={{ color }}>{count}</span>;
-}
+        function build() {
+          if (!host) return;
+          W = host.clientWidth;
+          H = host.clientHeight;
+          const count = W < 700 ? 34 : 72;
+          nodes.length = 0;
+          for (let i = 0; i < count; i++) {
+            nodes.push({
+              x: p.random(W), y: p.random(H),
+              vx: p.random(-0.18, 0.18), vy: p.random(-0.18, 0.18),
+              r: p.random(1.4, 3.0),
+              ph: p.random(p.TWO_PI),
+              sp: p.random(0.6, 1.5),
+            });
+          }
+        }
 
-function DashboardMockup() {
-  return (
-    <div className="relative animate-float">
-      {/* Glow behind */}
-      <div className="absolute -inset-4 bg-[#4CD964]/5 rounded-3xl blur-2xl" />
+        p.setup = function () {
+          if (!host) return;
+          const c = p.createCanvas(host.clientWidth, host.clientHeight);
+          c.parent(host);
+          p.pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
+          build();
+        };
 
-      <div className="relative bg-[#122318] rounded-2xl border border-[rgba(76,217,100,0.15)] p-4 w-full max-w-sm shadow-2xl">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-[#4CD964] animate-pulse-dot" />
-            <span className="text-xs font-semibold text-[#E5E7EB]">Risk Analytics</span>
-          </div>
-          <span className="text-[10px] text-[rgba(255,255,255,0.4)]">LIVE</span>
-        </div>
+        p.windowResized = function () {
+          if (!host) return;
+          p.resizeCanvas(host.clientWidth, host.clientHeight);
+          build();
+        };
 
-        {/* Score row */}
-        <div className="grid grid-cols-4 gap-2 mb-3">
-          <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-lg font-bold">
-              <CountUpNumber end={73} color="#f59e0b" delay={800} />
-            </div>
-            <div className="text-[9px] text-[rgba(255,255,255,0.4)]">Recent</div>
-          </div>
-          <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-lg font-bold">
-              <CountUpNumber end={45} color="#4CD964" delay={1000} />
-            </div>
-            <div className="text-[9px] text-[rgba(255,255,255,0.4)]">Session</div>
-          </div>
-          <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-[10px] font-bold text-[#f59e0b] mt-1">MEDIUM</div>
-            <div className="text-[9px] text-[rgba(255,255,255,0.4)] mt-0.5">Risk</div>
-          </div>
-          <div className="bg-[#0D1F13] rounded-lg p-2 text-center">
-            <div className="text-lg font-bold">
-              <CountUpNumber end={12} color="#E5E7EB" delay={1200} />
-            </div>
-            <div className="text-[9px] text-[rgba(255,255,255,0.4)]">Windows</div>
-          </div>
-        </div>
+        function spawnFlag() {
+          if (!nodes.length) return;
+          const n = nodes[(Math.random() * nodes.length) | 0];
+          flags.push({ x: n.x, y: n.y, life: 0, max: 150 });
+        }
 
-        {/* Chart placeholder */}
-        <div className="bg-[#0D1F13] rounded-lg p-2 mb-3">
-          <svg viewBox="0 0 200 40" className="w-full h-8">
-            <defs>
-              <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#4CD964" stopOpacity="0.3" />
-                <stop offset="100%" stopColor="#4CD964" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <motion.path
-              d="M0,30 Q20,28 40,25 T80,18 T120,22 T160,12 T200,15"
-              fill="none"
-              stroke="#4CD964"
-              strokeWidth="1.5"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 2, delay: 1, ease: 'easeInOut' }}
-            />
-            <path d="M0,30 Q20,28 40,25 T80,18 T120,22 T160,12 T200,15 V40 H0 Z" fill="url(#chartGrad)" />
-          </svg>
-        </div>
+        p.draw = function () {
+          p.clear();
+          t += 0.01;
 
-        {/* Modality bars */}
-        <div className="space-y-2">
-          {[
-            { label: 'Apps', score: 65, color: '#f59e0b', delay: 1.2 },
-            { label: 'Keystrokes', score: 30, color: '#4CD964', delay: 1.4 },
-            { label: 'Voice', score: 15, color: '#4CD964', delay: 1.6 },
-          ].map((m) => (
-            <div key={m.label} className="flex items-center gap-2">
-              <span className="text-[9px] text-[rgba(255,255,255,0.5)] w-14">{m.label}</span>
-              <div className="flex-1 h-1.5 bg-[#0B1A10] rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full rounded-full"
-                  style={{ backgroundColor: m.color }}
-                  initial={{ width: 0 }}
-                  animate={{ width: `${m.score}%` }}
-                  transition={{ duration: 1, delay: m.delay, ease: 'easeOut' }}
-                />
-              </div>
-              <span className="text-[9px] font-mono" style={{ color: m.color }}>{m.score}</span>
-            </div>
-          ))}
-        </div>
+          p.strokeWeight(1);
+          for (let i = 0; i < nodes.length; i++) {
+            const a = nodes[i];
+            a.x += a.vx; a.y += a.vy;
+            if (a.x < 0 || a.x > W) a.vx *= -1;
+            if (a.y < 0 || a.y > H) a.vy *= -1;
+            for (let j = i + 1; j < nodes.length; j++) {
+              const b = nodes[j];
+              const dx = a.x - b.x, dy = a.y - b.y;
+              const d2 = dx * dx + dy * dy;
+              if (d2 < 21000) {
+                const al = p.map(d2, 0, 21000, 46, 0);
+                p.stroke(150, 220, 175, al);
+                p.line(a.x, a.y, b.x, b.y);
+              }
+            }
+          }
 
-        {/* Pulse alert */}
-        <motion.div
-          className="mt-3 bg-[rgba(248,113,113,0.08)] border border-[rgba(248,113,113,0.15)] rounded-lg px-2 py-1.5 flex items-center gap-2"
-          initial={{ opacity: 0, y: 5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 2 }}
-        >
-          <div className="w-1.5 h-1.5 rounded-full bg-[#F87171]" />
-          <span className="text-[9px] font-semibold text-[#F87171]">AI TOOLS</span>
-          <span className="text-[9px] text-[rgba(255,255,255,0.4)] ml-auto">ChatGPT</span>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
+          p.noStroke();
+          for (const nd of nodes) {
+            const pulse = 0.6 + 0.4 * Math.sin(t * nd.sp * 2 + nd.ph);
+            p.fill(120, 240, 150, 60 + pulse * 95);
+            p.circle(nd.x, nd.y, nd.r * 2.1);
+            p.fill(120, 240, 150, 16);
+            p.circle(nd.x, nd.y, nd.r * 6.5 * pulse);
+          }
 
-function GlowingCatches() {
-  const [isVisible, setIsVisible] = useState(false);
+          for (let f = flags.length - 1; f >= 0; f--) {
+            const fl = flags[f];
+            fl.life++;
+            const prog = fl.life / fl.max;
+            const ringR = prog * 70;
+            const a2 = (1 - prog) * 220;
+            p.noFill();
+            p.stroke(255, 96, 78, a2);
+            p.strokeWeight(1.6);
+            p.circle(fl.x, fl.y, ringR * 2);
+            p.stroke(255, 96, 78, a2 * 0.5);
+            p.circle(fl.x, fl.y, ringR * 1.3);
+            p.noStroke();
+            p.fill(255, 96, 78, (1 - prog) * 255);
+            p.circle(fl.x, fl.y, 6);
+            if (fl.life >= fl.max) flags.splice(f, 1);
+          }
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 600);
-    return () => clearTimeout(timer);
+          if (p.frameCount % 110 === 0) spawnFlag();
+
+          scan += 0.0016;
+          const sy = (Math.sin(scan) * 0.5 + 0.5) * H;
+          const grd = p.drawingContext.createLinearGradient(0, sy - 60, 0, sy + 60);
+          grd.addColorStop(0, 'rgba(120,240,150,0)');
+          grd.addColorStop(0.5, 'rgba(120,240,150,0.05)');
+          grd.addColorStop(1, 'rgba(120,240,150,0)');
+          p.drawingContext.fillStyle = grd;
+          p.drawingContext.fillRect(0, sy - 60, W, 120);
+        };
+      });
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((window as any).p5) {
+      initSketch();
+    } else {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js';
+      script.onload = initSketch;
+      document.head.appendChild(script);
+    }
+
+    return () => {
+      sketchInstance?.remove();
+    };
   }, []);
 
   return (
-    <motion.span
-      className="relative inline-block"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-    >
-      <span className="bg-gradient-to-r from-[#4CD964] to-[#6DE884] bg-clip-text text-transparent">
-        Catches
-      </span>
-      {/* Glow effect behind the word */}
-      <motion.span
-        className="absolute inset-0 bg-gradient-to-r from-[#4CD964]/20 to-[#6DE884]/20 blur-2xl rounded-full -z-10"
-        initial={{ opacity: 0 }}
-        animate={isVisible ? { opacity: [0, 0.8, 0.4] } : {}}
-        transition={{ duration: 1.5, ease: 'easeOut' }}
-      />
-    </motion.span>
-  );
-}
-
-export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
-
-  // Parallax: dashboard moves up slower than scroll
-  const dashboardY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const dashboardOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-
-  return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center pt-16 overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-grid" />
-      <div className="absolute inset-0 bg-radial-glow" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Copy */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4CD964]/10 border border-[#4CD964]/20 mb-6">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#4CD964] animate-pulse-dot" />
-                <span className="text-xs font-medium text-[#4CD964]">Early Access</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
-                Interview Intelligence That{' '}
-                <GlowingCatches />{' '}
-                What You Can&apos;t
-              </h1>
-
-              <motion.p
-                className="text-lg text-[#E5E7EB] leading-relaxed mb-8 max-w-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                AI-powered monitoring that detects cheating in real-time during live remote interviews. Know exactly when candidates use AI tools, switch apps, or read from scripts.
-              </motion.p>
-
-              <motion.div
-                className="flex flex-wrap gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <a
-                  href="#waitlist"
-                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl bg-[#4CD964] text-[#0B1A10] hover:bg-[#3CB853] transition-colors"
-                >
-                  Book a Demo <ArrowRight size={16} />
-                </a>
-                <a
-                  href="#how-it-works"
-                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-xl border border-[rgba(76,217,100,0.3)] text-[#4CD964] hover:bg-[rgba(76,217,100,0.08)] transition-colors"
-                >
-                  <Play size={14} /> See How It Works
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-
-          {/* Right: Dashboard mockup with parallax */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            style={{ y: dashboardY, opacity: dashboardOpacity }}
-            className="flex justify-center lg:justify-end"
-          >
-            <DashboardMockup />
-          </motion.div>
+    <section className="hero">
+      <div ref={hostRef} id="hero-canvas" aria-hidden="true" />
+      <div className="wrap hero-inner">
+        <span className="kicker reveal">Live interview integrity</span>
+        <h1 className="display reveal" data-d="1">
+          Catch what the <span className="tx-green">interview</span> can&apos;t show you
+        </h1>
+        <p className="lead reveal" data-d="2">
+          Remote candidates can read from a second screen, run an AI assistant off camera, or paste answers in seconds. Trueyy watches the signals you miss and gives your interviewers a clear, honest read on every conversation.
+        </p>
+        <div className="hero-cta reveal" data-d="3">
+          <a className="btn btn--primary btn--lg" href="#waitlist">
+            Book a demo <span className="arw">&rarr;</span>
+          </a>
+          <a className="btn btn--ghost btn--lg" href="#how">
+            See how it works
+          </a>
+        </div>
+        <div className="hero-meta reveal" data-d="4">
+          <span><i className="live-dot" /> Works inside Zoom, Meet &amp; Teams</span>
+          <span>No clunky candidate install</span>
+          <span>Privacy-first by design</span>
         </div>
       </div>
     </section>

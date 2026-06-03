@@ -1,144 +1,79 @@
-'use client';
-import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { motion } from 'framer-motion';
-import {
-  Bot,
-  Code2,
-  Monitor,
-  MessageSquare,
-  Search,
-  Layers,
-  Keyboard,
-  Camera,
-} from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-
-interface DetectionCard {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-  tools: string[];
-}
-
-const DETECTIONS: DetectionCard[] = [
-  {
-    icon: Layers,
-    title: 'AI Overlay Tools',
-    desc: 'Invisible overlays that feed answers in real-time',
-    tools: ['InterviewCoder', 'Cluely', 'Interview Copilot', 'Interview Assistant'],
-  },
-  {
-    icon: Bot,
-    title: 'AI Assistants',
-    desc: 'AI chatbots open in other windows or tabs',
-    tools: ['ChatGPT', 'Claude', 'Gemini', 'Perplexity', 'Microsoft Copilot'],
-  },
-  {
-    icon: Code2,
-    title: 'Code Assistants',
-    desc: 'AI-powered code completion and generation',
-    tools: ['GitHub Copilot', 'Cursor AI', 'Codeium', 'Tabnine', 'Replit AI'],
-  },
-  {
-    icon: Monitor,
-    title: 'Remote Access',
-    desc: 'Someone else controlling the candidate\u2019s machine',
-    tools: ['TeamViewer', 'AnyDesk', 'Chrome Remote Desktop', 'Parsec', 'Splashtop'],
-  },
-  {
-    icon: MessageSquare,
-    title: 'Communication',
-    desc: 'Messaging apps open during the interview',
-    tools: ['Slack', 'Discord', 'Telegram', 'WhatsApp', 'iMessage'],
-  },
-  {
-    icon: Search,
-    title: 'Search & Reference',
-    desc: 'Looking up answers on external sites',
-    tools: ['Google', 'StackOverflow', 'LeetCode', 'GeeksForGeeks', 'GitHub'],
-  },
-  {
-    icon: Keyboard,
-    title: 'Clipboard & Keystrokes',
-    desc: 'Suspicious copy-paste and typing patterns',
-    tools: ['Mass paste detection', 'Typing speed anomalies', 'Clipboard managers', 'Rapid paste bursts'],
-  },
-  {
-    icon: Camera,
-    title: 'Screenshot & Voice',
-    desc: 'Every window captured and analyzed by AI',
-    tools: ['All visible windows', 'Reading detection', 'Voice pattern shifts', 'Screen recording bypass'],
-  },
-];
-
 export function Features() {
   return (
-    <section id="features" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <AnimatedSection className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4CD964]/10 border border-[#4CD964]/20 text-[#4CD964] text-sm font-medium mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#4CD964] animate-pulse" />
-            50+ tools detected
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Multi-Modal Detection{' '}
-            <span className="bg-gradient-to-r from-[#4CD964] to-[#6DE884] bg-clip-text text-transparent">
-              Engine
-            </span>
-          </h2>
-          <p className="text-[#E5E7EB]/70 max-w-2xl mx-auto">
-            Eight detection modalities running simultaneously. Every cheating tool caught — even ones designed to be invisible.
+    <section className="section" id="detection">
+      <div className="wrap">
+        <div className="reveal" style={{ maxWidth: '62ch' }}>
+          <span className="kicker">Multi-signal detection</span>
+          <h2 className="h2">One signal can lie. Together they don&apos;t.</h2>
+          <p className="lead">
+            No single tell proves a candidate is cheating. Trueyy reads several signals at once and weighs them against each other, so an honest pause never looks the same as a hidden assistant feeding answers.
           </p>
-        </AnimatedSection>
-
-        <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.07 } },
-          }}
-        >
-          {DETECTIONS.map((card, index) => {
-            const Icon = card.icon;
-            const isEven = index % 2 === 0;
-            return (
-              <motion.div
-                key={card.title}
-                variants={{
-                  hidden: { opacity: 0, x: isEven ? -20 : 20, y: 10 },
-                  visible: {
-                    opacity: 1, x: 0, y: 0,
-                    transition: { duration: 0.5, ease: 'easeOut' },
-                  },
-                }}
-              >
-                <div className="group relative h-full">
-                  <div className="absolute -inset-0.5 bg-gradient-to-b from-[#4CD964]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative h-full bg-[#122318] rounded-2xl border border-[rgba(76,217,100,0.08)] p-5 hover:border-[rgba(76,217,100,0.2)] transition-colors">
-                    <div className="w-10 h-10 rounded-xl bg-[#4CD964]/10 flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-[#4CD964]" />
-                    </div>
-                    <h3 className="text-sm font-semibold text-white mb-2">{card.title}</h3>
-                    <p className="text-xs text-[rgba(255,255,255,0.5)] leading-relaxed">
-                      {card.desc}. Detects {card.tools.slice(0, -1).join(', ')}, and {card.tools[card.tools.length - 1]}.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        <AnimatedSection className="text-center mt-12" delay={0.3}>
-          <p className="text-white/40 text-sm">
-            Continuously updated as new cheating tools emerge.
-          </p>
-        </AnimatedSection>
-
+        </div>
+        <div className="det-grid">
+          <article className="card reveal" data-d="1">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M12 2a4 4 0 0 1 4 4v4a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+                <path d="M5 10a7 7 0 0 0 14 0M12 17v4" />
+              </svg>
+            </div>
+            <h3>AI assistant use</h3>
+            <p>Spots the rhythm of answers piped in from an AI tool, including the tell-tale lag between a question and a suspiciously complete reply.</p>
+          </article>
+          <article className="card reveal" data-d="2">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <rect x="3" y="4" width="18" height="14" rx="2" />
+                <path d="M8 21h8M12 18v3M7 9l3 3-3 3" />
+              </svg>
+            </div>
+            <h3>App &amp; window switching</h3>
+            <p>Notices when focus leaves the interview for another app or a hidden window mid-answer, and logs exactly when it happened.</p>
+          </article>
+          <article className="card reveal" data-d="3">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <rect x="8" y="2" width="8" height="4" rx="1" />
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+              </svg>
+            </div>
+            <h3>Clipboard activity</h3>
+            <p>Catches large pastes that arrive faster than anyone could type, a common sign of pre-written or generated answers.</p>
+          </article>
+          <article className="card reveal" data-d="4">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+              </svg>
+            </div>
+            <h3>Reading behavior</h3>
+            <p>Reads gaze and timing patterns that suggest a candidate is reading from a script or a second screen instead of speaking freely.</p>
+          </article>
+          <article className="card reveal" data-d="1">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8" />
+              </svg>
+            </div>
+            <h3>Second-device signals</h3>
+            <p>Surfaces patterns that point to a phone or extra monitor just out of frame, where help is most often hiding.</p>
+          </article>
+          <article className="card reveal" data-d="2">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M3 12h4l3 8 4-16 3 8h4" />
+              </svg>
+            </div>
+            <h3>Answer cadence</h3>
+            <p>Models how a person naturally builds an answer, so unnatural fluency and perfect structure stand out instead of slipping by.</p>
+          </article>
+        </div>
+        <div className="center" style={{ marginTop: '34px' }}>
+          <a className="btn btn--ghost" href="#command">
+            See the command center <span className="arw">&rarr;</span>
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -1,55 +1,64 @@
-'use client';
-import { STEPS } from '@/lib/constants';
-import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { StaggerContainer, StaggerItem } from '@/components/ui/AnimatedSection';
-
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-28 bg-[#0D1F13] relative overflow-hidden">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#4CD964]/[0.03] rounded-full blur-[120px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <AnimatedSection className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4CD964]/10 border border-[#4CD964]/20 text-[#4CD964] text-xs font-semibold tracking-wider uppercase mb-4">
-            Simple Setup
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5">How It Works</h2>
-          <p className="text-[#94A3B8] max-w-xl mx-auto text-base leading-relaxed">
-            Get started in minutes. Trueyy integrates seamlessly with your meeting platform to provide real-time interview monitoring.
+    <section className="section" id="how">
+      <div className="wrap">
+        <div className="center reveal">
+          <span className="kicker kicker--center">How it works</span>
+          <h2 className="h2">Four steps, zero friction for your interviewers</h2>
+          <p className="lead" style={{ margin: '14px auto 0' }}>
+            Trueyy slots into the way you already hire. Set it up once, then let it run in the background of every call.
           </p>
-        </AnimatedSection>
-
-        <StaggerContainer className="grid md:grid-cols-4 gap-5 relative">
-          {STEPS.map((step) => {
-            const Icon = step.icon;
-            return (
-              <StaggerItem key={step.number}>
-                <div className="relative group">
-                  {/* Card */}
-                  <div className="relative z-10 text-center p-6 rounded-2xl bg-[#0B1A10]/60 border border-white/[0.04] hover:border-[#4CD964]/20 transition-all duration-300 hover:bg-[#0B1A10]/80">
-                    {/* Icon circle */}
-                    <div className="relative z-10 w-[72px] h-[72px] rounded-2xl bg-gradient-to-br from-[#4CD964]/15 to-[#4CD964]/5 border border-[#4CD964]/20 flex items-center justify-center mx-auto mb-5 group-hover:border-[#4CD964]/40 group-hover:from-[#4CD964]/20 transition-all duration-300">
-                      <Icon size={28} className="text-[#4CD964]" strokeWidth={1.5} />
-                    </div>
-
-                    {/* Step label */}
-                    <div className="text-[10px] font-bold text-[#4CD964]/70 tracking-[0.2em] uppercase mb-2">
-                      Step {step.number}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
-
-                    {/* Description */}
-                    <p className="text-sm text-[#94A3B8] leading-relaxed">{step.description}</p>
-                  </div>
-
-                </div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
+        </div>
+        <div className="steps">
+          <div className="step card reveal" data-d="1">
+            <span className="step-no">01</span>
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <rect x="3" y="4" width="18" height="17" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
+            </div>
+            <h3>Schedule</h3>
+            <p>Drop a Trueyy link into the calendar invite. Nothing changes about how your team books the interview.</p>
+          </div>
+          <div className="step card reveal" data-d="2">
+            <span className="step-no">02</span>
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M15 10l4.5-2.5v9L15 14" />
+                <rect x="3" y="6" width="12" height="12" rx="2" />
+              </svg>
+            </div>
+            <h3>Connect</h3>
+            <p>The candidate joins through the browser. Consent is clear and the session opens right beside your video call.</p>
+          </div>
+          <div className="step card reveal" data-d="3">
+            <span className="step-no">03</span>
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+              </svg>
+            </div>
+            <h3>Monitor</h3>
+            <p>Trueyy reads device-level signals as the conversation happens and quietly scores the moments that matter.</p>
+          </div>
+          <div className="step card reveal" data-d="4">
+            <span className="step-no">04</span>
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+              </svg>
+            </div>
+            <h3>Review</h3>
+            <p>Every session ends with a plain-language timeline and an integrity score you can attach to the scorecard.</p>
+          </div>
+        </div>
+        <div className="center" style={{ marginTop: '34px' }}>
+          <a className="btn btn--ghost" href="#detection">
+            Explore every detection layer <span className="arw">&rarr;</span>
+          </a>
+        </div>
       </div>
     </section>
   );
