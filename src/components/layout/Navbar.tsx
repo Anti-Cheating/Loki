@@ -24,6 +24,8 @@ export function Navbar() {
   }, [navOpen]);
 
   return (
+    <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
     <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
       <div className="wrap nav">
         <a className="brand" href="#">
@@ -55,5 +57,6 @@ export function Navbar() {
         </div>
       </div>
     </header>
+    </>
   );
 }
