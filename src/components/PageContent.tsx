@@ -43,7 +43,7 @@ export default function PageContent() {
   return (
     <>
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Marquee />
         <Problem />
