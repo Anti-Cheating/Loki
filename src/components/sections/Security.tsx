@@ -1,49 +1,46 @@
-'use client';
-import { SECURITY_FEATURES } from '@/lib/constants';
-import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/ui/AnimatedSection';
-
 export function Security() {
   return (
-    <section id="security" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Security &amp; Privacy First
-          </h2>
-          <p className="text-[#E5E7EB] max-w-2xl mx-auto">
-            We take data protection seriously. Trueyy is built with transparency and security at its core.
+    <section className="section" id="security">
+      <div className="wrap">
+        <div className="center reveal">
+          <span className="kicker kicker--center">Security &amp; privacy</span>
+          <h2 className="h2">Honest monitoring, handled with care</h2>
+          <p className="lead" style={{ margin: '14px auto 0' }}>
+            Watching for cheating should never mean treating candidates badly. Trueyy is built to be transparent with people and strict with their data.
           </p>
-        </AnimatedSection>
-
-        <StaggerContainer className="grid md:grid-cols-3 gap-6">
-          {SECURITY_FEATURES.map((feature) => {
-            const Icon = feature.icon;
-            return (
-              <StaggerItem key={feature.title}>
-                <div className="bg-[#122318] rounded-2xl border border-[rgba(76,217,100,0.08)] p-6 text-center h-full">
-                  <div className="w-12 h-12 rounded-xl bg-[#4CD964]/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon size={24} className="text-[#4CD964]" />
-                  </div>
-                  <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-[rgba(255,255,255,0.5)]">{feature.description}</p>
-                </div>
-              </StaggerItem>
-            );
-          })}
-        </StaggerContainer>
-
-        {/* Platform compatibility — compact row */}
-        <AnimatedSection className="mt-16 text-center" delay={0.2}>
-          <div className="h-px bg-gradient-to-r from-transparent via-[rgba(76,217,100,0.15)] to-transparent mb-10" />
-          <p className="text-xs text-white/30 uppercase tracking-widest font-medium mb-5">Supported Platforms</p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {['Google Meet', 'Microsoft Teams', 'Zoom'].map((name) => (
-              <span key={name} className="text-sm text-white/40 font-medium hover:text-white/70 transition-colors">
-                {name}
-              </span>
-            ))}
+        </div>
+        <div className="grid-3" style={{ marginTop: '48px' }}>
+          <div className="card reveal" data-d="1">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+            <h3>Transparent by default</h3>
+            <p>Candidates are told what is being monitored before the interview starts. No hidden tracking, no surprises.</p>
           </div>
-        </AnimatedSection>
+          <div className="card reveal" data-d="2">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <rect x="4" y="10" width="16" height="11" rx="2" />
+                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+              </svg>
+            </div>
+            <h3>Encrypted end to end</h3>
+            <p>Session data is encrypted in transit and at rest. You control how long it lives and who on your team can see it.</p>
+          </div>
+          <div className="card reveal" data-d="3">
+            <div className="card-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+            </div>
+            <h3>Compliance ready</h3>
+            <p>Built around GDPR and SOC 2 expectations, with consent flows and retention controls baked in from the start.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
