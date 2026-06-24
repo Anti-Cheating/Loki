@@ -37,7 +37,7 @@ function RiskGauge({ score, delay, isInView }: { score: number; delay: number; i
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <svg width="48" height="48" viewBox="0 0 48 48">
-        <circle cx="24" cy="24" r={r} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="3" />
+        <circle cx="24" cy="24" r={r} fill="none" stroke="rgba(0,0,0,0.08)" strokeWidth="3" />
         <motion.circle
           cx="24" cy="24" r={r}
           fill="none"

@@ -77,8 +77,8 @@ export function Hero() {
               const dx = a.x - b.x, dy = a.y - b.y;
               const d2 = dx * dx + dy * dy;
               if (d2 < 21000) {
-                const al = p.map(d2, 0, 21000, 46, 0);
-                p.stroke(150, 220, 175, al);
+                const al = p.map(d2, 0, 21000, 70, 0);
+                p.stroke(40, 150, 95, al);
                 p.line(a.x, a.y, b.x, b.y);
               }
             }
@@ -87,9 +87,9 @@ export function Hero() {
           p.noStroke();
           for (const nd of nodes) {
             const pulse = 0.6 + 0.4 * Math.sin(t * nd.sp * 2 + nd.ph);
-            p.fill(120, 240, 150, 60 + pulse * 95);
+            p.fill(35, 145, 90, 70 + pulse * 110);
             p.circle(nd.x, nd.y, nd.r * 2.1);
-            p.fill(120, 240, 150, 16);
+            p.fill(45, 160, 100, 22);
             p.circle(nd.x, nd.y, nd.r * 6.5 * pulse);
           }
 
