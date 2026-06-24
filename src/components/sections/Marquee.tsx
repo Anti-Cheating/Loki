@@ -1,10 +1,15 @@
+const BRANDS = [
+  { name: 'Zoom', logo: '/logos/zoom.svg' },
+  { name: 'Google Meet', logo: '/logos/google-meet.svg' },
+  { name: 'Microsoft Teams', logo: '/logos/microsoft-teams.svg' },
+  { name: 'Greenhouse', logo: '/logos/greenhouse.svg' },
+  { name: 'Lever', logo: '/logos/lever.svg' },
+  { name: 'Workday', logo: '/logos/workday.svg' },
+];
+
 export function Marquee() {
-  const items = [
-    'Zoom', 'Google Meet', 'Microsoft Teams',
-    'Greenhouse', 'Lever', 'Workday',
-    'Zoom', 'Google Meet', 'Microsoft Teams',
-    'Greenhouse', 'Lever', 'Workday',
-  ];
+  // duplicated once so the -50% scroll loops seamlessly
+  const items = [...BRANDS, ...BRANDS];
 
   return (
     <section className="section--tight">
@@ -13,8 +18,11 @@ export function Marquee() {
       </div>
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
-          {items.map((label, i) => (
-            <span key={i} className="mq-item">{label}</span>
+          {items.map((brand, i) => (
+            <span key={i} className="mq-logo">
+              <img src={brand.logo} alt="" width={24} height={24} loading="lazy" />
+              <span>{brand.name}</span>
+            </span>
           ))}
         </div>
       </div>
