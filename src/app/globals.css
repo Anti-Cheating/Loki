@@ -200,6 +200,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.32rem; letter-spacing: -0.03em; }
+.nav-logo { height: 72px; width: auto; max-width: 220px; display: block; object-fit: contain; }
 .brand .dot {
   width: 12px; height: 12px; border-radius: 3px; background: var(--green);
   box-shadow: 0 0 14px var(--green);
@@ -442,7 +443,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 /* ----------------------------------------------------------
    COMMAND CENTER
    ---------------------------------------------------------- */
-.cc-grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: 54px; align-items: center; }
+.cc-grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: 54px; align-items: stretch; }
 .cc-copy .h2 { margin: 14px 0 18px; }
 .cc-list { list-style: none; margin-top: 26px; }
 

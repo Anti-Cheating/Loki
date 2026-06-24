@@ -36,8 +36,7 @@ export function Navbar() {
       <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
         <div className="wrap nav">
           <Link className="brand" href="/">
-            <span className="dot" />
-            Trueyy
+            <img src="/trueyy-logo-new.svg" alt="Trueyy" className="nav-logo" />
           </Link>
           <nav className="nav-links" aria-label="Primary">
             {NAV_LINKS.map(({ href, label }) => (
