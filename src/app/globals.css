@@ -384,7 +384,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 /* ----------------------------------------------------------
    HERO
    ---------------------------------------------------------- */
-.hero { position: relative; padding: 204px 0 96px; overflow: hidden; }
+.hero { position: relative; padding: 240px 0 96px; overflow: hidden; }
 #hero-canvas { position: absolute; inset: 0; z-index: 0; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
