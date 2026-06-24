@@ -9,7 +9,7 @@ export function Footer() {
         <div className="foot-grid">
           <div className="foot-brand">
             <Link className="brand" href="/">
-              <img src="/trueyy-logo-new.svg" alt="Trueyy" className="nav-logo" />
+              <img src="/trueyy-logo-light.svg" alt="Trueyy" className="nav-logo" />
             </Link>
             <p>Real-time interview integrity for remote hiring teams that care about a fair process.</p>
           </div>

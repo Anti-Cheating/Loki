@@ -70,7 +70,7 @@ export function Navbar() {
 
         <div className="wrap nav">
           <Link className="brand" href="/">
-            <img src="/trueyy-logo-new.svg" alt="Trueyy" className="nav-logo" />
+            <img src="/trueyy-logo-light.svg" alt="Trueyy" className="nav-logo" />
           </Link>
           <nav className="nav-links" aria-label="Primary">
             {NAV_LINKS.map(({ href, label }) => (
