@@ -4,92 +4,80 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { FAQAccordion } from '@/components/ui/FAQAccordion';
+import { PricingCards } from '@/components/ui/PricingCards';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
+
+const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Pricing' };
 
 export const metadata: Metadata = {
-  title: 'Pricing & Early Access | Trueyy Interview Integrity',
-  description: 'Trueyy is opening to a small group of early-access teams. Free pilot for up to 25 interviews. Founding-member pricing locked in at signup.',
+  title: 'Pricing | Trueyy Interview Integrity',
+  description: 'Start free with 3 monitored interviews. Starter at ₹10,000/mo for 10 interviews. Growth at ₹1,50,000/mo for 300 interviews. 20% off on annual plans.',
   alternates: { canonical: 'https://trueyy.com/pricing' },
+  openGraph: {
+    title: 'Pricing | Trueyy Interview Integrity',
+    description: 'Start free with 3 interviews. Starter at ₹10,000/mo. Growth at ₹1,50,000/mo. Save 20% on annual billing.',
+    url: 'https://trueyy.com/pricing',
+    siteName: 'Trueyy',
+    type: 'website',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pricing | Trueyy',
+    description: 'Start free with 3 interviews. Starter at ₹10,000/mo. Growth at ₹1,50,000/mo. Save 20% on annual billing.',
+    images: ['/trueyy-logo-new.svg'],
+  },
 };
-
-const CHECK_ICON = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-    <path d="M5 12l4 4L19 6" />
-  </svg>
-);
 
 const FAQS = [
   {
-    q: 'Is there really a free pilot?',
-    a: 'Yes. The Starter pilot lets one team run up to 25 monitored interviews with the full detection stack, so you can judge Trueyy on your own candidates before any money changes hands.',
+    q: 'What is included in the free Trial?',
+    a: 'The Trial plan gives your team 3 one-time monitored interviews, up to 3 interviewer seats, and 60 minutes per interview — no credit card required. It is the same full detection stack as the paid plans so you can judge Trueyy on real candidates.',
   },
   {
-    q: 'Why is pricing custom right now?',
-    a: 'We are in early access and working out pricing with the first teams using it. That keeps the number fair to how you actually hire, whether that is a steady weekly flow or a seasonal spike.',
+    q: 'What does the Starter plan include?',
+    a: '10 interviews per month, up to 10 interviewer seats, 100 minutes per interview, ATS integrations, and 24/7 chat support. Additional interviews can be added at ₹1,000 each (minimum 100). Starter costs ₹10,000/month or ₹96,000/year (₹8,000/month).',
   },
   {
-    q: 'What does founding-member pricing mean?',
-    a: 'Teams that join during early access lock in their rate and keep it after we launch publicly, even as we add features and raise list prices for new customers.',
+    q: 'What does the Growth plan include?',
+    a: '300 interviews per month, up to 100 interviewer seats, 100 minutes per interview, ATS integrations, and 24/7 chat plus a shared account manager. Additional interviews are available at ₹500 each. Growth costs ₹1,50,000/month or ₹14,40,000/year (₹1,20,000/month).',
   },
   {
-    q: 'Do you offer agency volume terms?',
-    a: 'Yes. Staffing agencies run a lot of interviews, so we put together volume terms that match. Tell us your monthly interview count and we will come back with something that works.',
+    q: 'Is there a discount for annual billing?',
+    a: 'Yes — both Starter and Growth are 20% cheaper on an annual plan. Starter drops from ₹10,000/month to ₹8,000/month (₹96,000/year). Growth drops from ₹1,50,000/month to ₹1,20,000/month (₹14,40,000/year).',
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
 
 export default function PricingPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
-          <div className="wrap center">
-            <p className="crumb reveal" style={{ textAlign: 'center' }}><Link href="/">Home</Link> / <span>Pricing</span></p>
-            <span className="kicker kicker--center reveal">Early access</span>
-            <h1 className="display reveal" data-d="1" style={{ margin: '0 auto' }}>Get in before launch</h1>
-            <p className="lead reveal" data-d="2" style={{ margin: '22px auto 0' }}>
-              Trueyy is opening up to a small group of early-access teams. Join now, lock in founding-member pricing, help shape the roadmap, and get direct support from the people building it.
+          <div className="wrap">
+            <p className="crumb reveal"><Link href="/">Home</Link> / <span>Pricing</span></p>
+            <span className="kicker reveal">Simple pricing</span>
+            <h1 className="display reveal" data-d="1">Start free. Scale as you hire.</h1>
+            <p className="lead reveal" data-d="2" style={{ marginTop: '22px' }}>
+              Try Trueyy with 3 real interviews at no cost. When you are ready to run more, pick a plan that fits your team size and volume.
             </p>
           </div>
         </section>
 
         <section className="section--tight">
           <div className="wrap">
-            <div className="price-grid">
-              <div className="price-card reveal" data-d="1">
-                <p className="price-name">Starter</p>
-                <p className="price-amt">Free<small> pilot</small></p>
-                <p className="price-desc">One team kicking the tires on real interviews.</p>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Up to 25 monitored interviews</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>All six detection layers</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Integrity timeline and score</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Email support</span></div>
-                <Link className="btn btn--ghost" href="/demo">Start a pilot</Link>
-              </div>
-              <div className="price-card featured reveal" data-d="2">
-                <span className="price-badge">Most popular</span>
-                <p className="price-name">Growth</p>
-                <p className="price-amt">Custom</p>
-                <p className="price-desc">Staffing agencies and hiring teams running interviews every week.</p>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Unlimited monitored interviews</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Team dashboard and shared reviews</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>ATS and calendar integrations</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Priority support and onboarding</span></div>
-                <Link className="btn btn--primary" href="/demo">Book a demo</Link>
-              </div>
-              <div className="price-card reveal" data-d="3">
-                <p className="price-name">Enterprise</p>
-                <p className="price-amt">Let&apos;s talk</p>
-                <p className="price-desc">People ops teams with security, scale, and compliance needs.</p>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Everything in Growth</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>SSO, audit logs, role controls</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Custom retention and DPA</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Dedicated account manager</span></div>
-                <Link className="btn btn--ghost" href="/demo">Contact sales</Link>
-              </div>
-            </div>
-            <p className="stat-foot dim center" style={{ marginTop: '24px' }}>
-              Final pricing is set with each early-access team. No public per-seat number yet, and founding members keep their rate after launch.
-            </p>
+            <PricingCards />
           </div>
         </section>
 
@@ -109,12 +97,13 @@ export default function PricingPage() {
           <div className="wrap">
             <div className="cta-band reveal">
               <div className="glow" />
-              <h2 className="h2" style={{ marginBottom: '16px' }}>Lock in founding-member pricing</h2>
+              <h2 className="h2" style={{ marginBottom: '16px' }}>Not sure which plan fits?</h2>
               <p className="lead" style={{ margin: '0 auto 30px' }}>
-                Spots in early access are limited so we can support every team properly. Book a demo and we will get you started.
+                Book a 30-minute demo and we will walk you through the right plan for your interview volume and team size.
               </p>
               <div className="hero-cta" style={{ justifyContent: 'center' }}>
-                <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arw">&rarr;</span></Link>
+                <BookDemoButton className="btn btn--primary btn--lg">Book a demo <span className="arw">&rarr;</span></BookDemoButton>
+                <a className="btn btn--ghost btn--lg" href="https://app.trueyy.com" target="_blank" rel="noopener noreferrer">Start free trial</a>
               </div>
             </div>
           </div>
@@ -125,4 +114,3 @@ export default function PricingPage() {
     </>
   );
 }
-

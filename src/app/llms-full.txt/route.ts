@@ -152,7 +152,7 @@ Yes. Signals like slower typing speed or atypical gaze patterns can be calibrate
 Yes. Consent flows, data-subject request handling, configurable retention windows, and audit logs are built into the product from the start. The architecture is designed to support GDPR and SOC 2 requirements, not patch around them later. No video is stored on Trueyy servers.
 
 ### When can my team start?
-Trueyy is accepting early-access teams now. Book a 20-minute demo and we will run a mock session live, walk you through the dashboard, and share founding-cohort pricing that stays locked in as the product matures.
+Trueyy is accepting early-access teams now. Book a 30-minute demo and we will run a mock session live, walk you through the dashboard, and share founding-cohort pricing that stays locked in as the product matures.
 
 ---
 

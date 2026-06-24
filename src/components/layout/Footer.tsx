@@ -1,4 +1,6 @@
+'use client';
 import Link from 'next/link';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
 export function Footer() {
   return (
@@ -22,8 +24,8 @@ export function Footer() {
             <h4>Company</h4>
             <Link href="/resources">Resources</Link>
             <Link href="/security">Security</Link>
-            <Link href="/demo">Book a demo</Link>
-            <Link href="/demo">Contact</Link>
+            <BookDemoButton asAnchor>Book a demo</BookDemoButton>
+            <Link href="/contact">Contact</Link>
           </div>
           <div className="foot-col">
             <h4>Legal</h4>
