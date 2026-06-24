@@ -146,7 +146,7 @@ export function Hero() {
       <div className="wrap hero-inner">
         <span className="kicker reveal">AI cheating is happening right now</span>
         <h1 className="display reveal" data-d="1">
-          The candidate is talking to you. <span className="tx-gradient">Their AI is answering.</span>
+          The candidate is talking to you. <span className="tx-gradient" style={{ marginTop: '14px' }}>Their AI is answering.</span>
         </h1>
         <p className="lead reveal" data-d="2">
           Cluely, InterviewCoder, ChatGPT. The tools that ghost-write interviews have gotten disturbingly good. Trueyy reads every signal they leave behind and gives your team a real read before you extend the offer.
