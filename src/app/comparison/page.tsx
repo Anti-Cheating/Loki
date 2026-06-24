@@ -3,11 +3,47 @@ import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
+
+const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy vs Traditional Proctoring' };
 
 export const metadata: Metadata = {
   title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
   description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests. See the full capability comparison.',
   alternates: { canonical: 'https://trueyy.com/comparison' },
+  openGraph: {
+    title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
+    description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests.',
+    url: 'https://trueyy.com/comparison',
+    siteName: 'Trueyy',
+    type: 'website',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trueyy vs Traditional Proctoring',
+    description: 'Exam proctoring locks down a test. Trueyy reads a live interview. See why they solve completely different problems.',
+    images: ['/trueyy-logo-new.svg'],
+  },
+};
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Trueyy vs Traditional Proctoring — Capability Comparison',
+  description: 'A feature-by-feature comparison of Trueyy interview integrity monitoring versus traditional exam proctoring tools.',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Designed for live two-way interviews', description: 'Traditional proctoring: No. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 2, name: 'Detects AI tool use in real time', description: 'Traditional proctoring: Limited. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 3, name: 'Specifically detects Cluely and InterviewCoder', description: 'Traditional proctoring: No. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 4, name: 'Weighs several signals together', description: 'Traditional proctoring: Rule-based. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 5, name: 'Runs inside Zoom, Meet, and Teams', description: 'Traditional proctoring: No. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 6, name: 'Light footprint for candidates', description: 'Traditional proctoring: Heavy. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 7, name: 'No video stored on third-party servers', description: 'Traditional proctoring: No. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 8, name: 'Plain-language timeline after the call', description: 'Traditional proctoring: No. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 9, name: 'Keeps a human in the final decision', description: 'Traditional proctoring: Varies. Trueyy: Yes.' },
+    { '@type': 'ListItem', position: 10, name: 'Built for recruiters, not exam halls', description: 'Traditional proctoring: No. Trueyy: Yes.' },
+  ],
 };
 
 const ROWS: [string, string, string][] = [
@@ -26,6 +62,7 @@ const ROWS: [string, string, string][] = [
 export default function ComparisonPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
@@ -96,7 +133,7 @@ export default function ComparisonPage() {
                 Book a demo and we will show you what a real-time read looks like next to a static proctoring report.
               </p>
               <div className="hero-cta" style={{ justifyContent: 'center' }}>
-                <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arw">&rarr;</span></Link>
+                <BookDemoButton className="btn btn--primary btn--lg">Book a demo <span className="arw">&rarr;</span></BookDemoButton>
                 <Link className="btn btn--ghost btn--lg" href="/pricing">See early access</Link>
               </div>
             </div>

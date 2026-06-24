@@ -3,11 +3,41 @@ import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
+
+const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'How Trueyy Works' };
 
 export const metadata: Metadata = {
   title: 'How Trueyy Works | Real-Time Interview Integrity Monitoring',
   description: 'Four steps to a clear, honest read on every live remote interview. Schedule, connect, monitor device-level signals, and review a plain-language timeline after every call.',
   alternates: { canonical: 'https://trueyy.com/how-it-works' },
+  openGraph: {
+    title: 'How Trueyy Works | Real-Time Interview Integrity Monitoring',
+    description: 'Four steps to a clear, honest read on every live remote interview. Schedule, connect, monitor device-level signals, and review a plain-language timeline after every call.',
+    url: 'https://trueyy.com/how-it-works',
+    siteName: 'Trueyy',
+    type: 'website',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How Trueyy Works | Trueyy',
+    description: 'Four steps: schedule, connect, monitor, review. Real-time integrity scoring for every live remote interview.',
+    images: ['/trueyy-logo-new.svg'],
+  },
+};
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How Trueyy monitors a live remote interview',
+  description: 'A four-step process that fits into the hiring workflow you already use.',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: 'Schedule', text: 'Drop a Trueyy link into the calendar invite alongside the Zoom or Meet link. Nothing else changes about how your team books the interview.' },
+    { '@type': 'HowToStep', position: 2, name: 'Connect', text: 'The candidate clicks their link, reads what is being monitored and why, and consents before anything starts. No download required.' },
+    { '@type': 'HowToStep', position: 3, name: 'Monitor', text: 'Trueyy reads device signals as the conversation runs and scores integrity every 30 seconds. Your interviewer sees a live feed.' },
+    { '@type': 'HowToStep', position: 4, name: 'Review', text: 'The session ends with a plain-language timeline, a final integrity score, and a shareable summary that attaches to the candidate scorecard.' },
+  ],
 };
 
 const CHECK_ICON = (
@@ -19,6 +49,7 @@ const CHECK_ICON = (
 export default function HowItWorksPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
@@ -127,7 +158,7 @@ export default function HowItWorksPage() {
                 Book a short walkthrough and we will run a live session with you so you can see the full flow end to end before anything else.
               </p>
               <div className="hero-cta" style={{ justifyContent: 'center' }}>
-                <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arw">&rarr;</span></Link>
+                <BookDemoButton className="btn btn--primary btn--lg">Book a demo <span className="arw">&rarr;</span></BookDemoButton>
                 <Link className="btn btn--ghost btn--lg" href="/features">See detection layers</Link>
               </div>
             </div>

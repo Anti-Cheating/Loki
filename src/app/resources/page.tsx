@@ -5,10 +5,26 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { NewsletterForm } from '@/components/ui/NewsletterForm';
 
+const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Resources' };
+
 export const metadata: Metadata = {
   title: 'Resources | Trueyy Interview Integrity',
   description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
   alternates: { canonical: 'https://trueyy.com/resources' },
+  openGraph: {
+    title: 'Resources | Trueyy Interview Integrity',
+    description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
+    url: 'https://trueyy.com/resources',
+    siteName: 'Trueyy',
+    type: 'website',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Resources | Trueyy',
+    description: 'Guides on detecting AI cheating, GDPR compliance, and running a fair remote interview process.',
+    images: ['/trueyy-logo-new.svg'],
+  },
 };
 
 const POSTS = [
@@ -17,42 +33,73 @@ const POSTS = [
     title: 'A fair interview process that still catches cheating',
     body: 'You can protect honest candidates without turning the interview into an interrogation. A practical framework for hiring teams who want both.',
     time: '8 min read',
+    datePublished: '2025-03-10',
+    author: 'Trueyy Team',
   },
   {
     cat: 'Trends',
     title: 'Why remote interview cheating surged after 2023',
     body: 'AI assistants made it easy and nearly invisible. We break down what changed, which tools are most used, and why old proctoring stopped working.',
     time: '6 min read',
+    datePublished: '2025-04-02',
+    author: 'Trueyy Team',
   },
   {
     cat: 'For agencies',
     title: 'Protecting your reputation when you place candidates',
     body: 'One bad placement can cost an agency a client. How integrity signals protect the trust your business runs on, without adding friction to the process.',
     time: '7 min read',
+    datePublished: '2025-04-18',
+    author: 'Trueyy Team',
   },
   {
     cat: 'Compliance',
     title: 'Monitoring interviews without crossing a privacy line',
     body: 'What you can and cannot do under GDPR, and how to keep candidates informed and comfortable without turning consent into a legal formality.',
     time: '9 min read',
+    datePublished: '2025-05-05',
+    author: 'Trueyy Team',
   },
   {
     cat: 'How-to',
     title: 'Reading an integrity timeline like a pro',
     body: 'A score is a starting point. The real story is in the timeline. Here is how to read one and turn it into a confident hiring decision.',
     time: '5 min read',
+    datePublished: '2025-05-20',
+    author: 'Trueyy Team',
   },
   {
     cat: 'Opinion',
     title: 'The interview is not broken. The honor system is.',
     body: 'Why the answer is not more surveillance, but better signals and a process that respects the people sitting in the call.',
     time: '4 min read',
+    datePublished: '2025-06-01',
+    author: 'Trueyy Team',
   },
 ];
+
+const articleListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Trueyy Resources — Interview Integrity Guides',
+  itemListElement: POSTS.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Article',
+      headline: p.title,
+      description: p.body,
+      datePublished: p.datePublished,
+      author: { '@type': 'Organization', name: p.author },
+      publisher: { '@type': 'Organization', name: 'Trueyy', url: 'https://trueyy.com' },
+    },
+  })),
+};
 
 export default function ResourcesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleListSchema) }} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">

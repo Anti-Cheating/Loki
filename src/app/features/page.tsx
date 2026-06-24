@@ -3,11 +3,50 @@ import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
+
+const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Detection Features' };
 
 export const metadata: Metadata = {
   title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
   description: 'Six signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, gaze patterns, off-screen device signals, and answer structure analysis.',
   alternates: { canonical: 'https://trueyy.com/features' },
+  openGraph: {
+    title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
+    description: 'Six signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, gaze patterns, off-screen device signals, and answer structure analysis.',
+    url: 'https://trueyy.com/features',
+    siteName: 'Trueyy',
+    type: 'website',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Detection Features | Trueyy',
+    description: 'Six real-time signal layers that catch AI tool use, paste velocity, app switching, and scripted answers during live interviews.',
+    images: ['/trueyy-logo-new.svg'],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What are the six signal layers Trueyy monitors?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy monitors: (1) AI tool fingerprinting — detecting ChatGPT, Cluely, InterviewCoder and others by output signature; (2) app and window focus — logging every context switch with a timestamp; (3) paste velocity — catching answers that appear faster than any person can type; (4) gaze patterns — detecting reading behaviour from webcam signals; (5) off-screen device signals — identifying secondary devices in the session; (6) answer structure analysis — flagging responses that are too polished or complete to be live.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does Trueyy detect Cluely specifically?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy detects Cluely through its AI tool fingerprinting layer, which reads the structural signature of answers — the timing gap between a question and a suspiciously complete reply, the paste pattern, and the rhythm of a conversation that has AI feeding responses in real time.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Trueyy work if the candidate uses a phone as a second device?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. The off-screen device signal layer detects indicators of secondary device use — unusual audio reflections, head angle patterns, and timing anomalies consistent with reading from a second screen.' },
+    },
+  ],
 };
 
 const FEATURES = [
@@ -64,6 +103,7 @@ const CHECK_ICON = (
 export default function FeaturesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
@@ -121,7 +161,7 @@ export default function FeaturesPage() {
                 The signals are strong on their own. Together they give you a read you can trust. Book a demo and watch them line up on a real call.
               </p>
               <div className="hero-cta" style={{ justifyContent: 'center' }}>
-                <Link className="btn btn--primary btn--lg" href="/demo">Book a demo <span className="arw">&rarr;</span></Link>
+                <BookDemoButton className="btn btn--primary btn--lg">Book a demo <span className="arw">&rarr;</span></BookDemoButton>
                 <Link className="btn btn--ghost btn--lg" href="/comparison">Compare with proctoring</Link>
               </div>
             </div>

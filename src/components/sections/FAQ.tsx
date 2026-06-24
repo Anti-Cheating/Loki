@@ -36,7 +36,7 @@ const ITEMS = [
   },
   {
     q: 'When can my team start?',
-    a: 'Trueyy is accepting early-access teams now. Book a 20-minute demo and we will run a mock session live, walk you through the dashboard, and share founding-cohort pricing that stays locked in as the product matures.',
+    a: 'Trueyy is accepting early-access teams now. Book a 30-minute demo and we will run a mock session live, walk you through the dashboard, and share founding-cohort pricing that stays locked in as the product matures.',
   },
 ];
 

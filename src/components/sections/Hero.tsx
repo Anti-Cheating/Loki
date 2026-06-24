@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
 export function Hero() {
   const hostRef = useRef<HTMLDivElement>(null);
@@ -151,9 +152,9 @@ export function Hero() {
           Cluely, InterviewCoder, ChatGPT. The tools that ghost-write interviews have gotten disturbingly good. Trueyy reads every signal they leave behind and gives your team a real read before you extend the offer.
         </p>
         <div className="hero-cta reveal" data-d="3">
-          <a className="btn btn--primary btn--lg" href="#waitlist">
+          <BookDemoButton className="btn btn--primary btn--lg">
             Book a demo <span className="arw">&rarr;</span>
-          </a>
+          </BookDemoButton>
           <a className="btn btn--ghost btn--lg" href="#how">
             See how it works
           </a>

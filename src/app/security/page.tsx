@@ -3,11 +3,50 @@ import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { BookDemoButton } from '@/components/ui/BookDemoButton';
+
+const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Security & Privacy' };
 
 export const metadata: Metadata = {
   title: 'Security & Privacy | Trueyy Interview Integrity',
   description: 'Trueyy is built consent-first. No video stored on our servers, end-to-end encryption, configurable retention, GDPR aligned, SOC 2 in progress.',
   alternates: { canonical: 'https://trueyy.com/security' },
+  openGraph: {
+    title: 'Security & Privacy | Trueyy Interview Integrity',
+    description: 'Trueyy is built consent-first. No video stored on our servers, end-to-end encryption, configurable retention, GDPR aligned, SOC 2 in progress.',
+    url: 'https://trueyy.com/security',
+    siteName: 'Trueyy',
+    type: 'website',
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Security & Privacy | Trueyy',
+    description: 'Consent-first interview monitoring. No video stored. GDPR aligned, SOC 2 in progress, end-to-end encrypted.',
+    images: ['/trueyy-logo-new.svg'],
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Does Trueyy store candidate video recordings?',
+      acceptedAnswer: { '@type': 'Answer', text: 'No. Trueyy never stores video. Video stays inside Zoom, Google Meet, or Microsoft Teams — whichever platform the interview runs on. Trueyy only collects device-level signals, which are encrypted in transit and at rest.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Trueyy GDPR compliant?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy is designed to support GDPR compliance. Candidates are informed of exactly what is monitored before the session starts. Consent is explicit. Data retention is configurable per organisation. Data-subject access and deletion requests are supported.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'What data does Trueyy collect from candidates?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy collects device-level signals: app focus events, paste activity, gaze patterns via webcam, and keystroke timing. No video, no audio recordings, and no personal documents are collected or stored on Trueyy servers.' },
+    },
+  ],
 };
 
 const CHECK_ICON = (
@@ -19,6 +58,7 @@ const CHECK_ICON = (
 export default function SecurityPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
@@ -143,9 +183,9 @@ export default function SecurityPage() {
                 <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Data processing agreement available on request</span></div>
                 <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>No video recorded or stored on Trueyy servers</span></div>
               </div>
-              <Link className="btn btn--primary" style={{ width: '100%', justifyContent: 'center', marginTop: '24px' }} href="/demo">
+              <BookDemoButton className="btn btn--primary" style={{ width: '100%', justifyContent: 'center', marginTop: '24px' }}>
                 Talk to us about compliance <span className="arw">&rarr;</span>
-              </Link>
+              </BookDemoButton>
             </div>
           </div>
         </section>
@@ -159,7 +199,7 @@ export default function SecurityPage() {
                 The team is happy to walk your security and legal stakeholders through how Trueyy handles data, consent, and incident response.
               </p>
               <div className="hero-cta" style={{ justifyContent: 'center' }}>
-                <Link className="btn btn--primary btn--lg" href="/demo">Book a security review <span className="arw">&rarr;</span></Link>
+                <BookDemoButton className="btn btn--primary btn--lg">Book a security review <span className="arw">&rarr;</span></BookDemoButton>
               </div>
             </div>
           </div>
