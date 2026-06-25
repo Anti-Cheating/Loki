@@ -36,11 +36,6 @@ export function Footer() {
         </div>
         <div className="foot-bot">
           <span>&copy; {new Date().getFullYear()} Trueyy. All rights reserved.</span>
-          <span className="lights">
-            <i style={{ background: 'var(--flag)' }} />
-            <i style={{ background: 'var(--amber)' }} />
-            <i style={{ background: 'var(--green)' }} />
-          </span>
         </div>
       </div>
     </footer>
