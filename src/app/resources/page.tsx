@@ -118,7 +118,7 @@ export default function ResourcesPage() {
         <section className="section--tight">
           <div className="wrap">
             <article className="post-feature reveal">
-              <div className="post-thumb">Featured article image</div>
+              <img className="post-thumb" src="/marketing/resource-featured.png" alt="How to spot AI-assisted answers in a live interview" width={1672} height={941} loading="lazy" />
               <div className="post-body">
                 <span className="post-cat">Guide</span>
                 <h3>How to spot AI-assisted answers in a live interview</h3>
@@ -137,7 +137,7 @@ export default function ResourcesPage() {
             <div className="post-grid">
               {POSTS.map((p, i) => (
                 <article key={p.title} className="post-card reveal" data-d={String((i % 3) + 1)}>
-                  <div className="post-thumb">Article image</div>
+                  <img className="post-thumb" src={`/marketing/resource-${i + 1}.png`} alt={p.title} width={1672} height={941} loading="lazy" />
                   <div className="post-body">
                     <span className="post-cat">{p.cat}</span>
                     <h3>{p.title}</h3>
