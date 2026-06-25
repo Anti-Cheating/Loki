@@ -94,6 +94,10 @@ const FEATURES = [
   },
 ];
 
+// product-N.png person-led images staged in /public/marketing.
+// Add the row number here as each white-theme image lands.
+const READY_PRODUCT = new Set<number>([1, 2, 3, 4, 5, 6]);
+
 const CHECK_ICON = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
     <path d="M5 12l4 4L19 6" />
@@ -144,7 +148,18 @@ export default function FeaturesPage() {
                     </ul>
                   </div>
                   <div className="feat-media">
-                    <div className="ph">{f.kicker} — product visual</div>
+                    {READY_PRODUCT.has(i + 1) ? (
+                      <img
+                        className="feat-shot"
+                        src={`/marketing/product-${i + 1}.png`}
+                        alt={`${f.kicker} — a Trueyy interviewer using the detection view`}
+                        width={1408}
+                        height={768}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="ph">{f.kicker} — product visual</div>
+                    )}
                   </div>
                 </div>
               </div>
