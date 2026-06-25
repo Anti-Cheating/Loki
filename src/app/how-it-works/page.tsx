@@ -46,6 +46,32 @@ const CHECK_ICON = (
   </svg>
 );
 
+const STEPS = [
+  {
+    no: '01',
+    heading: 'Schedule the interview the way you always do',
+    body: 'Drop a Trueyy link into the calendar invite alongside your usual video call. Recruiters do not learn a new tool and candidates do not jump through extra hoops. If you book interviews through Greenhouse, Lever, or a shared calendar, nothing about that changes. One extra link in the invite. That is it.',
+  },
+  {
+    no: '02',
+    heading: 'The candidate joins, with consent up front',
+    body: 'When the candidate opens the link, they see a short, plain note about what Trueyy monitors and why. There is no download and no driver to install. They read the consent screen, the session opens beside the video call, and the interview starts the same way it always has.',
+  },
+  {
+    no: '03',
+    heading: 'Trueyy reads the signals in real time',
+    body: 'As the interview happens, Trueyy watches device-level activity: app and window switching, clipboard paste velocity, AI assistant signatures from tools like Cluely and ChatGPT, and gaze patterns through the webcam. It does not raise an alarm over a single odd moment. It weighs the signals together and scores the moments that actually matter, every 30 seconds.',
+  },
+  {
+    no: '04',
+    heading: 'You review a plain-language timeline',
+    body: 'The moment the call ends, the interviewer gets a single integrity score and a timeline they can scrub through. Each flag is time-stamped and written in plain language anyone can understand. Attach it to the scorecard, share it with the panel, and make the call with real evidence behind you instead of a gut feeling.',
+  },
+];
+
+// step-N.png person-led images staged in /public/marketing. Add the step number as each lands.
+const READY_STEPS = new Set<number>([1, 2, 3, 4]);
+
 export default function HowItWorksPage() {
   return (
     <>
@@ -67,36 +93,32 @@ export default function HowItWorksPage() {
 
         <section className="section--tight">
           <div className="wrap">
-            <div className="tl">
-              <div className="tl-item reveal">
-                <div className="tl-no">01</div>
-                <div className="tl-body">
-                  <h3>Schedule the interview the way you always do</h3>
-                  <p>Drop a Trueyy link into the calendar invite alongside your usual video call. Recruiters do not learn a new tool and candidates do not jump through extra hoops. If you book interviews through Greenhouse, Lever, or a shared calendar, nothing about that changes. One extra link in the invite. That is it.</p>
+            {STEPS.map((s, i) => (
+              <div key={s.no}>
+                {i > 0 && <hr className="hairline" />}
+                <div className={`feat-row reveal${i % 2 === 1 ? ' flip' : ''}`}>
+                  <div className="feat-text">
+                    <div className="tl-no" style={{ marginBottom: '12px' }}>{s.no}</div>
+                    <h2 className="h3">{s.heading}</h2>
+                    <p className="muted" style={{ marginTop: '14px' }}>{s.body}</p>
+                  </div>
+                  <div className="feat-media">
+                    {READY_STEPS.has(i + 1) ? (
+                      <img
+                        className="feat-shot"
+                        src={`/marketing/step-${i + 1}.png`}
+                        alt={`${s.heading} — a Trueyy interviewer using the product`}
+                        width={1536}
+                        height={1024}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="ph">Step {s.no} — product visual</div>
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className="tl-item reveal">
-                <div className="tl-no">02</div>
-                <div className="tl-body">
-                  <h3>The candidate joins, with consent up front</h3>
-                  <p>When the candidate opens the link, they see a short, plain note about what Trueyy monitors and why. There is no download and no driver to install. They read the consent screen, the session opens beside the video call, and the interview starts the same way it always has.</p>
-                </div>
-              </div>
-              <div className="tl-item reveal">
-                <div className="tl-no">03</div>
-                <div className="tl-body">
-                  <h3>Trueyy reads the signals in real time</h3>
-                  <p>As the interview happens, Trueyy watches device-level activity: app and window switching, clipboard paste velocity, AI assistant signatures from tools like Cluely and ChatGPT, and gaze patterns through the webcam. It does not raise an alarm over a single odd moment. It weighs the signals together and scores the moments that actually matter, every 30 seconds.</p>
-                </div>
-              </div>
-              <div className="tl-item reveal">
-                <div className="tl-no">04</div>
-                <div className="tl-body">
-                  <h3>You review a plain-language timeline</h3>
-                  <p>The moment the call ends, the interviewer gets a single integrity score and a timeline they can scrub through. Each flag is time-stamped and written in plain language anyone can understand. Attach it to the scorecard, share it with the panel, and make the call with real evidence behind you instead of a gut feeling.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
