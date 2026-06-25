@@ -1,9 +1,11 @@
 import { HeroCarousel } from '@/components/ui/HeroCarousel';
+import { HeroCanvas } from '@/components/ui/HeroCanvas';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
 export function Hero() {
   return (
     <section className="hero">
+      <HeroCanvas />
       <div className="wrap hero-grid">
         <div className="hero-inner">
           <span className="kicker reveal">AI cheating is happening right now</span>
