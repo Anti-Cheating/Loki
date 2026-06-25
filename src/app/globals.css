@@ -639,6 +639,29 @@ img.post-thumb { object-fit: cover; width: 100%; height: 100%; }
 .post-feature .post-body { padding: 44px; justify-content: center; }
 .post-feature h3 { font-size: 1.55rem; }
 
+/* article (resources/[slug]) */
+.article { padding: 176px 0 96px; }
+.article-wrap { max-width: 720px; }
+.article-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; margin: 8px 0 12px; }
+.article-hero { width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--line-soft); box-shadow: 0 24px 60px -40px rgba(0,0,0,0.28); margin-top: 26px; }
+.article-body { margin-top: 30px; font-size: 1.05rem; line-height: 1.75; color: var(--text-mut); }
+.article-body ol { padding-left: 26px; }
+.article-body ol li { margin-top: 9px; }
+.article-body ol li::marker { color: var(--green-ink); font-family: var(--font-mono); font-size: 0.85rem; }
+.article-body > * + * { margin-top: 20px; }
+.article-body h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text); margin-top: 44px; letter-spacing: -0.02em; }
+.article-body h3 { font-family: var(--font-display); font-size: 1.18rem; color: var(--text); margin-top: 32px; }
+.article-body p { color: var(--text-mut); }
+.article-body strong { color: var(--text); font-weight: 600; }
+.article-body a { color: var(--green-ink); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; transition: color .2s; }
+.article-body a:hover { color: var(--green); }
+.article-body ul { padding-left: 22px; list-style: disc outside; }
+.article-body ol { list-style: decimal outside; }
+.article-body li { margin-top: 9px; padding-left: 4px; }
+.article-body li::marker { color: var(--green); }
+.article-body hr { border: 0; border-top: 1px solid var(--line-soft); margin: 36px 0; }
+.article-body h3 + ul { margin-top: 14px; }
+
 /* Pricing */
 .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 52px; align-items: stretch; }
 .price-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 34px 30px; position: relative; transition: border-color .3s var(--ease), transform .3s var(--ease); display: flex; flex-direction: column; }

@@ -78,6 +78,15 @@ const POSTS = [
   },
 ];
 
+const SLUGS = [
+  'fair-interview-process',
+  'why-cheating-surged',
+  'protecting-agency-reputation',
+  'monitoring-privacy-line',
+  'reading-integrity-timeline',
+  'honor-system-broken',
+];
+
 const articleListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -124,7 +133,7 @@ export default function ResourcesPage() {
                 <h3>How to spot AI-assisted answers in a live interview</h3>
                 <p className="muted">Candidates using Cluely, ChatGPT, or InterviewCoder leave a pattern, even when the answers sound great. Here is what to listen for, what to ask, and how to tell a thoughtful pause from a hidden prompt.</p>
                 <p className="post-meta">12 min read &middot; Updated this month</p>
-                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href="/demo">
+                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href="/resources/spot-ai-assisted-answers">
                   Read the guide <span className="arw">&rarr;</span>
                 </Link>
               </div>
@@ -136,7 +145,7 @@ export default function ResourcesPage() {
           <div className="wrap">
             <div className="post-grid">
               {POSTS.map((p, i) => (
-                <article key={p.title} className="post-card reveal" data-d={String((i % 3) + 1)}>
+                <Link key={p.title} className="post-card reveal" href={`/resources/${SLUGS[i]}`} data-d={String((i % 3) + 1)}>
                   <img className="post-thumb" src={`/marketing/resource-${i + 1}.png`} alt={p.title} width={1672} height={941} loading="lazy" />
                   <div className="post-body">
                     <span className="post-cat">{p.cat}</span>
@@ -144,7 +153,7 @@ export default function ResourcesPage() {
                     <p>{p.body}</p>
                     <p className="post-meta">{p.time}</p>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </div>

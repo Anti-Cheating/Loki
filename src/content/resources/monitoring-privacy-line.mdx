@@ -1,0 +1,62 @@
+---
+title: "Monitoring interviews without crossing a privacy line"
+category: "Compliance"
+excerpt: "What you can and cannot do under GDPR and US law, and how to keep candidates informed and comfortable without turning consent into a legal formality."
+readTime: "9 min read"
+date: "2026-05-05"
+updated: "2026-06"
+author: "Trueyy Team"
+image: "/marketing/resource-4.png"
+---
+
+Monitoring a candidate for integrity is legal — but only if you do it the right way. The line between a defensible process and a privacy problem comes down to a few principles: be transparent, collect as little as possible, never collect what you do not need, and let a human stay accountable. Here is what the law actually requires.
+
+> This is general guidance, not legal advice. Rules vary by jurisdiction; check with counsel before you deploy anything.
+
+## GDPR: consent is necessary but not sufficient
+
+In the EU, you need a lawful basis to process a candidate's data under [Article 6 of the GDPR](https://gdpr-info.eu/art-6-gdpr/). The catch: consent is weak in a hiring context. The European Data Protection Board has stated it is [problematic to rely on consent from candidates because of the power imbalance — it "is unlikely to be freely given."](https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en) So consent-first is good practice, but you usually pair it with a documented legitimate-interests assessment.
+
+What is non-negotiable everywhere:
+
+- **Transparency.** [Articles 13 and 14](https://gdpr-info.eu/art-13-gdpr/) require telling candidates who is processing their data, why, on what basis, and for how long.
+- **Data minimization.** [Article 5](https://gdpr-info.eu/art-5-gdpr/) limits you to data that is "adequate, relevant and limited to what is necessary," and [Article 25](https://gdpr-info.eu/art-25-gdpr/) requires privacy by design and by default.
+
+A system that reads device signals and stores no video is minimization built into the architecture.
+
+## Biometrics: the line you really don't want to cross
+
+The moment you collect face geometry or a voiceprint, a separate set of laws kicks in. Illinois' BIPA requires [written notice and a signed release before collecting a biometric identifier](https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=074000140K15), with [statutory damages of $1,000 to $5,000 per violation](https://www.ilga.gov/Documents/legislation/ilcs/documents/074000140K20.htm) and a private right of action — and the Illinois Supreme Court held that [no actual injury is required to sue](https://www.sidley.com/en/insights/newsupdates/2019/01/privacy-in-landmark-case). Texas and Washington have their own biometric statutes.
+
+Crucially, these laws regulate biometric *identifiers* — face and voice — not ordinary device telemetry like window focus, paste timing, or process scans. Keeping detection to non-biometric signals avoids the biometric-law minefield, and the GDPR's [special-category rules in Article 9](https://gdpr-info.eu/art-9-gdpr/) along with it.
+
+## The EU AI Act makes recruitment AI "high-risk"
+
+The [EU AI Act](https://artificialintelligenceact.eu/annex/3/) classifies AI used "for the recruitment or selection of natural persons" and to "monitor and evaluate performance and behaviour" as **high-risk**. That brings obligations for risk management, data governance, logging, accuracy, and human oversight — and [Article 26 requires deployers to inform candidates that they are subject to the system](https://artificialintelligenceact.eu/article/26/). The high-risk obligations [apply from 2 August 2026](https://artificialintelligenceact.eu/implementation-timeline/), so transparency to candidates is becoming a legal duty, not a courtesy.
+
+## US: tell candidates, accommodate, and stay accountable
+
+US federal law has no single AI-hiring statute, but the rules still bite. The DOJ's [ADA guidance says to tell applicants what technology is used and how they will be evaluated, and to provide accommodations](https://www.ada.gov/resources/ai-guidance/). And under Title VII, the employer — not the vendor — is liable: a selection tool can create unlawful disparate impact even if [an outside vendor developed and administered it](https://www.eeoc.gov/laws/guidance/select-issues-assessing-adverse-impact-software-algorithms-and-artificial). Any detection tool you use must be validated for bias and keep a human in the loop.
+
+## Recording and retention: default to the strict version
+
+Interview recording is governed by wiretap law. While [federal law allows one-party consent](https://www.law.cornell.edu/uscode/text/18/2511), about a dozen states require all-party consent — and because remote interviews often span states, the safe rule is to [assume the strictest law applies and get explicit notice before recording](https://www.rcfp.org/introduction-to-reporters-recording-guide/).
+
+Best practice from HR counsel is straightforward: [put the privacy notice in the scheduling email so candidates see it in advance, control access, set a retention schedule, and be ready for access and deletion requests](https://natlawreview.com/article/5-key-data-privacy-and-security-risks-arise-when-organizations-record-job-interviews).
+
+## The defensible posture
+
+Put it together and the compliant design looks the same in every jurisdiction: **consent-first, device signals only, no stored video, short retention, and a human who owns every flag.** That is data minimization by design, it sidesteps biometric and wiretap exposure, and it satisfies the transparency duties regulators now expect. It is exactly how [Trueyy](/security) is built.
+
+---
+
+### Sources
+
+- [GDPR Article 6 — lawful basis](https://gdpr-info.eu/art-6-gdpr/)
+- [EDPB Guidelines 05/2020 on consent](https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en)
+- [GDPR Article 5 — principles](https://gdpr-info.eu/art-5-gdpr/) · [Article 25 — privacy by design](https://gdpr-info.eu/art-25-gdpr/)
+- [Illinois BIPA §15 — notice and consent](https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=074000140K15) · [§20 — damages](https://www.ilga.gov/Documents/legislation/ilcs/documents/074000140K20.htm)
+- [EU AI Act Annex III — high-risk systems](https://artificialintelligenceact.eu/annex/3/) · [Article 26 — deployer duties](https://artificialintelligenceact.eu/article/26/)
+- [DOJ ADA guidance on hiring technology, 2022](https://www.ada.gov/resources/ai-guidance/)
+- [EEOC adverse-impact guidance, 2023](https://www.eeoc.gov/laws/guidance/select-issues-assessing-adverse-impact-software-algorithms-and-artificial)
+- [Federal Wiretap Act, 18 U.S.C. §2511](https://www.law.cornell.edu/uscode/text/18/2511) · [Reporter's Recording Guide — RCFP](https://www.rcfp.org/introduction-to-reporters-recording-guide/)
