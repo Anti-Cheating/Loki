@@ -10,7 +10,6 @@ import { Features } from '@/components/sections/Features';
 import { DashboardPreview } from '@/components/sections/DashboardPreview';
 import { Comparison } from '@/components/sections/Comparison';
 import { Security } from '@/components/sections/Security';
-import { Waitlist } from '@/components/sections/Waitlist';
 import { FAQ } from '@/components/sections/FAQ';
 import { CTA } from '@/components/sections/CTA';
 
@@ -52,7 +51,6 @@ export default function PageContent() {
         <DashboardPreview />
         <Comparison />
         <Security />
-        <Waitlist />
         <FAQ />
         <CTA />
       </main>

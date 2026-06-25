@@ -156,16 +156,6 @@ Trueyy is accepting early-access teams now. Book a 30-minute demo and we will ru
 
 ---
 
-## Early access
-
-Join the founding cohort.
-
-We are accepting early-access teams now. Founding cohort pricing is locked in at signup and does not change as the product matures.
-
-Sign up at: https://trueyy.com/#waitlist
-
----
-
 © ${new Date().getFullYear()} Trueyy. All rights reserved.
 `;
 
