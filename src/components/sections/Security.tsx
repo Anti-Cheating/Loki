@@ -2,14 +2,19 @@ export function Security() {
   return (
     <section className="section" id="security">
       <div className="wrap">
-        <div className="center reveal">
-          <span className="kicker kicker--center">Security and privacy</span>
-          <h2 className="h2">Monitoring candidates is not the same as surveilling them</h2>
-          <p className="lead" style={{ margin: '14px auto 0' }}>
-            There is a real difference between knowing what a candidate&apos;s device was doing and watching their face through a camera for signs of distress. Trueyy is the first thing, firmly.
-          </p>
+        <div className="cc-grid" style={{ marginBottom: '52px', alignItems: 'center' }}>
+          <div className="cc-copy reveal">
+            <span className="kicker">Security and privacy</span>
+            <h2 className="h2" style={{ margin: '14px 0 16px' }}>Monitoring candidates is not the same as surveilling them</h2>
+            <p className="lead">
+              There is a real difference between knowing what a candidate&apos;s device was doing and watching their face through a camera for signs of distress. Trueyy is the first thing, firmly.
+            </p>
+          </div>
+          <div className="cc-shot reveal" data-d="1">
+            <img src="/marketing/security.png" alt="A reassured candidate beside Trueyy's privacy guarantees: no video stored, encrypted end-to-end, you control retention, consent-first." width={1536} height={1024} loading="lazy" />
+          </div>
         </div>
-        <div className="grid-3" style={{ marginTop: '48px' }}>
+        <div className="grid-3">
           <div className="card reveal" data-d="1">
             <div className="card-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">

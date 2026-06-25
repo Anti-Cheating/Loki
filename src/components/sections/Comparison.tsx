@@ -2,12 +2,17 @@ export function Comparison() {
   return (
     <section className="section" id="why">
       <div className="wrap">
-        <div className="center reveal">
-          <span className="kicker kicker--center">Why Trueyy</span>
-          <h2 className="h2">Proctoring tools were built for test centers, not conversations</h2>
-          <p className="lead" style={{ margin: '14px auto 0' }}>
-            Traditional proctoring locks browsers and watches faces. That works for a timed exam where the question is: did this person copy? It does almost nothing for a 45-minute live conversation where the question is: did this person actually think through the problem?
-          </p>
+        <div className="cc-grid" style={{ marginBottom: '8px', alignItems: 'center' }}>
+          <div className="cc-copy reveal">
+            <span className="kicker">Why Trueyy</span>
+            <h2 className="h2" style={{ margin: '14px 0 16px' }}>Proctoring tools were built for test centers, not conversations</h2>
+            <p className="lead">
+              Traditional proctoring locks browsers and watches faces. That works for a timed exam where the question is: did this person copy? It does almost nothing for a 45-minute live conversation where the question is: did this person actually think through the problem?
+            </p>
+          </div>
+          <div className="cc-shot reveal" data-d="1">
+            <img src="/marketing/comparison.png" alt="Old locked-down proctoring versus a fair, consent-first live Trueyy interview." width={1536} height={1024} loading="lazy" />
+          </div>
         </div>
         <div className="cmp reveal" data-d="1">
           <div className="cmp-head">
