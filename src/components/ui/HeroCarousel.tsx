@@ -2,13 +2,13 @@
 import { useEffect, useState } from 'react';
 
 const SLIDES = [
-  { src: '/marketing/hero-cover.png', alt: 'Live interview-integrity command center showing an 82 integrity score and a real-time signal feed.' },
-  { src: '/marketing/product-1.png', alt: 'AI tool fingerprinting flags a hidden assistant at 98% confidence.' },
-  { src: '/marketing/product-2.png', alt: 'App and window focus tracking shows attention leaving the interview.' },
-  { src: '/marketing/product-3.png', alt: 'Paste velocity catches a 240 WPM paste no human could type.' },
-  { src: '/marketing/product-4.png', alt: 'Reading-gaze analysis flags off-screen reading at 71% likelihood.' },
-  { src: '/marketing/product-5.png', alt: 'Off-screen device signals point to a likely second device.' },
-  { src: '/marketing/product-6.png', alt: 'Answer-structure analysis separates human reasoning from generated text.' },
+  { src: '/marketing/hero-cover.webp', alt: 'Live interview-integrity command center showing an 82 integrity score and a real-time signal feed.' },
+  { src: '/marketing/product-1.webp', alt: 'AI tool fingerprinting flags a hidden assistant at 98% confidence.' },
+  { src: '/marketing/product-2.webp', alt: 'App and window focus tracking shows attention leaving the interview.' },
+  { src: '/marketing/product-3.webp', alt: 'Paste velocity catches a 240 WPM paste no human could type.' },
+  { src: '/marketing/product-4.webp', alt: 'Reading-gaze analysis flags off-screen reading at 71% likelihood.' },
+  { src: '/marketing/product-5.webp', alt: 'Off-screen device signals point to a likely second device.' },
+  { src: '/marketing/product-6.webp', alt: 'Answer-structure analysis separates human reasoning from generated text.' },
 ];
 
 export function HeroCarousel() {

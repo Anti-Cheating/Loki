@@ -69,7 +69,7 @@ const STEPS = [
   },
 ];
 
-// step-N.png person-led images staged in /public/marketing. Add the step number as each lands.
+// step-N.webp person-led images staged in /public/marketing. Add the step number as each lands.
 const READY_STEPS = new Set<number>([1, 2, 3, 4]);
 
 export default function HowItWorksPage() {
@@ -106,7 +106,7 @@ export default function HowItWorksPage() {
                     {READY_STEPS.has(i + 1) ? (
                       <img
                         className="feat-shot"
-                        src={`/marketing/step-${i + 1}.png`}
+                        src={`/marketing/step-${i + 1}.webp`}
                         alt={`${s.heading} — a Trueyy interviewer using the product`}
                         width={1536}
                         height={1024}

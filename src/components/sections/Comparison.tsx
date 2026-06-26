@@ -11,7 +11,7 @@ export function Comparison() {
             </p>
           </div>
           <div className="cc-shot reveal" data-d="1">
-            <img src="/marketing/comparison.png" alt="Old locked-down proctoring versus a fair, consent-first live Trueyy interview." width={1536} height={1024} loading="lazy" />
+            <img src="/marketing/comparison.webp" alt="Old locked-down proctoring versus a fair, consent-first live Trueyy interview." width={1536} height={1024} loading="lazy" />
           </div>
         </div>
         <div className="cmp reveal" data-d="1">
