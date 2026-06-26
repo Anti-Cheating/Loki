@@ -94,7 +94,7 @@ const FEATURES = [
   },
 ];
 
-// product-N.png person-led images staged in /public/marketing.
+// product-N.webp person-led images staged in /public/marketing.
 // Add the row number here as each white-theme image lands.
 const READY_PRODUCT = new Set<number>([1, 2, 3, 4, 5, 6]);
 
@@ -151,7 +151,7 @@ export default function FeaturesPage() {
                     {READY_PRODUCT.has(i + 1) ? (
                       <img
                         className="feat-shot"
-                        src={`/marketing/product-${i + 1}.png`}
+                        src={`/marketing/product-${i + 1}.webp`}
                         alt={`${f.kicker} — a Trueyy interviewer using the detection view`}
                         width={1408}
                         height={768}

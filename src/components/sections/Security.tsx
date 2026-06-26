@@ -11,7 +11,7 @@ export function Security() {
             </p>
           </div>
           <div className="cc-shot reveal" data-d="1">
-            <img src="/marketing/security.png" alt="A reassured candidate beside Trueyy's privacy guarantees: no video stored, encrypted end-to-end, you control retention, consent-first." width={1536} height={1024} loading="lazy" />
+            <img src="/marketing/security.webp" alt="A reassured candidate beside Trueyy's privacy guarantees: no video stored, encrypted end-to-end, you control retention, consent-first." width={1536} height={1024} loading="lazy" />
           </div>
         </div>
         <div className="grid-3">
