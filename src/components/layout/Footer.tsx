@@ -29,9 +29,9 @@ export function Footer() {
           </div>
           <div className="foot-col">
             <h4>Legal</h4>
-            <Link href="/security">Privacy</Link>
-            <Link href="/security">Terms</Link>
-            <Link href="/security">Compliance</Link>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/compliance">Compliance</Link>
           </div>
         </div>
         <div className="foot-bot">

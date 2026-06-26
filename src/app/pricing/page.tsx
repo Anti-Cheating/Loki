@@ -105,6 +105,9 @@ export default function PricingPage() {
                 <BookDemoButton className="btn btn--primary btn--lg">Book a demo <span className="arw">&rarr;</span></BookDemoButton>
                 <a className="btn btn--ghost btn--lg" href="https://app.trueyy.com" target="_blank" rel="noopener noreferrer">Start free trial</a>
               </div>
+              <p className="post-meta" style={{ marginTop: '20px' }}>
+                Need a custom plan or have a question? <Link href="/contact">Contact us &rarr;</Link>
+              </p>
             </div>
           </div>
         </section>
