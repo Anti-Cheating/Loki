@@ -214,7 +214,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
 body.nav-open .site-header { transform: translateY(-36px); }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.32rem; letter-spacing: -0.03em; }
-.nav-logo { height: 30px; width: auto; max-width: 170px; display: block; object-fit: contain; }
+.nav-logo { height: 26px; width: auto; max-width: 160px; display: block; object-fit: contain; }
 .brand .dot {
   width: 12px; height: 12px; border-radius: 3px; background: var(--green);
   box-shadow: 0 0 14px var(--green);
