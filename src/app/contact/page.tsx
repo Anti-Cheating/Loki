@@ -26,10 +26,16 @@ export default function ContactPage() {
     e.preventDefault();
     setState('loading');
     try {
-      const res = await fetch('/api/waitlist', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: formData.name, email: formData.email, company: formData.company }),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          type: formData.type,
+          message: formData.message,
+        }),
       });
       if (!res.ok) throw new Error();
       setState('success');
