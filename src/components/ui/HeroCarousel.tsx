@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useId, useCallback } from 'react';
 
 const SLIDES = [
   { src: '/marketing/hero-cover.png', alt: 'Live interview-integrity command center showing an 82 integrity score and a real-time signal feed.' },
@@ -12,6 +12,7 @@ const SLIDES = [
 ];
 
 export function HeroCarousel() {
+  const uid = useId();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -21,29 +22,62 @@ export function HeroCarousel() {
     return () => clearInterval(id);
   }, [paused]);
 
+  const handleKeyDown = useCallback((e: React.KeyboardEvent, i: number) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = (i + 1) % SLIDES.length;
+      setActive(next);
+      document.getElementById(`${uid}-tab-${next}`)?.focus();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prev = (i - 1 + SLIDES.length) % SLIDES.length;
+      setActive(prev);
+      document.getElementById(`${uid}-tab-${prev}`)?.focus();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      setActive(0);
+      document.getElementById(`${uid}-tab-0`)?.focus();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      const last = SLIDES.length - 1;
+      setActive(last);
+      document.getElementById(`${uid}-tab-${last}`)?.focus();
+    }
+  }, [uid]);
+
   return (
     <div className="hero-carousel reveal" data-d="2">
       <div className="hero-carousel-glow" aria-hidden="true" />
       {SLIDES.map((s, i) => (
-        <img
+        <div
           key={s.src}
-          src={s.src}
-          alt={s.alt}
-          className={`hero-slide${i === active ? ' is-active' : ''}`}
-          loading={i === 0 ? 'eager' : 'lazy'}
-          aria-hidden={i === active ? undefined : true}
-        />
+          id={`${uid}-panel-${i}`}
+          role="tabpanel"
+          aria-labelledby={`${uid}-tab-${i}`}
+          aria-hidden={i !== active ? true : undefined}
+        >
+          <img
+            src={s.src}
+            alt={s.alt}
+            className={`hero-slide${i === active ? ' is-active' : ''}`}
+            loading={i === 0 ? 'eager' : 'lazy'}
+          />
+        </div>
       ))}
       <div className="hero-dots" role="tablist" aria-label="Featured detection signals">
         {SLIDES.map((s, i) => (
           <button
             key={s.src}
+            id={`${uid}-tab-${i}`}
             type="button"
+            role="tab"
+            aria-selected={i === active}
+            aria-controls={`${uid}-panel-${i}`}
+            tabIndex={i === active ? 0 : -1}
             className={i === active ? 'on' : ''}
             onClick={() => setActive(i)}
-            aria-label={`Show slide ${i + 1}`}
-            aria-selected={i === active}
-            role="tab"
+            onKeyDown={(e) => handleKeyDown(e, i)}
+            aria-label={`Slide ${i + 1}: ${s.alt}`}
           />
         ))}
       </div>
