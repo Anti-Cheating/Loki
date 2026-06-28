@@ -55,6 +55,7 @@ export function HeroCarousel() {
           role="tabpanel"
           aria-labelledby={`${uid}-tab-${i}`}
           aria-hidden={i !== active ? true : undefined}
+          style={{ position: 'absolute', inset: 0 }}
         >
           <img
             src={s.src}
