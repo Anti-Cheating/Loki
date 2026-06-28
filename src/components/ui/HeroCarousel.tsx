@@ -15,12 +15,13 @@ export function HeroCarousel() {
   const uid = useId();
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [focusedIn, setFocusedIn] = useState(false);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || focusedIn) return;
     const id = setInterval(() => setActive((p) => (p + 1) % SLIDES.length), 4500);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, focusedIn]);
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent, i: number) => {
     if (e.key === 'ArrowRight') {
@@ -46,7 +47,12 @@ export function HeroCarousel() {
   }, [uid]);
 
   return (
-    <div className="hero-carousel reveal" data-d="2">
+    <div
+      className="hero-carousel reveal"
+      data-d="2"
+      onFocus={() => setFocusedIn(true)}
+      onBlur={() => setFocusedIn(false)}
+    >
       <div className="hero-carousel-glow" aria-hidden="true" />
       {SLIDES.map((s, i) => (
         <div
