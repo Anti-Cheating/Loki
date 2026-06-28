@@ -6,3 +6,6 @@ out/
 next-env.d.ts
 .gstack/
 package-lock.json
+
+# Generated axe audit report — run `npm run axe` to regenerate
+scripts/axe-report.json

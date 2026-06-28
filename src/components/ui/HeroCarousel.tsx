@@ -49,7 +49,7 @@ export function HeroCarousel() {
       </div>
       <button
         type="button"
-        className="marquee-pause-btn"
+        className="animation-pause-btn"
         style={{ position: 'absolute', bottom: '16px', left: '16px', zIndex: 4 }}
         onClick={() => setPaused(p => !p)}
         aria-label={paused ? 'Resume slideshow' : 'Pause slideshow'}

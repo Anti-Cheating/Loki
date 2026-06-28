@@ -374,18 +374,18 @@ body.nav-open .nav-toggle span::after { transform: translateY(-6px) rotate(-45de
 .marquee .mq-logo:hover { color: var(--text); }
 .marquee .mq-logo:hover img { opacity: 0.9; }
 
-/* Marquee pause button — WCAG 2.2.2 keyboard mechanism */
-.marquee-pause-btn {
-  margin-top: 14px;
+/* Shared animation control button base — WCAG 2.2.2 keyboard mechanism */
+.animation-pause-btn {
   font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--text-mut);
+  text-transform: uppercase; color: var(--text-dim);
   border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px;
   background: transparent; cursor: pointer;
   transition: color .2s, border-color .2s;
 }
-.marquee-pause-btn:hover, .marquee-pause-btn:focus-visible {
-  color: var(--text); border-color: var(--green-ink);
+.animation-pause-btn:hover, .animation-pause-btn:focus-visible {
+  color: var(--text-mut); border-color: var(--green-ink);
 }
+.marquee-pause-btn { margin-top: 14px; }
 
 /* Glow blob */
 .glow { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }

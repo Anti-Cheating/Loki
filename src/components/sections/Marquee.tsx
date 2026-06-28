@@ -1,3 +1,6 @@
+'use client';
+import { useState } from 'react';
+
 const BRANDS = [
   { name: 'Zoom', logo: '/logos/zoom.svg' },
   { name: 'Google Meet', logo: '/logos/google-meet.svg' },
@@ -8,6 +11,7 @@ const BRANDS = [
 ];
 
 export function Marquee() {
+  const [paused, setPaused] = useState(false);
   // duplicated once so the -50% scroll loops seamlessly
   const items = [...BRANDS, ...BRANDS];
 
@@ -17,7 +21,10 @@ export function Marquee() {
         <p className="mq-cap">Sits beside the tools your team already runs interviews on</p>
       </div>
       <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
+        <div
+          className="marquee-track"
+          style={paused ? { animationPlayState: 'paused' } : undefined}
+        >
           {items.map((brand, i) => (
             <span key={i} className="mq-logo">
               <img src={brand.logo} alt="" width={24} height={24} loading="lazy" />
@@ -25,6 +32,16 @@ export function Marquee() {
             </span>
           ))}
         </div>
+      </div>
+      <div className="wrap center">
+        <button
+          type="button"
+          className="animation-pause-btn marquee-pause-btn"
+          onClick={() => setPaused(p => !p)}
+          aria-label={paused ? 'Resume scrolling logos' : 'Pause scrolling logos'}
+        >
+          {paused ? 'Resume' : 'Pause'}
+        </button>
       </div>
     </section>
   );
