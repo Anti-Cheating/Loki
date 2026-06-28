@@ -30,7 +30,7 @@ async function audit() {
       const url = `${BASE_URL}${path}`;
       try {
         await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(1000);
 
         const results = await new AxeBuilder({ page })
           .withTags(TAGS)
@@ -64,7 +64,7 @@ async function audit() {
 
     writeFileSync(
       new URL('./axe-report.json', import.meta.url),
-      JSON.stringify(report, null, 2)
+      JSON.stringify(report, null, 2) + '\n'
     );
 
     const divider = '─'.repeat(60);
