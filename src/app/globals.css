@@ -210,8 +210,14 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height
   box-shadow: 0 6px 20px -12px rgba(0,0,0,0.18);
   border-bottom: 1px solid var(--line-soft);
 }
-/* keep the navbar pinned to the very top while the mobile menu is open */
-body.nav-open .site-header { transform: translateY(-36px); }
+/* keep the navbar pinned to the very top while the mobile menu is open, and
+   give it an opaque background so page content doesn't bleed through the header
+   strip above the menu panel (the panel starts at 84px). */
+body.nav-open .site-header {
+  transform: translateY(-36px);
+  background: oklch(0.99 0.003 158);
+  border-bottom: 1px solid var(--line-soft);
+}
 .nav { display: flex; align-items: center; justify-content: space-between; height: 84px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.32rem; letter-spacing: -0.03em; }
 .nav-logo { height: 26px; width: auto; max-width: 160px; display: block; object-fit: contain; }
