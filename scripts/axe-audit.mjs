@@ -15,7 +15,9 @@ const PAGES = [
   '/demo',
 ];
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'];
-const CRITICAL_IMPACTS = ['critical', 'serious'];
+// Only critical/serious violations block CI. Moderate violations are logged as warnings.
+const BLOCKING_IMPACTS = ['critical', 'serious'];
+const WARNING_IMPACTS = ['moderate'];
 
 async function audit() {
   const browser = await chromium.launch();
@@ -37,8 +39,17 @@ async function audit() {
           .analyze();
 
         const violations = results.violations.filter(v =>
-          CRITICAL_IMPACTS.includes(v.impact)
+          BLOCKING_IMPACTS.includes(v.impact)
         );
+
+        const warnings = results.violations.filter(v => WARNING_IMPACTS.includes(v.impact));
+        if (warnings.length > 0) {
+          console.log(`  ⚠️  ${warnings.length} moderate violation(s) (non-blocking):`);
+          for (const w of warnings) {
+            const criterion = w.tags.find(t => /^wcag\d/.test(t)) ?? '';
+            console.log(`     [moderate] ${w.id.padEnd(28)} ${criterion}`);
+          }
+        }
 
         report.push({ page: path, url, violations });
         totalViolations += violations.length;
