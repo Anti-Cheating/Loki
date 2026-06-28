@@ -100,10 +100,10 @@ export default function ContactPage() {
                         placeholder="Jordan Rivera"
                         autoComplete="name"
                         aria-describedby={fieldErrors.name ? 'ct-name-err' : undefined}
-                        aria-invalid={!!fieldErrors.name}
+                        aria-invalid={fieldErrors.name ? true : undefined}
                         value={formData.name} onChange={handleChange} disabled={state === 'loading'}
                       />
-                      {fieldErrors.name && <p id="ct-name-err" role="alert" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.name}</p>}
+                      {fieldErrors.name && <p id="ct-name-err" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.name}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="ct-email">Work email</label>
@@ -112,10 +112,10 @@ export default function ContactPage() {
                         placeholder="jordan@company.com"
                         autoComplete="email"
                         aria-describedby={fieldErrors.email ? 'ct-email-err' : undefined}
-                        aria-invalid={!!fieldErrors.email}
+                        aria-invalid={fieldErrors.email ? true : undefined}
                         value={formData.email} onChange={handleChange} disabled={state === 'loading'}
                       />
-                      {fieldErrors.email && <p id="ct-email-err" role="alert" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.email}</p>}
+                      {fieldErrors.email && <p id="ct-email-err" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.email}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="ct-company">Company</label>
@@ -124,10 +124,10 @@ export default function ContactPage() {
                         placeholder="Company name"
                         autoComplete="organization"
                         aria-describedby={fieldErrors.company ? 'ct-company-err' : undefined}
-                        aria-invalid={!!fieldErrors.company}
+                        aria-invalid={fieldErrors.company ? true : undefined}
                         value={formData.company} onChange={handleChange} disabled={state === 'loading'}
                       />
-                      {fieldErrors.company && <p id="ct-company-err" role="alert" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.company}</p>}
+                      {fieldErrors.company && <p id="ct-company-err" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.company}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="ct-type">Team type</label>
@@ -144,6 +144,16 @@ export default function ContactPage() {
                       <label htmlFor="ct-msg">What can we help with?</label>
                       <textarea id="ct-msg" name="message" rows={4} placeholder="Pricing, security questions, custom terms..." value={formData.message} onChange={handleChange} disabled={state === 'loading'} />
                     </div>
+                    {Object.values(fieldErrors).some(Boolean) && (
+                      <div role="alert" className="form-note" style={{ color: 'var(--flag)', marginBottom: '12px' }}>
+                        <strong>Please fix the following:</strong>
+                        <ul style={{ margin: '6px 0 0', paddingLeft: '1.2em' }}>
+                          {fieldErrors.name && <li>{fieldErrors.name}</li>}
+                          {fieldErrors.email && <li>{fieldErrors.email}</li>}
+                          {fieldErrors.company && <li>{fieldErrors.company}</li>}
+                        </ul>
+                      </div>
+                    )}
                     {state === 'error' && <p role="alert" className="form-note" style={{ color: 'var(--flag)' }}>Something went wrong. Email us at <a href="mailto:hello@trueyy.com" className="tx-green-link">hello@trueyy.com</a> instead.</p>}
                     <button type="submit" className="btn btn--primary btn--lg" style={{ width: '100%', justifyContent: 'center' }} disabled={state === 'loading'}>
                       {state === 'loading' ? 'Sending...' : <>Send message <span className="arw">&rarr;</span></>}
