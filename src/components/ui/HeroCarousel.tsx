@@ -13,11 +13,13 @@ const SLIDES = [
 
 export function HeroCarousel() {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
+    if (paused) return;
     const id = setInterval(() => setActive((p) => (p + 1) % SLIDES.length), 4500);
     return () => clearInterval(id);
-  }, []);
+  }, [paused]);
 
   return (
     <div className="hero-carousel reveal" data-d="2">
@@ -45,6 +47,15 @@ export function HeroCarousel() {
           />
         ))}
       </div>
+      <button
+        type="button"
+        className="marquee-pause-btn"
+        style={{ position: 'absolute', bottom: '16px', left: '16px', zIndex: 4 }}
+        onClick={() => setPaused(p => !p)}
+        aria-label={paused ? 'Resume slideshow' : 'Pause slideshow'}
+      >
+        {paused ? 'Resume' : 'Pause'}
+      </button>
     </div>
   );
 }

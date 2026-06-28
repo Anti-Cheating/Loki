@@ -12,18 +12,37 @@ const CHECK_ICON = (
 );
 
 type FormState = 'idle' | 'loading' | 'success' | 'error';
+type FieldErrors = { name?: string; email?: string; company?: string };
+
+function validate(data: { name: string; email: string; company: string }): FieldErrors {
+  const errors: FieldErrors = {};
+  if (!data.name.trim()) errors.name = 'Full name is required.';
+  if (!data.email.trim()) errors.email = 'Work email is required.';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.email = 'Enter a valid email address.';
+  if (!data.company.trim()) errors.company = 'Company name is required.';
+  return errors;
+}
 
 export default function ContactPage() {
   const [state, setState] = useState<FormState>('idle');
   const [formData, setFormData] = useState({ name: '', email: '', company: '', type: '', message: '' });
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (fieldErrors[name as keyof FieldErrors]) {
+      setFieldErrors(prev => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const errors = validate(formData);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
     setState('loading');
     try {
       const res = await fetch('/api/waitlist', {
@@ -62,8 +81,8 @@ export default function ContactPage() {
 
             <div className="form-card reveal" data-d="2">
               {state === 'success' ? (
-                <div style={{ textAlign: 'center', padding: '32px 0' }}>
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.8" style={{ margin: '0 auto 16px' }}>
+                <div role="status" style={{ textAlign: 'center', padding: '32px 0' }}>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.8" style={{ margin: '0 auto 16px' }} aria-hidden="true">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="M22 4L12 14.01l-3-3" />
                   </svg>
                   <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', marginBottom: '10px' }}>Message received</h2>
@@ -73,18 +92,42 @@ export default function ContactPage() {
                 <>
                   <h2 className="h3" style={{ fontSize: '1.3rem', marginBottom: '6px' }}>Send us a message</h2>
                   <p className="muted" style={{ fontSize: '0.92rem', marginBottom: '22px' }}>We will reply within one business day.</p>
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit} noValidate>
                     <div className="field">
                       <label htmlFor="ct-name">Full name</label>
-                      <input id="ct-name" type="text" name="name" required placeholder="Jordan Rivera" value={formData.name} onChange={handleChange} disabled={state === 'loading'} />
+                      <input
+                        id="ct-name" type="text" name="name" required
+                        placeholder="Jordan Rivera"
+                        autoComplete="name"
+                        aria-describedby={fieldErrors.name ? 'ct-name-err' : undefined}
+                        aria-invalid={!!fieldErrors.name}
+                        value={formData.name} onChange={handleChange} disabled={state === 'loading'}
+                      />
+                      {fieldErrors.name && <p id="ct-name-err" role="alert" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.name}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="ct-email">Work email</label>
-                      <input id="ct-email" type="email" name="email" required placeholder="jordan@company.com" value={formData.email} onChange={handleChange} disabled={state === 'loading'} />
+                      <input
+                        id="ct-email" type="email" name="email" required
+                        placeholder="jordan@company.com"
+                        autoComplete="email"
+                        aria-describedby={fieldErrors.email ? 'ct-email-err' : undefined}
+                        aria-invalid={!!fieldErrors.email}
+                        value={formData.email} onChange={handleChange} disabled={state === 'loading'}
+                      />
+                      {fieldErrors.email && <p id="ct-email-err" role="alert" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.email}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="ct-company">Company</label>
-                      <input id="ct-company" type="text" name="company" required placeholder="Company name" value={formData.company} onChange={handleChange} disabled={state === 'loading'} />
+                      <input
+                        id="ct-company" type="text" name="company" required
+                        placeholder="Company name"
+                        autoComplete="organization"
+                        aria-describedby={fieldErrors.company ? 'ct-company-err' : undefined}
+                        aria-invalid={!!fieldErrors.company}
+                        value={formData.company} onChange={handleChange} disabled={state === 'loading'}
+                      />
+                      {fieldErrors.company && <p id="ct-company-err" role="alert" className="form-note" style={{ color: 'var(--flag)', marginTop: '6px' }}>{fieldErrors.company}</p>}
                     </div>
                     <div className="field">
                       <label htmlFor="ct-type">Team type</label>
@@ -101,7 +144,7 @@ export default function ContactPage() {
                       <label htmlFor="ct-msg">What can we help with?</label>
                       <textarea id="ct-msg" name="message" rows={4} placeholder="Pricing, security questions, custom terms..." value={formData.message} onChange={handleChange} disabled={state === 'loading'} />
                     </div>
-                    {state === 'error' && <p className="form-note" style={{ color: 'var(--flag)' }}>Something went wrong. Email us at <a href="mailto:hello@trueyy.com" className="tx-green">hello@trueyy.com</a> instead.</p>}
+                    {state === 'error' && <p role="alert" className="form-note" style={{ color: 'var(--flag)' }}>Something went wrong. Email us at <a href="mailto:hello@trueyy.com" className="tx-green">hello@trueyy.com</a> instead.</p>}
                     <button type="submit" className="btn btn--primary btn--lg" style={{ width: '100%', justifyContent: 'center' }} disabled={state === 'loading'}>
                       {state === 'loading' ? 'Sending...' : <>Send message <span className="arw">&rarr;</span></>}
                     </button>

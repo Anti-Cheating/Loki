@@ -11,7 +11,7 @@ export function NewsletterForm() {
   }
 
   if (sent) {
-    return <p className="form-note" style={{ textAlign: 'center', color: 'var(--green)' }}>You are on the list. Talk soon.</p>;
+    return <p role="status" className="form-note" style={{ textAlign: 'center', color: 'var(--green)' }}>You are on the list. Talk soon.</p>;
   }
 
   return (
@@ -25,6 +25,7 @@ export function NewsletterForm() {
         required
         placeholder="you@company.com"
         aria-label="Email address"
+        autoComplete="email"
         value={email}
         onChange={e => setEmail(e.target.value)}
         style={{
