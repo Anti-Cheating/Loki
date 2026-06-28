@@ -144,7 +144,7 @@ export default function ContactPage() {
                       <label htmlFor="ct-msg">What can we help with?</label>
                       <textarea id="ct-msg" name="message" rows={4} placeholder="Pricing, security questions, custom terms..." value={formData.message} onChange={handleChange} disabled={state === 'loading'} />
                     </div>
-                    {state === 'error' && <p role="alert" className="form-note" style={{ color: 'var(--flag)' }}>Something went wrong. Email us at <a href="mailto:hello@trueyy.com" className="tx-green">hello@trueyy.com</a> instead.</p>}
+                    {state === 'error' && <p role="alert" className="form-note" style={{ color: 'var(--flag)' }}>Something went wrong. Email us at <a href="mailto:hello@trueyy.com" className="tx-green-link">hello@trueyy.com</a> instead.</p>}
                     <button type="submit" className="btn btn--primary btn--lg" style={{ width: '100%', justifyContent: 'center' }} disabled={state === 'loading'}>
                       {state === 'loading' ? 'Sending...' : <>Send message <span className="arw">&rarr;</span></>}
                     </button>
@@ -159,7 +159,7 @@ export default function ContactPage() {
           <div className="wrap center">
             <p className="muted" style={{ maxWidth: '54ch', margin: '0 auto' }}>
               Prefer email? Reach us at{' '}
-              <a className="tx-green" href="mailto:hello@trueyy.com">hello@trueyy.com</a>
+              <a className="tx-green-link" href="mailto:hello@trueyy.com">hello@trueyy.com</a>
               {' '}and we will get back to you within one business day.
             </p>
           </div>

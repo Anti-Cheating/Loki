@@ -58,7 +58,7 @@ export function Problem() {
             <p className="stat-lbl">dollar average cost of replacing a wrong technical hire once onboarding, lost productivity, and rehire expenses are totalled.</p>
           </div>
         </div>
-        <p className="stat-foot dim">Based on published remote hiring research and industry surveys, 2024-2025.</p>
+        <p className="stat-foot muted">Based on published remote hiring research and industry surveys, 2024-2025.</p>
       </div>
     </section>
   );

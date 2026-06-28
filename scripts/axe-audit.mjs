@@ -20,8 +20,8 @@ const CRITICAL_IMPACTS = ['critical', 'serious'];
 async function audit() {
   const browser = await chromium.launch();
   try {
-    const page = await browser.newPage();
-    await page.setViewportSize({ width: 1280, height: 800 });
+    const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    const page = await context.newPage();
 
     const report = [];
     let totalViolations = 0;

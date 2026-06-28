@@ -1,0 +1,47 @@
+[
+  {
+    "page": "/",
+    "url": "http://localhost:3001/",
+    "violations": []
+  },
+  {
+    "page": "/features",
+    "url": "http://localhost:3001/features",
+    "violations": []
+  },
+  {
+    "page": "/how-it-works",
+    "url": "http://localhost:3001/how-it-works",
+    "violations": []
+  },
+  {
+    "page": "/security",
+    "url": "http://localhost:3001/security",
+    "violations": []
+  },
+  {
+    "page": "/resources",
+    "url": "http://localhost:3001/resources",
+    "violations": []
+  },
+  {
+    "page": "/contact",
+    "url": "http://localhost:3001/contact",
+    "violations": []
+  },
+  {
+    "page": "/pricing",
+    "url": "http://localhost:3001/pricing",
+    "violations": []
+  },
+  {
+    "page": "/comparison",
+    "url": "http://localhost:3001/comparison",
+    "violations": []
+  },
+  {
+    "page": "/demo",
+    "url": "http://localhost:3001/demo",
+    "violations": []
+  }
+]
