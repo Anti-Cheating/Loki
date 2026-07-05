@@ -9,11 +9,11 @@ const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'T
 
 export const metadata: Metadata = {
   title: 'Security & Privacy | Trueyy Interview Integrity',
-  description: 'Trueyy is built consent-first. No video stored on our servers, end-to-end encryption, configurable retention, GDPR aligned, SOC 2 in progress.',
+  description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
   alternates: { canonical: 'https://trueyy.com/security' },
   openGraph: {
     title: 'Security & Privacy | Trueyy Interview Integrity',
-    description: 'Trueyy is built consent-first. No video stored on our servers, end-to-end encryption, configurable retention, GDPR aligned, SOC 2 in progress.',
+    description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
     url: 'https://trueyy.com/security',
     siteName: 'Trueyy',
     type: 'website',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Security & Privacy | Trueyy',
-    description: 'Consent-first interview monitoring. No video stored. GDPR aligned, SOC 2 in progress, end-to-end encrypted.',
+    description: 'Consent-first interview monitoring. Encrypted in transit and at rest, configurable retention, GDPR aligned, SOC 2 in progress.',
     images: ['/trueyy-logo-new.svg'],
   },
 };
@@ -34,7 +34,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Does Trueyy store candidate video recordings?',
-      acceptedAnswer: { '@type': 'Answer', text: 'No. Trueyy never stores video. Video stays inside Zoom, Google Meet, or Microsoft Teams — whichever platform the interview runs on. Trueyy only collects device-level signals, which are encrypted in transit and at rest.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'The live meeting video feed stays inside Zoom, Google Meet, or Microsoft Teams — Trueyy does not tap it. For integrity analysis Trueyy does capture device signals, periodic screen context (screenshots), and interview audio (transcribed for analysis). Everything captured is encrypted in transit and at rest and deleted on the retention window you set.' },
     },
     {
       '@type': 'Question',
@@ -44,7 +44,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'What data does Trueyy collect from candidates?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy collects device-level signals: app focus events, paste activity, gaze patterns via webcam, and keystroke timing. No video, no audio recordings, and no personal documents are collected or stored on Trueyy servers.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy captures device-level signals (app focus events, paste activity, keystroke timing), periodic screen context (screenshots), and interview audio, which is transcribed for analysis. The live meeting video feed is not tapped. All captured data is encrypted and deleted on the retention schedule you set.' },
     },
   ],
 };
@@ -136,8 +136,8 @@ export default function SecurityPage() {
                     <circle cx="12" cy="12" r="3" /><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
                   </svg>
                 </div>
-                <h3>No video on our servers</h3>
-                <p>Trueyy reads device signals. Video stays inside Zoom, Meet, or Teams. Nothing is recorded, stored, or analyzed on Trueyy infrastructure at any point.</p>
+                <h3>The meeting video stays in your call</h3>
+                <p>The live meeting video feed stays inside Zoom, Meet, or Teams &mdash; we don&apos;t tap it. Trueyy captures device signals, periodic screen context, and interview audio for integrity analysis; what we capture is encrypted and deleted on the retention window you set.</p>
               </div>
               <div className="card reveal" data-d="2">
                 <div className="card-ico">
@@ -181,11 +181,26 @@ export default function SecurityPage() {
                 <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Role-based access and full audit trails</span></div>
                 <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Configurable retention and one-click deletion</span></div>
                 <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Data processing agreement available on request</span></div>
-                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>No video recorded or stored on Trueyy servers</span></div>
+                <div className="checkrow"><span className="ck">{CHECK_ICON}</span><span>Meeting video stays in your call; captured signals expire on your schedule</span></div>
               </div>
               <BookDemoButton className="btn btn--primary" style={{ width: '100%', justifyContent: 'center', marginTop: '24px' }}>
                 Talk to us about compliance <span className="arw">&rarr;</span>
               </BookDemoButton>
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="wrap">
+            <span className="kicker reveal">Technical and organisational measures</span>
+            <h2 className="h2 reveal" data-d="1" style={{ margin: '14px 0 28px' }}>How we protect the data we handle</h2>
+            <div className="grid-3">
+              <div className="card reveal" data-d="1"><h3>Access control</h3><p>JWT authentication with refresh-token rotation, role-based access, and least-privilege API keys. Every data query is scoped to the owning company, so tenants never see each other&apos;s data.</p></div>
+              <div className="card reveal" data-d="2"><h3>Encryption</h3><p>TLS in transit and encryption at rest across the database and file storage. Network access is restricted to an explicit allowlist.</p></div>
+              <div className="card reveal" data-d="3"><h3>Consent enforcement</h3><p>Capture is hard-gated on candidate consent and stops automatically on revoke, session end, or a lapsed heartbeat &mdash; enforced in code, not just policy.</p></div>
+              <div className="card reveal" data-d="1"><h3>Accountability</h3><p>An immutable audit log records privileged and data actions, giving you and us a tamper-evident trail.</p></div>
+              <div className="card reveal" data-d="2"><h3>Your data rights</h3><p>Configurable retention with automated deletion, plus company-directed candidate erasure &mdash; permanently removing a person&apos;s captured data on request.</p></div>
+              <div className="card reveal" data-d="3"><h3>Sub-processors</h3><p>A small, vetted set of providers, each receiving only the data it needs. See the full <Link href="/sub-processors">sub-processor register</Link>.</p></div>
             </div>
           </div>
         </section>

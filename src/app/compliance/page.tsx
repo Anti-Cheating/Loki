@@ -4,7 +4,7 @@ import { LegalPage } from '@/components/layout/LegalPage';
 export const metadata: Metadata = {
   title: 'Compliance | Trueyy',
   description:
-    'How Trueyy supports GDPR, biometric-privacy laws, the EU AI Act, and fair-hiring obligations — consent-first, no video stored, device-signals only, human-in-the-loop.',
+    'How Trueyy supports GDPR, biometric-privacy laws, the EU AI Act, and fair-hiring obligations — consent-first, no biometric identification, encrypted with configurable retention, human-in-the-loop.',
   alternates: { canonical: 'https://trueyy.com/compliance' },
   robots: { index: true, follow: true },
 };
@@ -15,18 +15,20 @@ export default function CompliancePage() {
       <p>
         Trueyy is built so that monitoring a candidate for integrity stays on the
         right side of privacy and fair-hiring law. The core design choices —{' '}
-        <strong>consent-first, device-signals only, no video stored, short
-        configurable retention, and a human on every decision</strong> — are what
-        keep it defensible across jurisdictions.
+        <strong>consent-first, no biometric identification, encrypted storage
+        with short configurable retention, and a human on every decision</strong>
+        {' '}&mdash; are what keep it defensible across jurisdictions.
       </p>
 
       <h2>Data minimisation by design</h2>
       <p>
         We collect the least data needed to do the job: app/window focus, paste
-        timing, keystroke cadence, gaze patterns, and process scans. We do not
-        store interview video or audio. Reading non-biometric device signals
-        keeps the product out of the strictest biometric-identifier regimes and
-        embodies the GDPR&rsquo;s minimisation and privacy-by-design principles.
+        timing, keystroke cadence, and process scans, plus interview audio
+        (transcribed) and periodic screenshots. We don&rsquo;t record the live
+        meeting video, and we don&rsquo;t use biometric identification. Reading
+        integrity signals rather than identifying people biometrically keeps the
+        product out of the strictest biometric-identifier regimes and embodies
+        the GDPR&rsquo;s minimisation and privacy-by-design principles.
       </p>
 
       <h2>GDPR</h2>
