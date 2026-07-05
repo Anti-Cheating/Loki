@@ -4,7 +4,7 @@ import { LegalPage } from '@/components/layout/LegalPage';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Trueyy',
   description:
-    'How Trueyy collects, uses, and protects data. Consent-first interview monitoring — no video stored, device-level signals only, configurable retention, GDPR-aligned.',
+    'How Trueyy collects, uses, and protects data. Consent-first interview monitoring — the meeting video stays in your call, captured data is encrypted with configurable retention, GDPR-aligned.',
   alternates: { canonical: 'https://trueyy.com/privacy' },
   robots: { index: true, follow: true },
 };
@@ -17,7 +17,8 @@ export default function PrivacyPage() {
         &ldquo;us&rdquo;) collects, uses, shares, and protects information when
         you use our website and our interview-integrity product. We built Trueyy
         consent-first: candidates are told exactly what is observed before a
-        session begins, and we never store interview video.
+        session begins, and the live meeting video feed stays inside your
+        conferencing tool.
       </p>
 
       <h2>Who this applies to</h2>
@@ -36,9 +37,10 @@ export default function PrivacyPage() {
           and authentication details.
         </li>
         <li>
-          <strong>Interview integrity signals</strong> (candidates): device-level
-          signals during a monitored session — application/window focus events,
-          paste activity, keystroke timing, gaze patterns, and process scans.
+          <strong>Interview integrity signals</strong> (candidates): during a
+          monitored session — application/window focus events, paste activity,
+          keystroke timing, and process scans, plus periodic screen context
+          (screenshots) and interview audio, which is transcribed for analysis.
         </li>
         <li>
           <strong>Usage &amp; technical data</strong>: log data, device/browser
@@ -46,9 +48,11 @@ export default function PrivacyPage() {
         </li>
       </ul>
       <p>
-        <strong>We do not store interview video or audio recordings.</strong>{' '}
-        Video stays inside the meeting platform (Zoom, Google Meet, Microsoft
-        Teams). Trueyy only receives derived device signals.
+        <strong>The live meeting video feed stays inside your meeting platform</strong>{' '}
+        (Zoom, Google Meet, Microsoft Teams) &mdash; we don&rsquo;t record it. To
+        analyse integrity, Trueyy does capture interview audio (transcribed) and
+        periodic screenshots, which are encrypted and deleted on the retention
+        window you set.
       </p>
 
       <h2>How we use it</h2>
