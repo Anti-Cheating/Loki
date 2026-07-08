@@ -33,8 +33,8 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What are the six signal layers Trueyy monitors?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy monitors: (1) AI tool fingerprinting — detecting ChatGPT, Cluely, InterviewCoder and others by output signature; (2) app and window focus — logging every context switch with a timestamp; (3) paste velocity — catching answers that appear faster than any person can type; (4) reading-gaze analysis (on the roadmap) — a planned layer to read behaviour from webcam signals; (5) off-screen device signals — identifying secondary devices in the session; (6) answer structure analysis — flagging responses that are too polished or complete to be live.' },
+      name: 'What signal layers does Trueyy monitor?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy monitors five live signal layers, with a sixth on the roadmap: (1) AI tool fingerprinting — detecting ChatGPT, Cluely, InterviewCoder and others by output signature; (2) app and window focus — logging every context switch with a timestamp; (3) paste velocity — catching answers that appear faster than any person can type; (4) off-screen device signals — identifying secondary devices in the session; (5) answer structure analysis — flagging responses that are too polished or complete to be live; and (6) reading-gaze analysis (on the roadmap) — a planned layer to read behaviour from webcam signals.' },
     },
     {
       '@type': 'Question',
