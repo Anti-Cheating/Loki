@@ -32,8 +32,8 @@ export function Security() {
                 <path d="M8 10V7a4 4 0 0 1 8 0v3" />
               </svg>
             </div>
-            <h3>No video on our servers</h3>
-            <p>Trueyy reads device signals. Video stays inside Zoom, Meet, or Teams. Nothing is recorded, stored, or analyzed on Trueyy infrastructure.</p>
+            <h3>The meeting video stays in your call</h3>
+            <p>The live meeting video feed stays inside Zoom, Meet, or Teams &mdash; we don&apos;t tap it. Trueyy captures device signals, periodic screen context, and interview audio for integrity analysis; what we capture is encrypted and deleted on the retention window you set.</p>
           </div>
           <div className="card reveal" data-d="3">
             <div className="card-ico">

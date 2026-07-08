@@ -77,7 +77,6 @@ const jsonLd = {
         'Remote interview proctoring',
         'Live interview AI signals',
         'Paste velocity analysis',
-        'Gaze pattern tracking',
       ],
       sameAs: ['https://twitter.com/trueyy'],
     },

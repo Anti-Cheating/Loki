@@ -32,6 +32,7 @@ export function Footer() {
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/compliance">Compliance</Link>
+            <Link href="/sub-processors">Sub-processors</Link>
           </div>
         </div>
         <div className="foot-bot">
