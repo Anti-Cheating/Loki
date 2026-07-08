@@ -27,6 +27,10 @@ export const metadata: Metadata = {
 export default async function ResourcesPage() {
   const posts = await getAllArticles();
 
+  const FEATURED_SLUG = 'spot-ai-assisted-answers';
+  const featured = posts.find((p) => p.slug === FEATURED_SLUG);
+  const gridPosts = posts.filter((p) => p.slug !== FEATURED_SLUG);
+
   const articleListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -66,13 +70,13 @@ export default async function ResourcesPage() {
         <section className="section--tight">
           <div className="wrap">
             <article className="post-feature reveal">
-              <img className="post-thumb" src="/marketing/resource-featured.webp" alt="How to spot AI-assisted answers in a live interview" width={1672} height={941} loading="lazy" />
+              <img className="post-thumb" src={featured?.image} alt={featured?.title} width={1672} height={941} loading="lazy" />
               <div className="post-body">
                 <span className="post-cat">Guide</span>
-                <h3>How to spot AI-assisted answers in a live interview</h3>
-                <p className="muted">Candidates using Cluely, ChatGPT, or InterviewCoder leave a pattern, even when the answers sound great. Here is what to listen for, what to ask, and how to tell a thoughtful pause from a hidden prompt.</p>
-                <p className="post-meta">12 min read &middot; Updated this month</p>
-                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href="/resources/spot-ai-assisted-answers">
+                <h3>{featured?.title}</h3>
+                <p className="muted">{featured?.excerpt}</p>
+                <p className="post-meta">{featured?.readTime}</p>
+                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href={`/resources/${FEATURED_SLUG}`}>
                   Read the guide <span className="arw">&rarr;</span>
                 </Link>
               </div>
@@ -83,7 +87,7 @@ export default async function ResourcesPage() {
         <section className="section--tight">
           <div className="wrap">
             <div className="post-grid">
-              {posts.map((p, i) => (
+              {gridPosts.map((p, i) => (
                 <Link key={p.slug} className="post-card reveal" href={`/resources/${p.slug}`} data-d={String((i % 3) + 1)}>
                   <img className="post-thumb" src={p.image ?? `/marketing/resource-${i + 1}.webp`} alt={p.title} width={1672} height={941} loading="lazy" />
                   <div className="post-body">
