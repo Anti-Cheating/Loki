@@ -5,8 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { NewsletterForm } from '@/components/ui/NewsletterForm';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Resources' };
-
 export const metadata: Metadata = {
   title: 'Resources | Trueyy Interview Integrity',
   description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
@@ -17,13 +15,11 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/resources',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Resources | Trueyy',
     description: 'Guides on detecting AI cheating, GDPR compliance, and running a fair remote interview process.',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 
