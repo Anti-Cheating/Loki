@@ -59,9 +59,29 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const article = await getArticle(slug);
   if (!article) notFound();
   const fm = article.frontmatter;
+  const siteUrl = 'https://trueyy.com';
+  const isIso = (v?: string) => (v && /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : undefined);
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: fm.title,
+    description: fm.excerpt,
+    datePublished: fm.date,
+    dateModified: isIso(fm.updated) ?? fm.date,
+    author: { '@type': 'Organization', name: fm.author ?? 'Trueyy Team' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Trueyy',
+      url: siteUrl,
+      logo: { '@type': 'ImageObject', url: `${siteUrl}/trueyy-logo-new.svg` },
+    },
+    image: fm.image ? `${siteUrl}${fm.image}` : `${siteUrl}/trueyy-logo-new.svg`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/resources/${slug}` },
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <Navbar />
       <main id="main-content">
         <article className="article">
