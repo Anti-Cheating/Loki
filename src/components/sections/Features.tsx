@@ -61,8 +61,8 @@ export function Features() {
                 <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
               </svg>
             </div>
-            <h3>Reading gaze patterns</h3>
-            <p>Eyes scanning a fixed invisible line look different from eyes freely watching a speaker. Trueyy distinguishes the two without camera lock or face-tracking software.</p>
+            <h3>Reading gaze patterns <span style={{ marginLeft: 6, fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', color: 'var(--green-ink)', border: '1px solid var(--line)', borderRadius: 999, padding: '2px 8px', verticalAlign: 'middle' }}>Coming soon</span></h3>
+            <p>A planned layer: eyes scanning a fixed invisible line look different from eyes freely watching a speaker. Trueyy will distinguish the two without camera lock or face-tracking software. On the roadmap &mdash; not yet live.</p>
           </article>
 
           {/* Off-screen */}

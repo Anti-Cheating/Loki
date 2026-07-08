@@ -6,7 +6,6 @@ const SLIDES = [
   { src: '/marketing/product-1.webp', alt: 'AI tool fingerprinting flags a hidden assistant at 98% confidence.' },
   { src: '/marketing/product-2.webp', alt: 'App and window focus tracking shows attention leaving the interview.' },
   { src: '/marketing/product-3.webp', alt: 'Paste velocity catches a 240 WPM paste no human could type.' },
-  { src: '/marketing/product-4.webp', alt: 'Reading-gaze analysis flags off-screen reading at 71% likelihood.' },
   { src: '/marketing/product-5.webp', alt: 'Off-screen device signals point to a likely second device.' },
   { src: '/marketing/product-6.webp', alt: 'Answer-structure analysis separates human reasoning from generated text.' },
 ];

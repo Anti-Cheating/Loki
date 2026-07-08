@@ -33,7 +33,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'How does Trueyy detect AI tool use during a live interview?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy reads device-level signals from the candidate\'s browser session: which apps are in focus, what is being pasted and how fast, gaze patterns through the webcam, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy reads device-level signals from the candidate\'s browser session: which apps are in focus, what is being pasted and how fast, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score.' },
     },
     {
       '@type': 'Question',
@@ -63,7 +63,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'Can Trueyy accommodate candidates with disabilities?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Signals like slower typing speed or atypical gaze patterns can be calibrated at the session level. Sessions can be flagged for manual review with relevant context attached.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Signals like slower typing speed can be calibrated at the session level. Sessions can be flagged for manual review with relevant context attached.' },
     },
     {
       '@type': 'Question',

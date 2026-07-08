@@ -56,8 +56,8 @@ When a candidate tabs to another app mid-question, the timestamp lands in the fe
 ### Paste velocity
 A 200-word answer pasted in 0.3 seconds was not typed. Trueyy flags paste events that exceed any plausible human input rate and logs the exact text length and timing for review.
 
-### Reading gaze patterns
-Eyes scanning a fixed invisible line look different from eyes freely watching a speaker. Trueyy distinguishes the two without needing a camera lock or face-tracking software.
+### Reading gaze patterns (coming soon)
+Eyes scanning a fixed invisible line look different from eyes freely watching a speaker. A planned reading-gaze layer will distinguish the two without a camera lock or face-tracking software. On the roadmap — not yet live.
 
 ### Off-screen device signals
 Specific audio artifacts, ambient light shifts, and response timing gaps point to a phone below frame or a monitor just out of shot. These surface as low-confidence signals in the feed, not accusations.
@@ -108,8 +108,8 @@ There is a real difference between knowing what a candidate's device was doing a
 ### Consent before anything
 Candidates see exactly what Trueyy observes, in plain language, before the session opens. The list is specific. Nothing is buried in a privacy policy.
 
-### No video on our servers
-Trueyy reads device signals. Video stays inside Zoom, Meet, or Teams. Nothing is recorded, stored, or analyzed on Trueyy infrastructure.
+### The meeting video stays in your call
+The live meeting video feed stays inside Zoom, Meet, or Teams — we don't tap it. Trueyy captures device signals, periodic screen context, and interview audio for integrity analysis; what we capture is encrypted and deleted on the retention window you set.
 
 ### GDPR and SOC 2 ready
 Consent flows, audit logs, and data-subject request tooling are part of the product from day one. Not add-ons. Not planned for a future release.
@@ -128,7 +128,7 @@ Candidates who believe a flag was incorrect can request a formal review. The pro
 ## Frequently asked questions
 
 ### How does Trueyy detect AI tool use during a live interview?
-Trueyy reads device-level signals from the candidate's browser session: which apps are in focus, what is being pasted and how fast, gaze patterns through the webcam, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score, not a single noisy alert firing mid-conversation.
+Trueyy reads device-level signals from the candidate's browser session: which apps are in focus, what is being pasted and how fast, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score, not a single noisy alert firing mid-conversation.
 
 ### Which AI tools does Trueyy specifically detect?
 Trueyy has recognition patterns for ChatGPT, Claude, Gemini, GitHub Copilot, Cluely, and InterviewCoder. Detection is based on structural output signatures, not keyword lists, so prompt rewrites do not defeat it. We update detection patterns regularly as new tools enter the market.
@@ -146,10 +146,10 @@ No signal is treated as proof. The score is context. An interviewer who sees a f
 They will know exactly what is being observed, because they are told before the session opens. Most candidates are more comfortable with that than with a black-box proctoring tool that locks their browser and records their face without explanation. Transparency and surveillance are not the same thing.
 
 ### Can Trueyy accommodate candidates with disabilities?
-Yes. Signals like slower typing speed or atypical gaze patterns can be calibrated at the session level. If a candidate discloses a condition that may affect how specific signals read, the session can be flagged for manual review with the relevant context attached for the hiring team.
+Yes. Signals like slower typing speed can be calibrated at the session level. If a candidate discloses a condition that may affect how specific signals read, the session can be flagged for manual review with the relevant context attached for the hiring team.
 
 ### Is Trueyy compliant with privacy regulations?
-Yes. Consent flows, data-subject request handling, configurable retention windows, and audit logs are built into the product from the start. The architecture is designed to support GDPR and SOC 2 requirements, not patch around them later. No video is stored on Trueyy servers.
+Yes. Consent flows, data-subject request handling, configurable retention windows, and audit logs are built into the product from the start. The architecture is designed to support GDPR and SOC 2 requirements, not patch around them later. The live meeting video feed is never tapped; captured audio and screenshots are encrypted and deleted on the retention window you set.
 
 ### When can my team start?
 Trueyy is accepting early-access teams now. Book a 30-minute demo and we will run a mock session live, walk you through the dashboard, and share founding-cohort pricing that stays locked in as the product matures.

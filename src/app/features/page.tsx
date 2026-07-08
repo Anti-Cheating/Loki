@@ -9,11 +9,11 @@ const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'T
 
 export const metadata: Metadata = {
   title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
-  description: 'Six signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, gaze patterns, off-screen device signals, and answer structure analysis.',
+  description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
   alternates: { canonical: 'https://trueyy.com/features' },
   openGraph: {
     title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
-    description: 'Six signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, gaze patterns, off-screen device signals, and answer structure analysis.',
+    description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
     url: 'https://trueyy.com/features',
     siteName: 'Trueyy',
     type: 'website',
@@ -33,8 +33,8 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What are the six signal layers Trueyy monitors?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy monitors: (1) AI tool fingerprinting — detecting ChatGPT, Cluely, InterviewCoder and others by output signature; (2) app and window focus — logging every context switch with a timestamp; (3) paste velocity — catching answers that appear faster than any person can type; (4) gaze patterns — detecting reading behaviour from webcam signals; (5) off-screen device signals — identifying secondary devices in the session; (6) answer structure analysis — flagging responses that are too polished or complete to be live.' },
+      name: 'What signal layers does Trueyy monitor?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Trueyy monitors five live signal layers, with a sixth on the roadmap: (1) AI tool fingerprinting — detecting ChatGPT, Cluely, InterviewCoder and others by output signature; (2) app and window focus — logging every context switch with a timestamp; (3) paste velocity — catching answers that appear faster than any person can type; (4) off-screen device signals — identifying secondary devices in the session; (5) answer structure analysis — flagging responses that are too polished or complete to be live; and (6) reading-gaze analysis (on the roadmap) — a planned layer to read behaviour from webcam signals.' },
     },
     {
       '@type': 'Question',
@@ -72,10 +72,10 @@ const FEATURES = [
     flip: false,
   },
   {
-    kicker: 'Reading gaze patterns',
+    kicker: 'Reading gaze patterns · Coming soon',
     heading: 'Speaking freely versus reading from a script',
-    body: 'People who know their material talk in a different rhythm than people reading off a screen. Eyes tracking a fixed invisible line look different from eyes that move freely around a face. Trueyy models gaze direction and pacing to tell the difference between a candidate thinking out loud and one reciting lines from a second monitor. No camera lockdown required.',
-    checks: ['Reads gaze and pacing patterns without face tracking', 'Flags steady off-screen reading, not honest thinking pauses'],
+    body: 'People who know their material talk in a different rhythm than people reading off a screen. A planned reading-gaze layer will model gaze direction and pacing to tell the difference between a candidate thinking out loud and one reciting lines from a second monitor — no camera lockdown required. This capability is on our roadmap and not yet live.',
+    checks: ['Will read gaze and pacing without face tracking', 'Designed to flag steady off-screen reading, not honest pauses'],
     flip: true,
   },
   {

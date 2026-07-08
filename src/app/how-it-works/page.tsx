@@ -60,7 +60,7 @@ const STEPS = [
   {
     no: '03',
     heading: 'Trueyy reads the signals in real time',
-    body: 'As the interview happens, Trueyy watches device-level activity: app and window switching, clipboard paste velocity, AI assistant signatures from tools like Cluely and ChatGPT, and gaze patterns through the webcam. It does not raise an alarm over a single odd moment. It weighs the signals together and scores the moments that actually matter, every 30 seconds.',
+    body: 'As the interview happens, Trueyy watches device-level activity: app and window switching, clipboard paste velocity, and AI assistant signatures from tools like Cluely and ChatGPT. It does not raise an alarm over a single odd moment. It weighs the signals together and scores the moments that actually matter, every 30 seconds.',
   },
   {
     no: '04',

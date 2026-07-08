@@ -4,7 +4,7 @@ import { useState } from 'react';
 const ITEMS = [
   {
     q: 'How does Trueyy detect AI tool use during a live interview?',
-    a: 'Trueyy reads device-level signals from the candidate\'s browser session: which apps are in focus, what is being pasted and how fast, gaze patterns through the webcam, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score, not a single noisy alert firing mid-conversation.',
+    a: 'Trueyy reads device-level signals from the candidate\'s browser session: which apps are in focus, what is being pasted and how fast, and the structural signature of answers as they are typed or spoken. These signals are weighed against each other every 30 seconds. Your interviewer sees the result as a live integrity score, not a single noisy alert firing mid-conversation.',
   },
   {
     q: 'Which AI tools does Trueyy specifically detect?',
@@ -28,7 +28,7 @@ const ITEMS = [
   },
   {
     q: 'Can Trueyy accommodate candidates with disabilities?',
-    a: 'Yes. Signals like slower typing speed or atypical gaze patterns can be calibrated at the session level. If a candidate discloses a condition that may affect how specific signals read, the session can be flagged for manual review with the relevant context attached for the hiring team.',
+    a: 'Yes. Signals like slower typing speed can be calibrated at the session level. If a candidate discloses a condition that may affect how specific signals read, the session can be flagged for manual review with the relevant context attached for the hiring team.',
   },
   {
     q: 'Is Trueyy compliant with privacy regulations?',
