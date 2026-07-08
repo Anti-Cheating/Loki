@@ -47,5 +47,7 @@ export async function getAllArticles(): Promise<ArticleMeta[]> {
       };
     })
   );
-  return metas.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return metas.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime() || a.slug.localeCompare(b.slug)
+  );
 }
