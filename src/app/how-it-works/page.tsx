@@ -5,8 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'How Trueyy Works' };
-
 export const metadata: Metadata = {
   title: 'How Trueyy Works | Real-Time Interview Integrity Monitoring',
   description: 'Four steps to a clear, honest read on every live remote interview. Schedule, connect, monitor device-level signals, and review a plain-language timeline after every call.',
@@ -17,13 +15,11 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/how-it-works',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'How Trueyy Works | Trueyy',
     description: 'Four steps: schedule, connect, monitor, review. Real-time integrity scoring for every live remote interview.',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 

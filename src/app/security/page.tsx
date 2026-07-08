@@ -5,8 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Security & Privacy' };
-
 export const metadata: Metadata = {
   title: 'Security & Privacy | Trueyy Interview Integrity',
   description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
@@ -17,13 +15,11 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/security',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Security & Privacy | Trueyy',
     description: 'Consent-first interview monitoring. Encrypted in transit and at rest, configurable retention, GDPR aligned, SOC 2 in progress.',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 
