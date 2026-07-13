@@ -60,14 +60,20 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) notFound();
   const fm = article.frontmatter;
   const siteUrl = 'https://trueyy.com';
-  const isIso = (v?: string) => (v && /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : undefined);
+  // Schema.org datetimes should be full ISO 8601 with a timezone. Frontmatter
+  // stores date-only "YYYY-MM-DD" (and `updated` as "YYYY-MM"), so widen a
+  // valid date to UTC midnight; anything else yields undefined so the caller
+  // can fall back.
+  const toIsoDateTime = (v?: string) =>
+    v && /^\d{4}-\d{2}-\d{2}$/.test(v) ? `${v}T00:00:00+00:00` : undefined;
+  const publishedIso = toIsoDateTime(fm.date) ?? fm.date;
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: fm.title,
     description: fm.excerpt,
-    datePublished: fm.date,
-    dateModified: isIso(fm.updated) ?? fm.date,
+    datePublished: publishedIso,
+    dateModified: toIsoDateTime(fm.updated) ?? publishedIso,
     author: { '@type': 'Organization', name: fm.author ?? 'Trueyy Team' },
     publisher: {
       '@type': 'Organization',
