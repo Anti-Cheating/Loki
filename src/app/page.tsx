@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import PageContent from '@/components/PageContent';
 
 const siteUrl = 'https://trueyy.com';
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy — Interview Integrity Platform' };
 
 export const metadata: Metadata = {
   title: 'Trueyy | Detect AI Cheating in Live Remote Interviews',
@@ -15,14 +14,12 @@ export const metadata: Metadata = {
     siteName: 'Trueyy',
     type: 'website',
     locale: 'en_US',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Trueyy | AI Cheating Detection for Live Interviews',
     description: 'Detects Cluely, InterviewCoder, and 50+ AI tools during live Zoom, Meet, and Teams interviews. No candidate install.',
     creator: '@trueyy',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 

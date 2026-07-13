@@ -7,8 +7,6 @@ import { FAQAccordion } from '@/components/ui/FAQAccordion';
 import { PricingCards } from '@/components/ui/PricingCards';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Pricing' };
-
 export const metadata: Metadata = {
   title: 'Pricing | Trueyy Interview Integrity',
   description: 'Start free with 3 monitored interviews. Starter at ₹10,000/mo for 10 interviews. Growth at ₹1,50,000/mo for 300 interviews. 20% off on annual plans.',
@@ -19,13 +17,11 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/pricing',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Pricing | Trueyy',
     description: 'Start free with 3 interviews. Starter at ₹10,000/mo. Growth at ₹1,50,000/mo. Save 20% on annual billing.',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 

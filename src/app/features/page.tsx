@@ -5,8 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Detection Features' };
-
 export const metadata: Metadata = {
   title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
   description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
@@ -17,13 +15,11 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/features',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Detection Features | Trueyy',
     description: 'Six real-time signal layers that catch AI tool use, paste velocity, app switching, and scripted answers during live interviews.',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 
