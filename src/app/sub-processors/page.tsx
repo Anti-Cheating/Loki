@@ -5,8 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy Sub-processors' };
-
 const LAST_UPDATED = '5 July 2026';
 
 export const metadata: Metadata = {
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/sub-processors',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
 };
 

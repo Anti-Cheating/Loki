@@ -5,8 +5,6 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
-const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'Trueyy vs Traditional Proctoring' };
-
 export const metadata: Metadata = {
   title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
   description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests. See the full capability comparison.',
@@ -17,13 +15,11 @@ export const metadata: Metadata = {
     url: 'https://trueyy.com/comparison',
     siteName: 'Trueyy',
     type: 'website',
-    images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Trueyy vs Traditional Proctoring',
     description: 'Exam proctoring locks down a test. Trueyy reads a live interview. See why they solve completely different problems.',
-    images: ['/trueyy-logo-new.svg'],
   },
 };
 

@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = 'https://trueyy.com';
@@ -13,11 +15,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/security', priority: 0.7, freq: 'monthly' as const },
     { path: '/sub-processors', priority: 0.5, freq: 'monthly' as const },
     { path: '/demo', priority: 0.9, freq: 'monthly' as const },
+    { path: '/contact', priority: 0.5, freq: 'monthly' as const },
     { path: '/resources', priority: 0.7, freq: 'weekly' as const },
   ];
 
-  return pages.map(({ path, priority, freq }) => ({
-    url: `${siteUrl}${path}`,
+  const contentDir = path.join(process.cwd(), 'src/content/resources');
+  const articles = fs
+    .readdirSync(contentDir)
+    .filter((f) => f.endsWith('.mdx'))
+    .map((f) => ({
+      path: `/resources/${f.replace(/\.mdx$/, '')}`,
+      priority: 0.6,
+      freq: 'monthly' as const,
+    }));
+
+  return [...pages, ...articles].map(({ path: p, priority, freq }) => ({
+    url: `${siteUrl}${p}`,
     lastModified: now,
     changeFrequency: freq,
     priority,
