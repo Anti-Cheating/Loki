@@ -4,6 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
+import { HeroVideo } from '@/components/ui/HeroVideo';
 
 const ogImage = { url: '/trueyy-logo-new.svg', width: 1200, height: 630, alt: 'How Trueyy Works' };
 
@@ -78,16 +79,21 @@ export default function HowItWorksPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <Navbar />
       <main id="main-content">
-        <section className="page-hero">
+        <section className="page-hero page-hero--split">
           <div className="wrap">
-            <p className="crumb reveal"><Link href="/">Home</Link> / <span>How it works</span></p>
-            <span className="kicker reveal">How it works</span>
-            <h1 className="display reveal" data-d="1">
-              A clear read on every <span className="tx-gradient">live interview</span>
-            </h1>
-            <p className="lead reveal" data-d="2" style={{ marginTop: '22px' }}>
-              Trueyy was built to disappear into the way you already hire. It runs in the background of the call, reads the signals a human interviewer cannot track, and hands back something simple you can act on. Here is the whole flow, start to finish.
-            </p>
+            <div>
+              <p className="crumb reveal"><Link href="/">Home</Link> / <span>How it works</span></p>
+              <span className="kicker reveal">How it works</span>
+              <h1 className="display reveal" data-d="1">
+                A clear read on every <span className="tx-gradient">live interview</span>
+              </h1>
+              <p className="lead reveal" data-d="2" style={{ marginTop: '22px' }}>
+                Trueyy was built to disappear into the way you already hire. It runs in the background of the call, reads the signals a human interviewer cannot track, and hands back something simple you can act on. Here is the whole flow, start to finish.
+              </p>
+            </div>
+            <div className="reveal" data-d="2">
+              <HeroVideo youtubeId="dfS_zz8NrFY" title="The Trueyy Journey: Interview integrity monitoring walkthrough" />
+            </div>
           </div>
         </section>
 
