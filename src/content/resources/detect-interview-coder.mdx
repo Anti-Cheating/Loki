@@ -6,7 +6,8 @@ readTime: "8 min read"
 date: "2026-07-21"
 updated: "2026-07-21"
 author: "Trueyy Team"
-image: "/marketing/detect-interview-coder.webp"
+image: "/marketing/detect-interview-coder/hero.webp"
+imageAlt: "A dark code editor with a translucent green-edged glass overlay floating above it and a soft green scanning beam, suggesting a hidden AI assistant being detected."
 ---
 
 The candidate opens the LeetCode problem, pauses for a few seconds, then types out a clean, optimal solution. Right data structure on the first try. Sensible variable names. Every edge case handled. No brute-force attempt, no debugging, no "wait, let me rethink this." On paper it looks like a strong hire. In practice, a real engineer almost never solves a hard problem that cleanly on the first pass, and that unnatural tidiness is often the first sign an invisible assistant is in the room.
@@ -33,6 +34,8 @@ The data backs this up. When Fabric analyzed 19,368 live AI interviews between m
 
 The instinct is to ask the candidate to share their screen, or to run the interview inside a locked-down browser tab. Neither catches Interview Coder.
 
+![An isometric stack of three translucent screen layers with a glowing green top pane hidden above the screen-share capture, crossed by a diagonal detection beam.](/marketing/detect-interview-coder/layers.webp)
+
 Screen sharing captures the compositor's image of the candidate's windows. Interview Coder's overlay renders below that layer, straight to the display output, so [it never enters the feed Zoom, Meet, or Teams read](https://www.softwareseni.com/how-ai-tools-broke-technical-interviews-the-mechanics-and-scale-of-interview-cheating/). The candidate sees the solution floating over their editor; you see a clean screen. Browser lockdown fares no better, because the tool lives entirely outside the browser as a separate desktop process. The lockdown secures the tab; the cheating happens next to it.
 
 This is why watching the screen has quietly stopped being proof of anything. A clean-looking desktop is exactly what the tool is engineered to produce.
@@ -40,6 +43,8 @@ This is why watching the screen has quietly stopped being proof of anything. A c
 ## Detection signals specific to coding interviews
 
 You cannot reliably find the app. You can read what using it does to the code and the conversation. No single signal is proof — weigh them together, tied to the moment they happen.
+
+![Two stacked rhythm lines comparing an irregular, backtracking human typing pattern against a smooth, evenly pulsed line that represents pasted AI output.](/marketing/detect-interview-coder/keystrokes.webp)
 
 - **Paste velocity and keystroke rhythm.** Real coding is noisy: false starts, backspacing, a variable renamed halfway through, a pause to think mid-line. AI-sourced solutions tend to arrive as one clean block or in fast, even bursts with almost no correction. That low keystroke entropy is measurable — [keystroke-dynamics detection runs 75–86% accurate in controlled settings](https://spacecomplexity.ai/blog/ai-cheating-coding-interviews). A large paste appearing seconds after the problem loads is the loudest version of this tell.
 - **Solution shape.** The optimal algorithm on the first attempt, textbook naming, complete edge-case handling, and no incremental debugging. Most strong engineers reach for something workable first and refine it. A solution that arrives fully formed and pristine, with no visible path to it, is worth a second look.
