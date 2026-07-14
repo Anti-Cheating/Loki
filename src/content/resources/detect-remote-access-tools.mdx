@@ -6,7 +6,8 @@ readTime: "7 min read"
 date: "2026-08-18"
 updated: "2026-08-18"
 author: "Trueyy Team"
-image: "/marketing/detect-remote-access-tools.webp"
+image: "/marketing/detect-remote-access-tools/hero.webp"
+imageAlt: "A green-lit laptop with a faint ghosted second cursor gliding in from off-frame, illustrating an unseen remote hand controlling the machine during an interview."
 ---
 
 Watch a candidate's cursor for a minute. It hesitates, drifts, overshoots a button, corrects. That is a human hand. Now watch one that glides in a straight line to the exact field, pastes a clean block, and moves on without a single stray motion. That second cursor may not belong to the person on camera at all.
@@ -24,6 +25,8 @@ Remote-access help is a specific slice of that problem, and it is one of the har
 ### Remote-access tools
 
 This is the classic proxy setup. The candidate installs a remote desktop tool, TeamViewer, AnyDesk, Chrome Remote Desktop, or a low-latency option like Parsec, and hands control to a helper. The helper solves the coding problem or types the answer while the candidate sits back and narrates, or the candidate keeps their hands on the keyboard for show while someone else does the real work.
+
+![Three abstract green icons connected by hairline threads: overlapping windows for a remote-desktop handoff, a phone tucked below a laptop for a hidden second device, and a lens for a virtual camera feed.](/marketing/detect-remote-access-tools/vectors.webp)
 
 A sharper version uses a virtual machine. The candidate runs your assessment inside a VM window and keeps the host operating system free for searching, a second AI session, or a screen shared with an accomplice. Everything you see is inside the box; everything that helps them is outside it.
 
@@ -79,6 +82,8 @@ The reason to be careful is simple: false positives are real, and a wrongly accu
 ## Where real-time integrity monitoring fits
 
 A sharp interviewer can catch a lot of this. But watching a cursor for unnatural motion, timing every pause, and checking a face for desync while also running a good interview is more than one brain can hold, and memory is not evidence.
+
+![A glowing green horizontal timeline with soft node markers and one brighter flagged moment, over faint waveform and keystroke motifs, representing a human-reviewable integrity timeline.](/marketing/detect-remote-access-tools/timeline.webp)
 
 That is the gap [Trueyy](/features) is built for. It sits beside your existing Zoom, Meet, or Teams call and reads device-level signals on the candidate machine, with their consent, no browser lockdown and no heavy install. It scores risk roughly every 30 seconds across apps and screen activity, keystroke and paste patterns, and voice signals, and it recognizes 50-plus AI and assistance tools by the structure of what they produce rather than a keyword blocklist. No video is recorded or stored on Trueyy servers, and a human stays in the final call. The output is a reviewable timeline instead of a gut feeling, which is exactly what you want when a hiring decision is on the line.
 
