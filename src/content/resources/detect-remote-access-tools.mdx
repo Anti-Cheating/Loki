@@ -1,0 +1,109 @@
+---
+title: "How to detect screen-sharing and remote-access tools in interviews"
+category: "Detection Guide"
+excerpt: "How to detect remote access in interview settings: TeamViewer, AnyDesk, second devices, and virtual cameras, plus the signals and fair handling."
+readTime: "7 min read"
+date: "2026-08-18"
+updated: "2026-08-18"
+author: "Trueyy Team"
+image: "/marketing/detect-remote-access-tools.webp"
+---
+
+Watch a candidate's cursor for a minute. It hesitates, drifts, overshoots a button, corrects. That is a human hand. Now watch one that glides in a straight line to the exact field, pastes a clean block, and moves on without a single stray motion. That second cursor may not belong to the person on camera at all.
+
+The screen share you are looking at is real. It just is not the whole machine. Someone else can be driving it from another city, or the candidate can be reading answers off a phone six inches below the webcam, or the face you see can be a video feed piped in through a virtual camera. None of that shows up in "please share your screen." Here is how each method actually works, the signals it leaves, and how to handle a flag without treating an honest candidate like a suspect.
+
+## The clean screen share is only half the machine
+
+Screen sharing shows you what one window or one desktop is doing. It does not show you who is controlling it, what a second device is displaying, or whether the video is genuine. That blind spot is not theoretical. Cheating tooling is spreading fast: one detection vendor reports adoption of interview-cheating methods [more than doubling from 15% in June 2025 to 35% by December 2025](https://fabrichq.ai/blogs/how-candidates-use-ai-tools-like-cluely-to-cheat-in-live-interviews). And most teams know their process cannot keep up, with [59% of managers suspecting candidates misrepresent themselves with AI while only 19% feel confident their process would catch a fraudulent applicant](https://www.newsweek.com/most-managers-suspect-ai-fraud-in-hiring-survey-10477225).
+
+Remote-access help is a specific slice of that problem, and it is one of the harder ones to see, because the candidate's desktop can look completely ordinary the entire time.
+
+## Three ways outside help gets onto the call
+
+### Remote-access tools
+
+This is the classic proxy setup. The candidate installs a remote desktop tool, TeamViewer, AnyDesk, Chrome Remote Desktop, or a low-latency option like Parsec, and hands control to a helper. The helper solves the coding problem or types the answer while the candidate sits back and narrates, or the candidate keeps their hands on the keyboard for show while someone else does the real work.
+
+A sharper version uses a virtual machine. The candidate runs your assessment inside a VM window and keeps the host operating system free for searching, a second AI session, or a screen shared with an accomplice. Everything you see is inside the box; everything that helps them is outside it.
+
+### A second device just off camera
+
+The lowest-tech option, and still the most common. A phone in the lap, a tablet propped behind the laptop, a second monitor angled out of frame. The candidate reads a question, glances down or to the side, and relays what a helper or an AI feeds back. There is no software to detect on the interview machine because the help never touches it. This matters more than it sounds: in one survey, [11% of job seekers admitted to cheating during video interviews and 15% during phone interviews](https://www.wecreateproblems.com/blog/types-of-cheating-in-remote-interviews), and a second screen is the simplest way to do it.
+
+### Virtual cameras and pre-recorded feeds
+
+Video conferencing software treats a camera as a camera. Tools like OBS Virtual Camera or ManyCam create a virtual webcam that Zoom, Meet, and Teams accept as if it were physical hardware, and they often do not even appear as real devices in the operating system's device manager. That feed can be a looped recording, a stand-in, or a real-time face swap through software like DeepFaceLive.
+
+This is where remote-access cheating blurs into outright identity fraud. In a Greenhouse survey of 4,136 people, [65% of hiring managers had caught applicants using AI deceptively, and 18% had caught candidates showing up as deepfakes](https://www.greenhouse.com/newsroom/an-ai-trust-crisis-70-of-hiring-managers-trust-ai-to-make-faster-and-better-hiring-decisions-only-8-of-job-seekers-call-it-fair). Looking further out, [Gartner predicts that by 2028 one in four candidate profiles worldwide could be fake](https://www.hrdive.com/news/fake-job-candidates-ai/757126/). The virtual camera is the delivery mechanism for a lot of that.
+
+## What each one leaves behind
+
+No single sign is proof. Nervous people pause, non-native speakers phrase things carefully, and plenty of honest candidates have a messy desk. Read signals in combination, tied to the moment they happen.
+
+**Remote control (TeamViewer, AnyDesk, Parsec, Chrome Remote Desktop):**
+
+- Cursor motion that is too smooth or too direct, straight lines to the exact target with no human overshoot or micro-correction.
+- Sudden jumps in performance mid-task: a candidate who struggles to navigate their own editor then produces a flawless solution in one burst.
+- Typing that does not match the webcam. Hands still on the keys while text appears, or a visible lag between the person's movements and what lands on screen.
+- A candidate who narrates confidently but cannot explain the code they "just wrote" when you point at a specific line.
+
+**Second device:**
+
+- Eyes repeatedly tracking to the same fixed off-camera spot, then returning before they answer.
+- A consistent pause before responses, especially on personal or follow-up questions where there should be zero lag.
+- Faint clicking, typing, or a second voice during "thinking" silences.
+- Answers that arrive in a read cadence rather than a spoken one, tidy and complete, with no false starts.
+
+**Virtual camera or manipulated feed:**
+
+- Slight desync between lips and audio, or a face that stays unnaturally stiff.
+- Irregular blinking, edges that shimmer around the hairline or glasses, lighting on the face that does not match the room.
+- Resistance to simple liveness checks: turning the head fully sideways, holding a hand up next to the face, or standing up and moving.
+- A candidate who steers hard toward voice-only, or whose camera "breaks" the moment you ask for something interactive.
+
+If some of these tells sound familiar from AI-overlay tools, that is because the behavioral layer overlaps. Our guide on [how to detect Cluely in interviews](/resources/detect-cluely-interviews) covers the answer-latency and reading-gaze signals in more depth, and they apply here too.
+
+## How to handle a flag without accusing an honest candidate
+
+A flag is a reason to look closer, not a verdict. The goal is a fair read, and the fastest way to get one is to change the shape of the interview rather than confront the person.
+
+- **Ask for a quick environment check up front, once.** A brief pan of the room and a note that the session may use consent-based integrity monitoring sets a level playing field. Do it for everyone, not just the person you are suspicious of.
+- **Interrupt the script.** "Walk me through the hardest part of that" or "explain it a different way" forces a pivot. A remote helper or a script loses the thread; a real expert gets more specific.
+- **Drill into their own work.** Exact numbers, names, and dates on a project they listed. A proxy cannot fake a life they did not live.
+- **Use a live liveness check for camera doubts.** Ask them to turn their head or hold up a hand. Genuine candidates do it without friction.
+- **Keep a human in the final decision.** Line the signals up against the timeline of when they happened, and if something is still off, run a fresh live problem or a short follow-up conversation rather than deciding on one tell.
+
+The reason to be careful is simple: false positives are real, and a wrongly accused candidate is a real cost. A structured, consistent process protects honest people as much as it catches dishonest ones.
+
+## Where real-time integrity monitoring fits
+
+A sharp interviewer can catch a lot of this. But watching a cursor for unnatural motion, timing every pause, and checking a face for desync while also running a good interview is more than one brain can hold, and memory is not evidence.
+
+That is the gap [Trueyy](/features) is built for. It sits beside your existing Zoom, Meet, or Teams call and reads device-level signals on the candidate machine, with their consent, no browser lockdown and no heavy install. It scores risk roughly every 30 seconds across apps and screen activity, keystroke and paste patterns, and voice signals, and it recognizes 50-plus AI and assistance tools by the structure of what they produce rather than a keyword blocklist. No video is recorded or stored on Trueyy servers, and a human stays in the final call. The output is a reviewable timeline instead of a gut feeling, which is exactly what you want when a hiring decision is on the line.
+
+## Frequently asked questions
+
+### Can you detect TeamViewer or AnyDesk during an interview?
+
+Yes, in two ways. Assessment and monitoring tools can detect known remote-access processes running on the candidate's machine, and the behavior itself gives it away: unnaturally smooth cursor motion, sudden performance jumps, and typing that does not match what the webcam shows. Read the device signal and the behavior together rather than relying on either alone.
+
+### How do I know if a candidate is using a second device or phone?
+
+There is no software to detect because the help never touches the interview machine, so watch behavior. Look for eyes tracking to a fixed off-camera spot, a consistent pause before answers, faint clicking during silences, and responses that sound read rather than spoken. Follow-up questions that force them to expand on a prior answer expose the delay fastest.
+
+### Can Zoom or Google Meet detect a virtual camera?
+
+Not reliably. Tools like OBS Virtual Camera present themselves as a normal webcam, and meeting software generally accepts them without distinguishing virtual from physical hardware. Detection comes from liveness checks and visual tells, lip-sync desync, stiff faces, odd blinking, and resistance to turning the head or holding up a hand.
+
+### Is it legal to monitor a candidate's device during an interview?
+
+The safe standard is consent-first and transparent. Tell candidates your AI and integrity policy up front, get consent before any monitoring runs, capture only what your policy states, and avoid biometric identification. Trueyy is built this way: consent-based, no video stored on its servers, and a human in the final decision.
+
+### What is the difference between remote-access cheating and a deepfake?
+
+Remote-access cheating means someone else controls the real candidate's machine or feeds them answers, the person on camera is genuine but the work is not theirs. A deepfake replaces the person, piping a synthetic or stand-in face through a virtual camera. Both defeat a plain screen share, and both are best caught by combining device signals with live behavioral checks.
+
+---
+
+The clean screen share stopped being proof the moment a helper could drive the machine from anywhere and a virtual camera could stand in for a face. The fix is not more suspicion, it is better signals tied to the moment they happen. [Book a demo](/demo) to see how Trueyy turns remote-access and virtual-camera tells into a timeline you can trust.
