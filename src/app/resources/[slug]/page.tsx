@@ -19,6 +19,7 @@ type Frontmatter = {
   updated?: string;
   author?: string;
   image?: string;
+  imageAlt?: string;
 };
 
 async function getArticle(slug: string) {
@@ -99,9 +100,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <h1 className="article-title reveal" data-d="1">{fm.title}</h1>
             <p className="post-meta reveal" data-d="2">{fm.readTime} &middot; {fm.author}</p>
             {fm.image && (
-              <img className="article-hero reveal" data-d="2" src={fm.image} alt="" width={1672} height={941} />
+              <img className="article-hero reveal" data-d="2" src={fm.image} alt={fm.imageAlt || fm.title} width={1672} height={941} />
             )}
-            <div className="article-body reveal" data-d="2">{article.content}</div>
+            <div className="article-body">{article.content}</div>
             <hr className="hairline" style={{ margin: '44px 0 26px' }} />
             <Link className="btn btn--ghost" href="/resources">&larr; All resources</Link>
           </div>
