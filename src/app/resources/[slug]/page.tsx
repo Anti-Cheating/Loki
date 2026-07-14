@@ -95,7 +95,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             {fm.image && (
               <img className="article-hero reveal" data-d="2" src={fm.image} alt="" width={1672} height={941} />
             )}
-            <div className="article-body reveal" data-d="2">{article.content}</div>
+            <div className="article-body">{article.content}</div>
             <hr className="hairline" style={{ margin: '44px 0 26px' }} />
             <Link className="btn btn--ghost" href="/resources">&larr; All resources</Link>
           </div>
