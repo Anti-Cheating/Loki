@@ -707,7 +707,7 @@ img.post-thumb { object-fit: cover; width: 100%; height: 100%; }
     font-size: 12px;
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: var(--text-muted, rgba(255,255,255,.5));
+    color: var(--text-mut);
     margin-bottom: 12px;
   }
   .toc ul { list-style: none; margin: 0; padding: 0; }
@@ -718,14 +718,14 @@ img.post-thumb { object-fit: cover; width: 100%; height: 100%; }
     line-height: 1.4;
     padding: 4px 0 4px 12px;
     border-left: 2px solid transparent;
-    color: var(--text-secondary, rgba(255,255,255,.7));
+    color: var(--text-dim);
     text-decoration: none;
     transition: color .15s, border-color .15s;
   }
-  .toc a:hover { color: var(--text, #fff); }
+  .toc a:hover { color: var(--text); }
   .toc a.is-active {
-    color: var(--accent, #4CD964);
-    border-left-color: var(--accent, #4CD964);
+    color: var(--green-ink);
+    border-left-color: var(--green-ink);
     font-weight: 600;
   }
 }

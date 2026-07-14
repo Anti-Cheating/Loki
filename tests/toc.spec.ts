@@ -23,3 +23,11 @@ test('ignores H1 and H3', () => {
   const src = '# Title\n## Keep\n### Sub\n';
   expect(extractToc(src).map((i) => i.text)).toEqual(['Keep']);
 });
+
+test('an H2 followed by a same-text H3 keeps the base slug on the H2 (matches rehype-slug)', () => {
+  expect(extractToc('## Is X true?\n### Is X true?\n')).toEqual([{ id: 'is-x-true', text: 'Is X true?' }]);
+});
+
+test('a same-text heading before the H2 pushes the H2 to the -1 slug (matches rehype-slug)', () => {
+  expect(extractToc('# Repeat\n## Repeat\n').map((i) => i.id)).toEqual(['repeat-1']);
+});

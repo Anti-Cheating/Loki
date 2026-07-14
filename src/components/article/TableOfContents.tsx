@@ -14,7 +14,12 @@ export function TableOfContents({ items }: { items: TocItem[] }) {
     const io = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length) setActiveId(visible[0].target.id);
+        if (visible.length) {
+          const top = visible.reduce((a, b) =>
+            a.boundingClientRect.top <= b.boundingClientRect.top ? a : b
+          );
+          setActiveId(top.target.id);
+        }
       },
       { rootMargin: '0px 0px -70% 0px', threshold: 0 }
     );
