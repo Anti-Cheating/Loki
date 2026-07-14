@@ -23,11 +23,12 @@ export function extractToc(source: string): TocItem[] {
       continue;
     }
     if (inFence) continue;
-    // exactly H2: two hashes then whitespace (## foo). Excludes # and ###+.
-    const m = line.match(/^##\s+(.+?)\s*#*\s*$/);
+    const m = line.match(/^(#{1,6})\s+(.+?)\s*#*\s*$/);
     if (m) {
-      const text = m[1].trim();
-      items.push({ id: slugger.slug(text), text });
+      const level = m[1].length;
+      const text = m[2].trim();
+      const id = slugger.slug(text); // slug every heading in order to mirror rehype-slug
+      if (level === 2) items.push({ id, text });
     }
   }
   return items;

@@ -2,20 +2,22 @@ import { test, expect } from '@playwright/test';
 
 const ARTICLE = '/resources/monitoring-privacy-line';
 
-test('every TOC link points at a real heading id', async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 900 });
-  await page.goto(ARTICLE);
-  const hrefs = await page.locator('.toc a').evaluateAll((as) =>
-    as.map((a) => (a as HTMLAnchorElement).getAttribute('href')!)
-  );
-  expect(hrefs.length).toBeGreaterThan(0);
-  for (const href of hrefs) {
-    const id = href.replace(/^#/, '');
-    // Use an attribute selector rather than `#${id}` + CSS.escape: `CSS` is a
-    // browser global and isn't available in this Node.js test context.
-    await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
-  }
-});
+for (const article of ['/resources/monitoring-privacy-line', '/resources/detect-cluely-interviews']) {
+  test(`every TOC link points at a real heading id (${article})`, async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(article);
+    const hrefs = await page.locator('.toc a').evaluateAll((as) =>
+      as.map((a) => (a as HTMLAnchorElement).getAttribute('href')!)
+    );
+    expect(hrefs.length).toBeGreaterThan(0);
+    for (const href of hrefs) {
+      const id = href.replace(/^#/, '');
+      // Use an attribute selector rather than `#${id}` + CSS.escape: `CSS` is a
+      // browser global and isn't available in this Node.js test context.
+      await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
+    }
+  });
+}
 
 test('TOC is sticky and visible on desktop', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
