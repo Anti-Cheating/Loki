@@ -4,9 +4,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import rehypeSlug from 'rehype-slug';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { extractToc } from '@/lib/toc';
+import { TableOfContents } from '@/components/article/TableOfContents';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/resources');
 
@@ -32,9 +35,9 @@ async function getArticle(slug: string) {
   }
   const { content, frontmatter } = await compileMDX<Frontmatter>({
     source,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, mdxOptions: { rehypePlugins: [rehypeSlug] } },
   });
-  return { content, frontmatter };
+  return { content, frontmatter, source };
 }
 
 export async function generateStaticParams() {
@@ -60,6 +63,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const article = await getArticle(slug);
   if (!article) notFound();
   const fm = article.frontmatter;
+  const toc = extractToc(article.source);
   const siteUrl = 'https://trueyy.com';
   // Schema.org datetimes should be full ISO 8601 with a timezone. Frontmatter
   // stores date-only "YYYY-MM-DD" (and `updated` as "YYYY-MM"), so widen a
@@ -92,19 +96,22 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <Navbar />
       <main id="main-content">
         <article className="article">
-          <div className="wrap article-wrap">
-            <p className="crumb reveal">
-              <Link href="/">Home</Link> / <Link href="/resources">Resources</Link> / <span>{fm.category}</span>
-            </p>
-            <span className="post-cat reveal">{fm.category}</span>
-            <h1 className="article-title reveal" data-d="1">{fm.title}</h1>
-            <p className="post-meta reveal" data-d="2">{fm.readTime} &middot; {fm.author}</p>
-            {fm.image && (
-              <img className="article-hero reveal" data-d="2" src={fm.image} alt={fm.imageAlt || fm.title} width={1672} height={941} />
-            )}
-            <div className="article-body">{article.content}</div>
-            <hr className="hairline" style={{ margin: '44px 0 26px' }} />
-            <Link className="btn btn--ghost" href="/resources">&larr; All resources</Link>
+          <div className="wrap article-layout">
+            <TableOfContents items={toc} />
+            <div className="article-main">
+              <p className="crumb reveal">
+                <Link href="/">Home</Link> / <Link href="/resources">Resources</Link> / <span>{fm.category}</span>
+              </p>
+              <span className="post-cat reveal">{fm.category}</span>
+              <h1 className="article-title reveal" data-d="1">{fm.title}</h1>
+              <p className="post-meta reveal" data-d="2">{fm.readTime} &middot; {fm.author}</p>
+              {fm.image && (
+                <img className="article-hero reveal" data-d="2" src={fm.image} alt={fm.imageAlt || fm.title} width={1672} height={941} />
+              )}
+              <div className="article-body">{article.content}</div>
+              <hr className="hairline" style={{ margin: '44px 0 26px' }} />
+              <Link className="btn btn--ghost" href="/resources">&larr; All resources</Link>
+            </div>
           </div>
         </article>
       </main>
