@@ -6,7 +6,8 @@ readTime: "8 min read"
 date: "2026-08-04"
 updated: "2026-08-04"
 author: "Trueyy Team"
-image: "/marketing/detect-ai-coding-interviews.webp"
+image: "/marketing/detect-ai-coding-interviews/hero.webp"
+imageAlt: "A stylized dark code editor where a smooth AI-generated light ribbon and a jagged, correction-filled human-typed line meet at a glowing green seam."
 ---
 
 A candidate loads the problem, goes quiet for four seconds, then types out a clean, optimal solution. Right data structure on the first try, tidy names, every edge case covered, no brute-force detour and no debugging. On a scorecard it reads as a strong hire. In a live coding round it should read as a question, because most working engineers do not solve an unfamiliar problem that cleanly on the first pass. That unnatural tidiness is usually the first sign an AI assistant is in the room.
@@ -33,6 +34,8 @@ Screen sharing captures the composited image of the candidate's windows. Overlay
 
 No single signal is proof. You are weighing a pattern across the timeline, tied to the moment each thing happens. These are the tells worth watching in a technical round.
 
+![An interview timeline showing uneven human keystroke clusters beside an evenly-spaced AI paste burst, with three uniform-latency gaps and one flagged marker glowing green.](/marketing/detect-ai-coding-interviews/signals.webp)
+
 - **Impossible velocity and keystroke rhythm.** Real coding is noisy — false starts, backspacing, a variable renamed halfway through, a pause mid-line to think. AI-sourced code arrives as a clean block or in fast, even bursts with almost no correction. That low keystroke entropy is measurable; [keystroke-dynamics detection runs 75–86% accurate in controlled conditions](https://spacecomplexity.ai/blog/ai-cheating-coding-interviews). A large paste seconds after the problem loads is the loudest version of this.
 - **Idiomatic but inconsistent code.** The solution uses a polished idiom — a slick comprehension, a precise standard-library call — that does not match how the same person writes the rest of the session. Style that swings between expert and shaky, function to function, often means two authors: the candidate and a model.
 - **Narration gaps.** Ask the candidate to explain a specific line, or to walk through why they chose that structure. If they wrote it, they can. If a tool produced it, the explanation lags the code that already appeared on screen, gets vague, or describes something the code does not actually do.
@@ -50,6 +53,8 @@ First, honest candidates trip these tells too. A junior who over-prepared on Lee
 ## Design the round so cheating doesn't work
 
 The strongest defense is not tighter surveillance — it is a coding round a solution-fetching tool cannot answer for the candidate. Interview design does most of the work, and it is worth investing in, because catching it after the fact is unreliable: in Fabric's data, [61% of flagged cheaters scored above the pass threshold and would have advanced without detection](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews).
+
+![An abstract puzzle-like code block being reshaped mid-transformation as a green outline traces a new requirement emerging from the old shape.](/marketing/detect-ai-coding-interviews/design-round.webp)
 
 - **Make them build on their own code.** Once a solution lands, change the requirements live: "now handle duplicates," "refactor this to O(n) space," "what breaks if the input is streamed?" A tool that produced a canned answer struggles to iterate on it under questioning.
 - **Prefer problems the model hasn't memorized.** Use a snippet of your own codebase, or a messy, ambiguous scenario with no textbook answer. Public algorithm puzzles are the tools' home turf; a novel or domain-specific problem takes them off it.
