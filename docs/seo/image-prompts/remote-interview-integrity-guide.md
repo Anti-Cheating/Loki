@@ -7,7 +7,7 @@ Generate for Google Gemini / Imagen.
 
 ---
 
-## Hero image (landscape, 1672x941) → maps to `/marketing/remote-interview-integrity-guide.webp`
+## Hero image (landscape, 1672x941) → maps to `/marketing/remote-interview-integrity-guide/hero.webp`
 
 A wide, editorial-illustration hero on a deep near-black green background (#0B1A10). Center
 composition: a clean, minimal video-call frame — two simple abstract figures facing each
@@ -22,7 +22,7 @@ landscape, cinematic balance.
 
 ---
 
-## Inline image 1 — the deter / detect / decide framework (landscape)
+## Inline image 1 — the deter / detect / decide framework (landscape) → maps to `/marketing/remote-interview-integrity-guide/framework.webp`
 
 A minimal three-stage horizontal diagram illustration on a dark #0B1A10 background. Three
 abstract nodes connected by a single flowing green (#4CD964) line moving left to right: the
@@ -35,7 +35,7 @@ Landscape orientation, clean vector style with subtle depth and grain.
 
 ---
 
-## Inline image 2 — fairness / consent (optional, landscape or square)
+## Inline image 2 — fairness / consent (optional, landscape or square) → maps to `/marketing/remote-interview-integrity-guide/fairness.webp`
 
 A quiet, respectful illustration on a deep near-black green (#0B1A10) background: an abstract
 human figure in cool line work sitting calmly, with a soft translucent green (#4CD964) shield
