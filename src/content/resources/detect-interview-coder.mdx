@@ -1,0 +1,93 @@
+---
+title: "Interview Coder detection: a hiring team's guide"
+category: "Detection Guide"
+excerpt: "A calm, practical guide to interview coder detection: what the tool is, why screen share misses it, and the coding-round signals that give it away."
+readTime: "8 min read"
+date: "2026-07-21"
+updated: "2026-07-21"
+author: "Trueyy Team"
+image: "/marketing/detect-interview-coder.webp"
+---
+
+The candidate opens the LeetCode problem, pauses for a few seconds, then types out a clean, optimal solution. Right data structure on the first try. Sensible variable names. Every edge case handled. No brute-force attempt, no debugging, no "wait, let me rethink this." On paper it looks like a strong hire. In practice, a real engineer almost never solves a hard problem that cleanly on the first pass, and that unnatural tidiness is often the first sign an invisible assistant is in the room.
+
+That assistant is probably Interview Coder, or one of its many clones. If you run remote coding interviews, this is the tool most likely to be sitting silently on the other side of the call. Here is what it actually is, why the checks most teams rely on miss it, and a practical, non-paranoid way to catch it during a live coding round you already run.
+
+## What Interview Coder is
+
+Interview Coder is a native desktop app that bills itself as [the No. 1 undetectable AI for interviews](https://www.interviewcoder.co/). It watches the coding problem on the candidate's screen, feeds it to a language model tuned on LeetCode-style problems, and displays a full worked solution in a transparent overlay only the candidate can see. For spoken questions it captures interviewer audio, transcribes it, and does the same thing.
+
+It is not a browser extension and it does not join your meeting. It runs as a separate process with no dock or taskbar icon, a disguised name in Activity Monitor, and a click-through overlay so the cursor passes straight through it. The app grew out of the same lineage as Cluely: its creator, a Columbia student, [was expelled over the tool, then rebranded it and raised $5.3M](https://www.softwareseni.com/how-ai-tools-broke-technical-interviews-the-mechanics-and-scale-of-interview-cheating/). This is a funded, actively maintained product, not a weekend hack.
+
+## What it targets: LeetCode-style rounds
+
+Interview Coder is built for one thing above all: the algorithmic coding round. The two-sum, the binary tree traversal, the sliding-window problem on HackerRank, CoderPad, or Codility. Those rounds are almost perfectly suited to being cheated, and it is worth being honest about why.
+
+- **The problems are public.** Most live-coding questions are drawn from a finite, well-documented pool. A model tuned on that pool answers them instantly and correctly.
+- **There is one right shape.** An algorithmic problem usually has a known optimal solution. That makes it easy for a machine to produce and hard for a human to fake naturally.
+- **The format rewards speed and polish.** A round scored on "did they reach the optimal solution quickly" plays directly to the tool's strengths.
+
+The data backs this up. When Fabric analyzed 19,368 live AI interviews between mid-2025 and early 2026, [technical roles showed a 48% cheating rate versus 12% for sales](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews) — coding rounds get cheated roughly four times as often as conversational ones. In the same dataset, dedicated tools like Cluely and Interview Coder accounted for 45% of all cheating cases, the single largest category.
+
+## Why screen share and lockdown miss it
+
+The instinct is to ask the candidate to share their screen, or to run the interview inside a locked-down browser tab. Neither catches Interview Coder.
+
+Screen sharing captures the compositor's image of the candidate's windows. Interview Coder's overlay renders below that layer, straight to the display output, so [it never enters the feed Zoom, Meet, or Teams read](https://www.softwareseni.com/how-ai-tools-broke-technical-interviews-the-mechanics-and-scale-of-interview-cheating/). The candidate sees the solution floating over their editor; you see a clean screen. Browser lockdown fares no better, because the tool lives entirely outside the browser as a separate desktop process. The lockdown secures the tab; the cheating happens next to it.
+
+This is why watching the screen has quietly stopped being proof of anything. A clean-looking desktop is exactly what the tool is engineered to produce.
+
+## Detection signals specific to coding interviews
+
+You cannot reliably find the app. You can read what using it does to the code and the conversation. No single signal is proof — weigh them together, tied to the moment they happen.
+
+- **Paste velocity and keystroke rhythm.** Real coding is noisy: false starts, backspacing, a variable renamed halfway through, a pause to think mid-line. AI-sourced solutions tend to arrive as one clean block or in fast, even bursts with almost no correction. That low keystroke entropy is measurable — [keystroke-dynamics detection runs 75–86% accurate in controlled settings](https://spacecomplexity.ai/blog/ai-cheating-coding-interviews). A large paste appearing seconds after the problem loads is the loudest version of this tell.
+- **Solution shape.** The optimal algorithm on the first attempt, textbook naming, complete edge-case handling, and no incremental debugging. Most strong engineers reach for something workable first and refine it. A solution that arrives fully formed and pristine, with no visible path to it, is worth a second look.
+- **Tab and app focus.** The editor loses focus at odd moments, or the candidate's eyes track to a screen region that is blank in the share — that is where the overlay sits. A subtle, repeated glance to the same off-editor spot before each keystroke burst is a classic reading pattern.
+- **Narration gaps.** Ask the candidate to explain a specific line, or to change the approach mid-problem. If they authored the code, they can walk you through it. If a tool produced it, the reasoning gets vague, the explanation lags the code that already appeared, or a small requested modification stalls them completely.
+- **Uniform latency.** The tool's pipeline needs a near-constant [3-to-5-second delay after every question regardless of difficulty](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews). Human thinking does not work that way — easy questions get quick answers, hard ones get longer pauses. A metronomic delay before everything is mathematically odd.
+
+Two guardrails keep this fair. First, honest candidates trip these signals too. A nervous junior, a non-native English speaker, or someone using an autocomplete tool you explicitly allow can look clean-and-fast without cheating. Second, weigh the pattern over the timeline, never one isolated tell. Our companion piece on [detecting AI in coding interviews](/resources/detect-ai-coding-interviews) goes deeper on separating a genuinely sharp candidate from an assisted one.
+
+## Mitigation: redesign the round, not just the surveillance
+
+The strongest defense is not tighter monitoring. It is a coding round that a solution-fetching tool cannot answer for the candidate. Interview design does most of the work here.
+
+- **Ask them to build on their own code.** After a solution lands, change the requirements live: "now make it handle duplicates," "refactor this to be O(n) space." A tool that produced a canned answer struggles to iterate on it under questioning.
+- **Prefer problems the model has not memorized.** Take a piece of your own codebase, or a messy, ambiguous scenario with no single textbook answer. Public LeetCode problems are the tool's home turf; a novel problem takes it away.
+- **Score the reasoning, not just the result.** Weight the interview toward how the candidate thinks out loud, debugs, and responds to curveballs. Assisted candidates optimize for a correct final answer, which is exactly the part a machine can supply.
+- **Set the rule in writing.** State your AI policy before the interview and mention that the session uses consent-based integrity monitoring. Honest candidates want a level field; a clear rule also gives you firm ground if you do find a problem.
+
+This matters because catching it after the fact is hard. In Fabric's data, [61% of flagged cheaters scored above the pass threshold and would have advanced without detection](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews). A round designed to be cheat-resistant catches more than a suspicious reviewer ever will.
+
+## Where real-time integrity monitoring fits
+
+A sharp interviewer can read a lot of this live. But watching paste cadence, gaze, and latency while also running a good technical interview is a lot to hold in your head, and impressions are not evidence. The gap is well documented: an interviewing.io survey found [81% of FAANG interviewers suspect candidates use AI to cheat, yet only about a third have actually caught someone](https://interviewing.io/blog/how-is-ai-changing-interview-processes-not-much-and-a-whole-lot).
+
+This is where consent-first, real-time monitoring earns its place. [Trueyy](/features) sits beside your existing Zoom, Meet, or Teams call and reads device-level signals on the candidate machine, with their consent — no browser lockdown, no heavy install. It scores risk roughly every 30 seconds across apps and screen activity, keystroke and paste patterns, and voice signals, and it recognizes Interview Coder, Cluely, and 50-plus tools by the structure of what they produce rather than a keyword blocklist. No video is recorded or stored on Trueyy servers, and a human stays in the final decision. It turns scattered impressions into a timeline you can actually review.
+
+## Frequently asked questions
+
+### Can Interview Coder be detected?
+
+Not by looking for the app — it hides from screen shares, the dock, and Activity Monitor by design. It is detectable by behavior: the clean single-paste solution, the optimal-on-first-try code shape, the reading glances to a blank screen region, the inability to explain or modify the code, and a uniform answer delay. Detection reads those signals rather than hunting for the software.
+
+### Why doesn't screen sharing catch Interview Coder?
+
+Because its overlay renders below the layer screen-sharing software captures. Zoom, Meet, and Teams record the composited image of the candidate's windows; the solution is drawn to the display output beneath that, so the shared feed and any recording show a clean desktop while the overlay is live on the candidate's own monitor.
+
+### Does Interview Coder work on LeetCode and HackerRank?
+
+Yes. It is built specifically for algorithmic coding rounds and integrates with platforms like HackerRank, CoderPad, and Codility. Those rounds are its ideal target because the problems are largely public and have a known optimal solution, which is why technical interviews get cheated far more often than conversational ones.
+
+### How do I stop cheating in remote coding interviews without banning AI tools?
+
+Redesign the round more than you police it. Ask candidates to modify their own solution live, use novel or codebase-specific problems instead of public LeetCode questions, and score reasoning over the final answer. Pair that with a clear written AI policy and consent-based monitoring so honest candidates know the rules and you have evidence if something is off.
+
+### Is it fair to check for Interview Coder in an interview?
+
+It is, as long as you are transparent and consistent. Tell candidates your AI policy up front, use consent-based monitoring, weigh several signals rather than one, and keep a human in the final decision. Juniors and non-native speakers can trip these signals honestly, so guarding against false positives is part of doing it right.
+
+---
+
+The perfect LeetCode solution stopped being proof the moment tools like Interview Coder learned to hide from the screen. The fix is not more suspicion — it is a better-designed round plus signals tied to the moment they happen. [Book a demo](/demo) to see how Trueyy turns those signals into a timeline you can trust.
