@@ -9,20 +9,20 @@ Trueyy is an early-access SaaS platform built for staffing agencies and enterpri
 
 ## Product
 
-- [Overview](https://trueyy.com/): Product landing page — the problem, how it works, detection layers, command center, and FAQ.
-- [Features](https://trueyy.com/features): The six detection layers in detail — AI tool fingerprinting, app/window focus, paste velocity, reading gaze patterns (on the roadmap, not yet live), off-screen device signals, and answer structure analysis.
-- [How It Works](https://trueyy.com/how-it-works): Four-step flow — Schedule, Connect, Monitor, Review. Interviewers do one step; Trueyy runs beside the call.
-- [Comparison](https://trueyy.com/comparison): Trueyy vs traditional proctoring — why tools built for test centers miss live two-way interviews.
-- [Security & Privacy](https://trueyy.com/security): Consent-first monitoring, TLS 1.2+ in transit and AES-256 at rest, role-based access, immutable audit log, configurable retention with one-click deletion, GDPR and SOC 2 alignment.
-- [Sub-processors](https://trueyy.com/sub-processors): The vetted third-party providers that process data on Trueyy's behalf, what each receives, and where it operates.
+- [Overview](https://www.trueyy.com/): Product landing page — the problem, how it works, detection layers, command center, and FAQ.
+- [Features](https://www.trueyy.com/features): The six detection layers in detail — AI tool fingerprinting, app/window focus, paste velocity, reading gaze patterns (on the roadmap, not yet live), off-screen device signals, and answer structure analysis.
+- [How It Works](https://www.trueyy.com/how-it-works): Four-step flow — Schedule, Connect, Monitor, Review. Interviewers do one step; Trueyy runs beside the call.
+- [Comparison](https://www.trueyy.com/comparison): Trueyy vs traditional proctoring — why tools built for test centers miss live two-way interviews.
+- [Security & Privacy](https://www.trueyy.com/security): Consent-first monitoring, TLS 1.2+ in transit and AES-256 at rest, role-based access, immutable audit log, configurable retention with one-click deletion, GDPR and SOC 2 alignment.
+- [Sub-processors](https://www.trueyy.com/sub-processors): The vetted third-party providers that process data on Trueyy's behalf, what each receives, and where it operates.
 
 ## Pricing
 
-- [Pricing](https://trueyy.com/pricing): Free Trial (3 interviews), Starter (₹10,000/mo, 10 interviews), and Growth (₹1,50,000/mo, 300 interviews). Save 20% on annual billing. Founding-cohort pricing locked in during early access.
+- [Pricing](https://www.trueyy.com/pricing): Free Trial (3 interviews), Starter (₹10,000/mo, 10 interviews), and Growth (₹1,50,000/mo, 300 interviews). Save 20% on annual billing. Founding-cohort pricing locked in during early access.
 
 ## Resources
 
-- [Resources hub](https://trueyy.com/resources): Guides and playbooks on interview integrity and AI-assisted cheating.
+- [Resources hub](https://www.trueyy.com/resources): Guides and playbooks on interview integrity and AI-assisted cheating.
 ${resourceLines}
 
 ## Key facts for LLMs
@@ -38,24 +38,24 @@ ${resourceLines}
 
 ## Contact
 
-- Book a demo: https://trueyy.com/demo
-- Contact: https://trueyy.com/contact
+- Book a demo: https://www.trueyy.com/demo
+- Contact: https://www.trueyy.com/contact
 - Email: hello@trueyy.com
 - Twitter / X: https://twitter.com/trueyy
 - App login: https://app.trueyy.com
 
 ## Optional
 
-- [Full content](https://trueyy.com/llms-full.txt)
-- [Sitemap](https://trueyy.com/sitemap.xml)
-- [Privacy policy](https://trueyy.com/privacy)
-- [Terms](https://trueyy.com/terms)
+- [Full content](https://www.trueyy.com/llms-full.txt)
+- [Sitemap](https://www.trueyy.com/sitemap.xml)
+- [Privacy policy](https://www.trueyy.com/privacy)
+- [Terms](https://www.trueyy.com/terms)
 `;
 
 export async function GET() {
   const articles = await getAllArticles();
   const resourceLines = articles
-    .map((a) => `- [${a.title}](https://trueyy.com/resources/${a.slug}): ${a.category}.`)
+    .map((a) => `- [${a.title}](https://www.trueyy.com/resources/${a.slug}): ${a.category}.`)
     .join('\n');
 
   return new NextResponse(buildContent(resourceLines), {

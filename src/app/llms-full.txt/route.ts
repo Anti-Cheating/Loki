@@ -184,13 +184,13 @@ Start free. Scale as you hire. Founding-cohort pricing locked in during early ac
 - 24/7 chat support plus a shared account manager
 - Additional interviews at ₹500 each
 
-Start a free trial at https://app.trueyy.com. Need agency or enterprise volume terms? Contact us at https://trueyy.com/contact.
+Start a free trial at https://app.trueyy.com. Need agency or enterprise volume terms? Contact us at https://www.trueyy.com/contact.
 
 ---
 
 ## Resources
 
-Guides and playbooks for hiring teams on interview integrity and AI-assisted cheating. Browse all at https://trueyy.com/resources.
+Guides and playbooks for hiring teams on interview integrity and AI-assisted cheating. Browse all at https://www.trueyy.com/resources.
 
 ${resourceLines}
 
@@ -198,7 +198,7 @@ ${resourceLines}
 
 ## Sub-processors
 
-Trueyy uses a small, vetted set of sub-processors, each receiving only the data it needs. Full register at https://trueyy.com/sub-processors (last updated 5 July 2026).
+Trueyy uses a small, vetted set of sub-processors, each receiving only the data it needs. Full register at https://www.trueyy.com/sub-processors (last updated 5 July 2026).
 
 - Deepgram (United States) — interview audio — speech-to-text transcription
 - OpenAI (United States) — transcripts, app & window metadata, screenshots — AI analysis of interview activity and screen context
@@ -215,8 +215,8 @@ Primary storage is hosted in Asia; some analysis providers operate in the United
 
 ## Contact
 
-- Book a demo: https://trueyy.com/demo
-- Contact form: https://trueyy.com/contact
+- Book a demo: https://www.trueyy.com/demo
+- Contact form: https://www.trueyy.com/contact
 - Email: hello@trueyy.com
 - Twitter / X: https://twitter.com/trueyy
 - App login: https://app.trueyy.com
@@ -227,16 +227,16 @@ The Trueyy team replies within one business day.
 
 ## Pages
 
-- Home: https://trueyy.com/
-- Features: https://trueyy.com/features
-- How it works: https://trueyy.com/how-it-works
-- Comparison: https://trueyy.com/comparison
-- Pricing: https://trueyy.com/pricing
-- Security & privacy: https://trueyy.com/security
-- Sub-processors: https://trueyy.com/sub-processors
-- Resources: https://trueyy.com/resources
-- Book a demo: https://trueyy.com/demo
-- Contact: https://trueyy.com/contact
+- Home: https://www.trueyy.com/
+- Features: https://www.trueyy.com/features
+- How it works: https://www.trueyy.com/how-it-works
+- Comparison: https://www.trueyy.com/comparison
+- Pricing: https://www.trueyy.com/pricing
+- Security & privacy: https://www.trueyy.com/security
+- Sub-processors: https://www.trueyy.com/sub-processors
+- Resources: https://www.trueyy.com/resources
+- Book a demo: https://www.trueyy.com/demo
+- Contact: https://www.trueyy.com/contact
 
 ---
 
@@ -250,7 +250,7 @@ export async function GET() {
       (a) =>
         `- ${a.title} (${a.category}, ${a.readTime}, ${a.date}) — ${a.excerpt
           .replace(/\s+/g, ' ')
-          .trim()} https://trueyy.com/resources/${a.slug}`
+          .trim()} https://www.trueyy.com/resources/${a.slug}`
     )
     .join('\n');
 
