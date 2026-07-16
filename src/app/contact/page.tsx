@@ -3,6 +3,7 @@ import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 
 const CHECK_ICON = (
@@ -46,6 +47,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Contact', href: '/contact' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">

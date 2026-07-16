@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { NewsletterForm } from '@/components/ui/NewsletterForm';
 import { getAllArticles } from '@/lib/resources';
@@ -9,11 +10,11 @@ import { getAllArticles } from '@/lib/resources';
 export const metadata: Metadata = {
   title: 'Resources | Trueyy Interview Integrity',
   description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
-  alternates: { canonical: 'https://trueyy.com/resources' },
+  alternates: { canonical: 'https://www.trueyy.com/resources' },
   openGraph: {
     title: 'Resources | Trueyy Interview Integrity',
     description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
-    url: 'https://trueyy.com/resources',
+    url: 'https://www.trueyy.com/resources',
     siteName: 'Trueyy',
     type: 'website',
   },
@@ -44,7 +45,7 @@ export default async function ResourcesPage() {
         description: p.excerpt,
         datePublished: p.date,
         author: { '@type': 'Organization', name: p.author },
-        publisher: { '@type': 'Organization', name: 'Trueyy', url: 'https://trueyy.com' },
+        publisher: { '@type': 'Organization', name: 'Trueyy', url: 'https://www.trueyy.com' },
       },
     })),
   };
@@ -52,6 +53,7 @@ export default async function ResourcesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleListSchema) }} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Resources', href: '/resources' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
