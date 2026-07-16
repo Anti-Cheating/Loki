@@ -110,7 +110,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body suppressHydrationWarning>
-        <ClarityInit />
+        {/* Production-only, same as GA — no session recording from previews/dev.
+            Requires NEXT_PUBLIC_CLARITY_PROJECT_ID to be set in Vercel. */}
+        {process.env.VERCEL_ENV === 'production' && <ClarityInit />}
         {children}
       </body>
       {/* Only load GA on the production deployment — keeps Vercel preview
