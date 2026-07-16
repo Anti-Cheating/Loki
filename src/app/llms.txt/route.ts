@@ -41,7 +41,9 @@ ${resourceLines}
 - Book a demo: https://www.trueyy.com/demo
 - Contact: https://www.trueyy.com/contact
 - Email: hello@trueyy.com
-- Twitter / X: https://twitter.com/trueyy
+- X / Twitter: https://x.com/trueyyhq
+- LinkedIn: https://www.linkedin.com/company/trueyy
+- YouTube: https://www.youtube.com/@Trueyy-d4j
 - App login: https://app.trueyy.com
 
 ## Optional

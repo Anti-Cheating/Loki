@@ -76,7 +76,11 @@ const jsonLd = {
         'Live interview AI signals',
         'Paste velocity analysis',
       ],
-      sameAs: ['https://twitter.com/trueyy'],
+      sameAs: [
+        'https://x.com/trueyyhq',
+        'https://www.linkedin.com/company/trueyy',
+        'https://www.youtube.com/@Trueyy-d4j',
+      ],
     },
     {
       '@type': 'SoftwareApplication',
