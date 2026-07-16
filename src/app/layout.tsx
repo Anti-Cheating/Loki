@@ -113,7 +113,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ClarityInit />
         {children}
       </body>
-      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+      {/* Only load GA on the production deployment — keeps Vercel preview
+          builds (*.vercel.app) and local dev out of the analytics data. */}
+      {process.env.VERCEL_ENV === 'production' && process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
       )}
     </html>
