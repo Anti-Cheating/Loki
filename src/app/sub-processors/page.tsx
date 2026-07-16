@@ -11,11 +11,11 @@ const LAST_UPDATED = '5 July 2026';
 export const metadata: Metadata = {
   title: 'Sub-processors | Trueyy',
   description: 'The third-party services Trueyy uses to deliver interview integrity monitoring, the data each one handles, and where it is processed.',
-  alternates: { canonical: 'https://trueyy.com/sub-processors' },
+  alternates: { canonical: 'https://www.trueyy.com/sub-processors' },
   openGraph: {
     title: 'Sub-processors | Trueyy',
     description: 'The third-party services Trueyy uses, the data each handles, and where it is processed.',
-    url: 'https://trueyy.com/sub-processors',
+    url: 'https://www.trueyy.com/sub-processors',
     siteName: 'Trueyy',
     type: 'website',
   },

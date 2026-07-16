@@ -10,11 +10,11 @@ import { getAllArticles } from '@/lib/resources';
 export const metadata: Metadata = {
   title: 'Resources | Trueyy Interview Integrity',
   description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
-  alternates: { canonical: 'https://trueyy.com/resources' },
+  alternates: { canonical: 'https://www.trueyy.com/resources' },
   openGraph: {
     title: 'Resources | Trueyy Interview Integrity',
     description: 'Plain, useful reading on interview integrity and modern remote hiring. Guides on detecting AI-assisted answers, GDPR compliance, and running a fair process.',
-    url: 'https://trueyy.com/resources',
+    url: 'https://www.trueyy.com/resources',
     siteName: 'Trueyy',
     type: 'website',
   },
@@ -45,7 +45,7 @@ export default async function ResourcesPage() {
         description: p.excerpt,
         datePublished: p.date,
         author: { '@type': 'Organization', name: p.author },
-        publisher: { '@type': 'Organization', name: 'Trueyy', url: 'https://trueyy.com' },
+        publisher: { '@type': 'Organization', name: 'Trueyy', url: 'https://www.trueyy.com' },
       },
     })),
   };

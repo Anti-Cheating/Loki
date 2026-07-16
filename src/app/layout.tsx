@@ -3,7 +3,7 @@ import './globals.css';
 import { ClarityInit } from '@/components/Clarity';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const siteUrl = 'https://trueyy.com';
+const siteUrl = 'https://www.trueyy.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -61,10 +61,10 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://trueyy.com/#org',
+      '@id': 'https://www.trueyy.com/#org',
       name: 'Trueyy',
-      url: 'https://trueyy.com/',
-      logo: 'https://trueyy.com/trueyy-logo-new.svg',
+      url: 'https://www.trueyy.com/',
+      logo: 'https://www.trueyy.com/trueyy-logo-new.svg',
       foundingDate: '2024',
       description: 'Real-time AI cheating detection for live remote interviews. Detects Cluely, InterviewCoder, ChatGPT, and 50+ tools during live Zoom, Meet, and Teams conversations.',
       knowsAbout: [
@@ -85,7 +85,7 @@ const jsonLd = {
       operatingSystem: 'Web',
       description: 'Trueyy detects AI tool use, paste velocity, app switching, and answer structure anomalies during live remote interviews. Works inside Zoom, Google Meet, and Microsoft Teams without a candidate install.',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Early access — founding cohort pricing locked at signup' },
-      publisher: { '@id': 'https://trueyy.com/#org' },
+      publisher: { '@id': 'https://www.trueyy.com/#org' },
     },
   ],
 };

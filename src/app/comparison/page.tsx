@@ -9,11 +9,11 @@ import { BookDemoButton } from '@/components/ui/BookDemoButton';
 export const metadata: Metadata = {
   title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
   description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests. See the full capability comparison.',
-  alternates: { canonical: 'https://trueyy.com/comparison' },
+  alternates: { canonical: 'https://www.trueyy.com/comparison' },
   openGraph: {
     title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
     description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests.',
-    url: 'https://trueyy.com/comparison',
+    url: 'https://www.trueyy.com/comparison',
     siteName: 'Trueyy',
     type: 'website',
   },

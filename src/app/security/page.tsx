@@ -9,11 +9,11 @@ import { BookDemoButton } from '@/components/ui/BookDemoButton';
 export const metadata: Metadata = {
   title: 'Security & Privacy | Trueyy Interview Integrity',
   description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
-  alternates: { canonical: 'https://trueyy.com/security' },
+  alternates: { canonical: 'https://www.trueyy.com/security' },
   openGraph: {
     title: 'Security & Privacy | Trueyy Interview Integrity',
     description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
-    url: 'https://trueyy.com/security',
+    url: 'https://www.trueyy.com/security',
     siteName: 'Trueyy',
     type: 'website',
   },
