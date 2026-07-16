@@ -10,11 +10,11 @@ import { HeroVideo } from '@/components/ui/HeroVideo';
 export const metadata: Metadata = {
   title: 'How Trueyy Works | Real-Time Interview Integrity Monitoring',
   description: 'Four steps to a clear, honest read on every live remote interview. Schedule, connect, monitor device-level signals, and review a plain-language timeline after every call.',
-  alternates: { canonical: 'https://trueyy.com/how-it-works' },
+  alternates: { canonical: 'https://www.trueyy.com/how-it-works' },
   openGraph: {
     title: 'How Trueyy Works | Real-Time Interview Integrity Monitoring',
     description: 'Four steps to a clear, honest read on every live remote interview. Schedule, connect, monitor device-level signals, and review a plain-language timeline after every call.',
-    url: 'https://trueyy.com/how-it-works',
+    url: 'https://www.trueyy.com/how-it-works',
     siteName: 'Trueyy',
     type: 'website',
   },

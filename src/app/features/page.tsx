@@ -9,11 +9,11 @@ import { BookDemoButton } from '@/components/ui/BookDemoButton';
 export const metadata: Metadata = {
   title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
   description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
-  alternates: { canonical: 'https://trueyy.com/features' },
+  alternates: { canonical: 'https://www.trueyy.com/features' },
   openGraph: {
     title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
     description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
-    url: 'https://trueyy.com/features',
+    url: 'https://www.trueyy.com/features',
     siteName: 'Trueyy',
     type: 'website',
   },

@@ -11,11 +11,11 @@ import { BookDemoButton } from '@/components/ui/BookDemoButton';
 export const metadata: Metadata = {
   title: 'Pricing | Trueyy Interview Integrity',
   description: 'Start free with 3 monitored interviews. Starter at ₹10,000/mo for 10 interviews. Growth at ₹1,50,000/mo for 300 interviews. 20% off on annual plans.',
-  alternates: { canonical: 'https://trueyy.com/pricing' },
+  alternates: { canonical: 'https://www.trueyy.com/pricing' },
   openGraph: {
     title: 'Pricing | Trueyy Interview Integrity',
     description: 'Start free with 3 interviews. Starter at ₹10,000/mo. Growth at ₹1,50,000/mo. Save 20% on annual billing.',
-    url: 'https://trueyy.com/pricing',
+    url: 'https://www.trueyy.com/pricing',
     siteName: 'Trueyy',
     type: 'website',
   },

@@ -1,4 +1,4 @@
-const SITE_URL = 'https://trueyy.com';
+const SITE_URL = 'https://www.trueyy.com';
 
 export type Crumb = {
   /** Visible label — must match the on-page breadcrumb text. */
