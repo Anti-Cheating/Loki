@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
+import { getAllArticles } from '@/lib/resources';
 
-const content = `# Trueyy — Full site content
+const buildContent = (resourceLines: string) => `# Trueyy — Full site content
 
 > Real-time interview integrity monitoring for remote hiring teams.
 
@@ -156,11 +157,104 @@ Trueyy is accepting early-access teams now. Book a 30-minute demo and we will ru
 
 ---
 
+## Pricing
+
+Start free. Scale as you hire. Founding-cohort pricing locked in during early access. Save 20% on annual billing.
+
+### Trial (free)
+- 3 one-time monitored interviews
+- Up to 3 interviewer seats
+- 60 minutes per interview
+- The same full detection stack as the paid plans
+- No credit card required
+
+### Starter — ₹10,000/month (₹96,000/year, ~₹8,000/month)
+- 10 monitored interviews per month
+- Up to 10 interviewer seats
+- 100 minutes per interview
+- ATS integrations
+- 24/7 chat support
+- Additional interviews at ₹1,000 each (minimum 100)
+
+### Growth — ₹1,50,000/month (₹14,40,000/year, ~₹1,20,000/month)
+- 300 monitored interviews per month
+- Up to 100 interviewer seats
+- 100 minutes per interview
+- ATS integrations
+- 24/7 chat support plus a shared account manager
+- Additional interviews at ₹500 each
+
+Start a free trial at https://app.trueyy.com. Need agency or enterprise volume terms? Contact us at https://www.trueyy.com/contact.
+
+---
+
+## Resources
+
+Guides and playbooks for hiring teams on interview integrity and AI-assisted cheating. Browse all at https://www.trueyy.com/resources.
+
+${resourceLines}
+
+---
+
+## Sub-processors
+
+Trueyy uses a small, vetted set of sub-processors, each receiving only the data it needs. Full register at https://www.trueyy.com/sub-processors (last updated 5 July 2026).
+
+- Deepgram (United States) — interview audio — speech-to-text transcription
+- OpenAI (United States) — transcripts, app & window metadata, screenshots — AI analysis of interview activity and screen context
+- Cloudflare R2 (Asia) — screenshots, audio, avatars — encrypted object storage
+- Razorpay (India) — billing contact, payment metadata — payment processing
+- Resend (United States) — name, email — transactional email
+- Zoom (United States) — meeting & participant metadata — video meeting hosting
+- Google (United States) — account identity — sign-in (OAuth)
+- Cloud database & cache (Asia) — all service data at rest — primary data storage & queue
+
+Primary storage is hosted in Asia; some analysis providers operate in the United States. Transfers outside the EEA or UK are covered by Standard Contractual Clauses, with encryption in transit and at rest and least-privilege access. A full Data Processing Agreement is available to customers on request.
+
+---
+
+## Contact
+
+- Book a demo: https://www.trueyy.com/demo
+- Contact form: https://www.trueyy.com/contact
+- Email: hello@trueyy.com
+- Twitter / X: https://twitter.com/trueyy
+- App login: https://app.trueyy.com
+
+The Trueyy team replies within one business day.
+
+---
+
+## Pages
+
+- Home: https://www.trueyy.com/
+- Features: https://www.trueyy.com/features
+- How it works: https://www.trueyy.com/how-it-works
+- Comparison: https://www.trueyy.com/comparison
+- Pricing: https://www.trueyy.com/pricing
+- Security & privacy: https://www.trueyy.com/security
+- Sub-processors: https://www.trueyy.com/sub-processors
+- Resources: https://www.trueyy.com/resources
+- Book a demo: https://www.trueyy.com/demo
+- Contact: https://www.trueyy.com/contact
+
+---
+
 © ${new Date().getFullYear()} Trueyy. All rights reserved.
 `;
 
 export async function GET() {
-  return new NextResponse(content, {
+  const articles = await getAllArticles();
+  const resourceLines = articles
+    .map(
+      (a) =>
+        `- ${a.title} (${a.category}, ${a.readTime}, ${a.date}) — ${a.excerpt
+          .replace(/\s+/g, ' ')
+          .trim()} https://www.trueyy.com/resources/${a.slug}`
+    )
+    .join('\n');
+
+  return new NextResponse(buildContent(resourceLines), {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'public, max-age=86400',
