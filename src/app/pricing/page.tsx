@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { FAQAccordion } from '@/components/ui/FAQAccordion';
 import { PricingCards } from '@/components/ui/PricingCards';
@@ -58,6 +59,7 @@ export default function PricingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Pricing', href: '/pricing' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">

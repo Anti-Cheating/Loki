@@ -7,6 +7,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/resources');
 
@@ -89,6 +90,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Resources', href: '/resources' },
+          { name: fm.category, href: `/resources/${slug}` },
+        ]}
+      />
       <Navbar />
       <main id="main-content">
         <article className="article">
