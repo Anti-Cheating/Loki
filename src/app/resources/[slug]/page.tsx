@@ -7,6 +7,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/resources');
 
@@ -50,8 +51,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${fm.title} | Trueyy`,
     description: fm.excerpt,
-    alternates: { canonical: `https://trueyy.com/resources/${slug}` },
-    openGraph: { title: fm.title, description: fm.excerpt, type: 'article', url: `https://trueyy.com/resources/${slug}` },
+    alternates: { canonical: `https://www.trueyy.com/resources/${slug}` },
+    openGraph: { title: fm.title, description: fm.excerpt, type: 'article', url: `https://www.trueyy.com/resources/${slug}` },
   };
 }
 
@@ -60,7 +61,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const article = await getArticle(slug);
   if (!article) notFound();
   const fm = article.frontmatter;
-  const siteUrl = 'https://trueyy.com';
+  const siteUrl = 'https://www.trueyy.com';
   // Schema.org datetimes should be full ISO 8601 with a timezone. Frontmatter
   // stores date-only "YYYY-MM-DD" (and `updated` as "YYYY-MM"), so widen a
   // valid date to UTC midnight; anything else yields undefined so the caller
@@ -89,6 +90,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Resources', href: '/resources' },
+          { name: fm.category, href: `/resources/${slug}` },
+        ]}
+      />
       <Navbar />
       <main id="main-content">
         <article className="article">

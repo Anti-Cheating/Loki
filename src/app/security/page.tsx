@@ -2,17 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
 export const metadata: Metadata = {
   title: 'Security & Privacy | Trueyy Interview Integrity',
   description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
-  alternates: { canonical: 'https://trueyy.com/security' },
+  alternates: { canonical: 'https://www.trueyy.com/security' },
   openGraph: {
     title: 'Security & Privacy | Trueyy Interview Integrity',
     description: 'Trueyy is built consent-first: candidates always know what is monitored, data is encrypted in transit and at rest, retention is configurable, and deletion is one click. GDPR aligned, SOC 2 in progress.',
-    url: 'https://trueyy.com/security',
+    url: 'https://www.trueyy.com/security',
     siteName: 'Trueyy',
     type: 'website',
   },
@@ -55,6 +56,7 @@ export default function SecurityPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Security', href: '/security' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">
