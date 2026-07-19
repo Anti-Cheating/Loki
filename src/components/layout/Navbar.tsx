@@ -83,11 +83,26 @@ export function Navbar() {
                 {label}
               </Link>
             ))}
+            <a
+              className="btn btn--ghost nav-cta-mobile"
+              href="https://app.trueyy.com"
+              rel="noopener"
+              onClick={() => setNavOpen(false)}
+            >
+              Log in
+            </a>
             <BookDemoButton className="btn btn--primary nav-cta-mobile">
               Book a demo
             </BookDemoButton>
           </nav>
           <div className="nav-right">
+            <a
+              className="btn btn--ghost nav-login-btn nav-cta-desktop"
+              href="https://app.trueyy.com"
+              rel="noopener"
+            >
+              Log in
+            </a>
             <BookDemoButton className="btn btn--primary nav-cta-desktop">
               Book a demo <span className="arw">&rarr;</span>
             </BookDemoButton>
