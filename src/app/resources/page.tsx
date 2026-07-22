@@ -28,9 +28,11 @@ export const metadata: Metadata = {
 export default async function ResourcesPage() {
   const posts = await getAllArticles();
 
-  const FEATURED_SLUG = 'detect-cluely-interviews';
-  const featured = posts.find((p) => p.slug === FEATURED_SLUG);
-  const gridPosts = posts.filter((p) => p.slug !== FEATURED_SLUG);
+  // Always feature the latest published article. getAllArticles() returns
+  // posts sorted newest-first (by date), so posts[0] is the most recent —
+  // each new blog we publish auto-promotes to the highlight.
+  const featured = posts[0];
+  const gridPosts = posts.slice(1);
 
   const articleListSchema = {
     '@context': 'https://schema.org',
