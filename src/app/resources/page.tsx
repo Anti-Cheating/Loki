@@ -28,9 +28,11 @@ export const metadata: Metadata = {
 export default async function ResourcesPage() {
   const posts = await getAllArticles();
 
-  const FEATURED_SLUG = 'spot-ai-assisted-answers';
-  const featured = posts.find((p) => p.slug === FEATURED_SLUG);
-  const gridPosts = posts.filter((p) => p.slug !== FEATURED_SLUG);
+  // Always feature the latest published article. getAllArticles() returns
+  // posts sorted newest-first (by date), so posts[0] is the most recent —
+  // each new blog we publish auto-promotes to the highlight.
+  const featured = posts[0];
+  const gridPosts = posts.slice(1);
 
   const articleListSchema = {
     '@context': 'https://schema.org',
@@ -74,12 +76,12 @@ export default async function ResourcesPage() {
             <article className="post-feature reveal">
               <img className="post-thumb" src={featured?.image} alt={featured?.title} width={1672} height={941} loading="lazy" />
               <div className="post-body">
-                <span className="post-cat">Guide</span>
+                <span className="post-cat">{featured?.category}</span>
                 <h3>{featured?.title}</h3>
                 <p className="muted">{featured?.excerpt}</p>
                 <p className="post-meta">{featured?.readTime}</p>
-                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href={`/resources/${FEATURED_SLUG}`}>
-                  Read the guide <span className="arw">&rarr;</span>
+                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href={`/resources/${featured?.slug}`}>
+                  Read the article <span className="arw">&rarr;</span>
                 </Link>
               </div>
             </article>
