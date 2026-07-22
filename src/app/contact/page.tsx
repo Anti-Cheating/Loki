@@ -3,7 +3,9 @@ import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
+import { sendGAEvent } from '@next/third-parties/google';
 
 const CHECK_ICON = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
@@ -39,6 +41,13 @@ export default function ContactPage() {
       });
       if (!res.ok) throw new Error();
       setState('success');
+      // Conversion: contact / "book a demo" (the /demo page redirects here).
+      // Fires the GA4 generate_lead key event. No-op unless GA is loaded
+      // (production only), so dev/preview submits don't count.
+      sendGAEvent('event', 'generate_lead', {
+        form: 'contact',
+        team_type: formData.type || 'unspecified',
+      });
     } catch {
       setState('error');
     }
@@ -46,6 +55,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Contact', href: '/contact' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">

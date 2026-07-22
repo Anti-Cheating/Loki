@@ -6,3 +6,7 @@ out/
 next-env.d.ts
 .gstack/
 package-lock.json
+
+# Private planning/strategy — keep in the Obsidian vault, never here
+docs/seo/
+**/*.private.md

@@ -2,17 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
 export const metadata: Metadata = {
   title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
   description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests. See the full capability comparison.',
-  alternates: { canonical: 'https://trueyy.com/comparison' },
+  alternates: { canonical: 'https://www.trueyy.com/comparison' },
   openGraph: {
     title: 'Trueyy vs Traditional Proctoring | Interview Integrity Comparison',
     description: 'Exam proctoring tools guard the wrong door. Trueyy was built for live two-way interviews, not locked-down tests.',
-    url: 'https://trueyy.com/comparison',
+    url: 'https://www.trueyy.com/comparison',
     siteName: 'Trueyy',
     type: 'website',
   },
@@ -59,6 +60,7 @@ export default function ComparisonPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Compare', href: '/comparison' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">

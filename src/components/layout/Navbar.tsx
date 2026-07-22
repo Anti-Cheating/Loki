@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookDemoButton } from "@/components/ui/BookDemoButton";
 
 const NAV_LINKS = [
   { href: "/features", label: "Product" },
@@ -83,14 +82,23 @@ export function Navbar() {
                 {label}
               </Link>
             ))}
-            <BookDemoButton className="btn btn--primary nav-cta-mobile">
-              Book a demo
-            </BookDemoButton>
+            <a
+              className="btn btn--primary nav-cta-mobile"
+              href="https://app.trueyy.com/signup"
+              rel="noopener"
+              onClick={() => setNavOpen(false)}
+            >
+              Start free trial
+            </a>
           </nav>
           <div className="nav-right">
-            <BookDemoButton className="btn btn--primary nav-cta-desktop">
-              Book a demo <span className="arw">&rarr;</span>
-            </BookDemoButton>
+            <a
+              className="btn btn--primary nav-cta-desktop"
+              href="https://app.trueyy.com/signup"
+              rel="noopener"
+            >
+              Start free trial <span className="arw">&rarr;</span>
+            </a>
             <button
               className="nav-toggle"
               aria-label="Toggle menu"

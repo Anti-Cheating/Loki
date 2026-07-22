@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = 'https://trueyy.com';
+  const siteUrl = 'https://www.trueyy.com';
   const now = new Date();
 
   const pages = [

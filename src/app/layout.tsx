@@ -3,7 +3,7 @@ import './globals.css';
 import { ClarityInit } from '@/components/Clarity';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const siteUrl = 'https://trueyy.com';
+const siteUrl = 'https://www.trueyy.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -61,10 +61,10 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://trueyy.com/#org',
+      '@id': 'https://www.trueyy.com/#org',
       name: 'Trueyy',
-      url: 'https://trueyy.com/',
-      logo: 'https://trueyy.com/trueyy-logo-new.svg',
+      url: 'https://www.trueyy.com/',
+      logo: 'https://www.trueyy.com/trueyy-logo-new.svg',
       foundingDate: '2024',
       description: 'Real-time AI cheating detection for live remote interviews. Detects Cluely, InterviewCoder, ChatGPT, and 50+ tools during live Zoom, Meet, and Teams conversations.',
       knowsAbout: [
@@ -76,7 +76,11 @@ const jsonLd = {
         'Live interview AI signals',
         'Paste velocity analysis',
       ],
-      sameAs: ['https://twitter.com/trueyy'],
+      sameAs: [
+        'https://x.com/trueyyhq',
+        'https://www.linkedin.com/company/trueyy',
+        'https://www.youtube.com/@Trueyy-d4j',
+      ],
     },
     {
       '@type': 'SoftwareApplication',
@@ -85,7 +89,7 @@ const jsonLd = {
       operatingSystem: 'Web',
       description: 'Trueyy detects AI tool use, paste velocity, app switching, and answer structure anomalies during live remote interviews. Works inside Zoom, Google Meet, and Microsoft Teams without a candidate install.',
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Early access — founding cohort pricing locked at signup' },
-      publisher: { '@id': 'https://trueyy.com/#org' },
+      publisher: { '@id': 'https://www.trueyy.com/#org' },
     },
   ],
 };
@@ -106,10 +110,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body suppressHydrationWarning>
-        <ClarityInit />
+        {/* Production-only, same as GA — no session recording from previews/dev.
+            Requires NEXT_PUBLIC_CLARITY_PROJECT_ID to be set in Vercel. */}
+        {process.env.VERCEL_ENV === 'production' && <ClarityInit />}
         {children}
       </body>
-      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+      {/* Only load GA on the production deployment — keeps Vercel preview
+          builds (*.vercel.app) and local dev out of the analytics data. */}
+      {process.env.VERCEL_ENV === 'production' && process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
       )}
     </html>
