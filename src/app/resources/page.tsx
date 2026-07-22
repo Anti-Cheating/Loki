@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default async function ResourcesPage() {
   const posts = await getAllArticles();
 
-  const FEATURED_SLUG = 'spot-ai-assisted-answers';
+  const FEATURED_SLUG = 'detect-cluely-interviews';
   const featured = posts.find((p) => p.slug === FEATURED_SLUG);
   const gridPosts = posts.filter((p) => p.slug !== FEATURED_SLUG);
 
