@@ -8,6 +8,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { ShareButtons } from '@/components/ui/ShareButtons';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/resources');
 const SITE = 'https://www.trueyy.com';
@@ -60,7 +61,51 @@ async function getArticle(slug: string) {
     source,
     options: { parseFrontmatter: true },
   });
-  return { content, frontmatter };
+  return { content, frontmatter, source };
+}
+
+// Pull Q&A pairs out of an article's "## FAQ" / "## Frequently asked questions"
+// section so we can emit FAQPage structured data. Each "### question" is followed
+// by its answer up to the next "### " (or the end of the section).
+function extractFaqs(source: string): { question: string; answer: string }[] {
+  const body = source.replace(/^---[\s\S]*?\n---\s*/, '');
+  const faqs: { question: string; answer: string }[] = [];
+  let inFaq = false;
+  let question: string | null = null;
+  let answerLines: string[] = [];
+
+  const flush = () => {
+    if (question) {
+      const answer = answerLines
+        .join(' ')
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // markdown links -> text
+        .replace(/[*_`#>]/g, '')                 // strip common markdown
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (answer) faqs.push({ question, answer });
+    }
+    question = null;
+    answerLines = [];
+  };
+
+  for (const line of body.split('\n')) {
+    const h2 = /^##\s+(.+)/.exec(line);       // H2 only (### won't match: 3rd char is '#')
+    if (h2) {
+      if (inFaq) flush();
+      inFaq = /^(?:frequently asked questions|faqs?)\b/i.test(h2[1].trim());
+      continue;
+    }
+    if (!inFaq) continue;
+    const h3 = /^###\s+(.+)/.exec(line);
+    if (h3) {
+      flush();
+      question = h3[1].trim();
+      continue;
+    }
+    if (question) answerLines.push(line);
+  }
+  flush();
+  return faqs;
 }
 
 export async function generateStaticParams() {
@@ -156,9 +201,26 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     url,
   };
 
+  // FAQPage schema, auto-built from the article's FAQ section (if it has one).
+  const faqs = extractFaqs(article.source);
+  const faqSchema = faqs.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', href: '/' },
@@ -176,6 +238,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <span className="post-cat reveal">{fm.category}</span>
             <h1 className="article-title reveal" data-d="1">{fm.title}</h1>
             <p className="post-meta reveal" data-d="2">{fm.readTime} &middot; {fm.author}</p>
+            <ShareButtons url={url} title={fm.title} />
             {fm.image && (
               <img className="article-hero reveal" data-d="2" src={fm.image} alt={fm.imageAlt || fm.title} width={1672} height={941} />
             )}
