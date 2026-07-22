@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import PageContent from '@/components/PageContent';
 
-const siteUrl = 'https://trueyy.com';
+const siteUrl = 'https://www.trueyy.com';
 
 export const metadata: Metadata = {
   title: 'Trueyy | Detect AI Cheating in Live Remote Interviews',

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Compliance | Trueyy',
   description:
     'How Trueyy supports GDPR, biometric-privacy laws, the EU AI Act, and fair-hiring obligations — consent-first, no biometric identification, encrypted with configurable retention, human-in-the-loop.',
-  alternates: { canonical: 'https://trueyy.com/compliance' },
+  alternates: { canonical: 'https://www.trueyy.com/compliance' },
   robots: { index: true, follow: true },
 };
 
