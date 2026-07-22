@@ -2,17 +2,18 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BookDemoButton } from '@/components/ui/BookDemoButton';
 
 export const metadata: Metadata = {
   title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
   description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
-  alternates: { canonical: 'https://trueyy.com/features' },
+  alternates: { canonical: 'https://www.trueyy.com/features' },
   openGraph: {
     title: 'Detection Features | How Trueyy Catches AI Cheating in Interviews',
     description: 'Signal layers running in real time: AI tool fingerprinting, app focus tracking, paste velocity, off-screen device signals, and answer structure analysis — with reading-gaze analysis on the roadmap.',
-    url: 'https://trueyy.com/features',
+    url: 'https://www.trueyy.com/features',
     siteName: 'Trueyy',
     type: 'website',
   },
@@ -104,6 +105,7 @@ export default function FeaturesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Product', href: '/features' }]} />
       <Navbar />
       <main id="main-content">
         <section className="page-hero">

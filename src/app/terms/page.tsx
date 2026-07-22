@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Terms of Service | Trueyy',
   description:
     'The terms that govern your use of Trueyy — accounts, acceptable use, intellectual property, disclaimers, and liability.',
-  alternates: { canonical: 'https://trueyy.com/terms' },
+  alternates: { canonical: 'https://www.trueyy.com/terms' },
   robots: { index: true, follow: true },
 };
 

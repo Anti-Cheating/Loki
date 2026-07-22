@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | Trueyy',
   description:
     'How Trueyy collects, uses, and protects data. Consent-first interview monitoring — the meeting video stays in your call, captured data is encrypted with configurable retention, GDPR-aligned.',
-  alternates: { canonical: 'https://trueyy.com/privacy' },
+  alternates: { canonical: 'https://www.trueyy.com/privacy' },
   robots: { index: true, follow: true },
 };
 
