@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
@@ -58,7 +59,9 @@ async function getArticle(slug: string) {
   }
   const { content, frontmatter } = await compileMDX<Frontmatter>({
     source,
-    options: { parseFrontmatter: true },
+    // remark-gfm enables GitHub-flavored markdown — tables, strikethrough,
+    // task lists, autolinks — which the article content relies on.
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
   });
   return { content, frontmatter };
 }
