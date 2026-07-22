@@ -44,12 +44,15 @@ export const metadata: Metadata = {
     siteName: 'Trueyy',
     type: 'website',
     locale: 'en_US',
+    images: [`${siteUrl}/trueyy-logo-bg.png`],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Trueyy | AI Cheating Detection for Live Interviews',
     description: 'Detects Cluely, InterviewCoder, and 50+ AI tools during live Zoom, Meet, and Teams interviews. No candidate install.',
-    creator: '@trueyy',
+    site: '@trueyyhq',
+    creator: '@trueyyhq',
+    images: [`${siteUrl}/trueyy-logo-bg.png`],
   },
   alternates: {
     canonical: siteUrl,
