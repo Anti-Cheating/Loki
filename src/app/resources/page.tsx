@@ -76,12 +76,12 @@ export default async function ResourcesPage() {
             <article className="post-feature reveal">
               <img className="post-thumb" src={featured?.image} alt={featured?.title} width={1672} height={941} loading="lazy" />
               <div className="post-body">
-                <span className="post-cat">Guide</span>
+                <span className="post-cat">{featured?.category}</span>
                 <h3>{featured?.title}</h3>
                 <p className="muted">{featured?.excerpt}</p>
                 <p className="post-meta">{featured?.readTime}</p>
-                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href={`/resources/${FEATURED_SLUG}`}>
-                  Read the guide <span className="arw">&rarr;</span>
+                <Link className="btn btn--ghost" style={{ marginTop: '22px', alignSelf: 'flex-start' }} href={`/resources/${featured?.slug}`}>
+                  Read the article <span className="arw">&rarr;</span>
                 </Link>
               </div>
             </article>
