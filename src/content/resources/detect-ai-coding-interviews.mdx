@@ -1,0 +1,94 @@
+---
+title: "How to detect AI use in coding and technical interviews"
+category: "Detection Guide"
+excerpt: "How to detect AI in coding interview rounds: the tells of Copilot, ChatGPT and Interview Coder, plus how to design a round they can't fake."
+readTime: "8 min read"
+date: "2026-08-04"
+updated: "2026-08-04"
+author: "Trueyy Team"
+image: "/marketing/detect-ai-coding-interviews/hero.webp"
+imageAlt: "A stylized dark code editor where a smooth AI-generated light ribbon and a jagged, correction-filled human-typed line meet at a glowing lime seam."
+---
+
+A candidate loads the problem, goes quiet for four seconds, then types out a clean, optimal solution. Right data structure on the first try, tidy names, every edge case covered, no brute-force detour and no debugging. On a scorecard it reads as a strong hire. In a live coding round it should read as a question, because most working engineers do not solve an unfamiliar problem that cleanly on the first pass. That unnatural tidiness is usually the first sign an AI assistant is in the room.
+
+The hard part is that AI help in coding is now normal. In the 2025 Stack Overflow Developer Survey, [84% of developers said they use or plan to use AI tools in their work, up from 76% a year earlier](https://survey.stackoverflow.co/2025/ai). The tools your candidates code with daily are the same ones they can quietly bring to your interview. So the goal is not to catch AI use in general — it is to tell, in a live round where you asked them not to, whether the work in front of you is theirs. This is a field guide for doing that fairly.
+
+## Two kinds of AI help leave two kinds of tells
+
+Before you look for signals, split the problem in two. The tools behave differently, and they give themselves away differently.
+
+**In-editor assistants — GitHub Copilot, Cursor.** These live inside the code editor and complete lines or whole functions as the candidate types. In a real job they are a legitimate productivity tool. In an interview where you want to see how someone thinks, they hand the candidate idiomatic code they did not reason through. The tell is code that is too fluent for the person producing it, arriving in confident blocks with no exploratory typing behind it.
+
+**External solvers — ChatGPT, Claude, Interview Coder.** These sit outside the editor. The candidate pastes or retypes the problem, an external model returns a full worked solution, and they transcribe it back. Interview Coder goes further with a hidden overlay built specifically for algorithmic rounds. The tell here is different: a lag before each answer, a solution that appears wholesale, and a candidate who cannot narrate the code that just showed up. Interview Coder is common enough to warrant its own playbook — our [Interview Coder detection guide](/resources/detect-interview-coder) covers why screen share never sees it.
+
+Knowing which threat you face changes what counts as suspicious: a Copilot user produces polished code fast from inside the editor, while a ChatGPT user produces it after a pause and a context switch.
+
+## Why "just share your whole screen" doesn't settle it
+
+The common instinct is to ask the candidate to share their entire screen, or to run the round inside a locked-down browser. Both help, and neither is proof.
+
+Screen sharing captures the composited image of the candidate's windows. Overlay tools built for interviews render beneath that layer, so the candidate sees the solution floating over their editor while your feed shows a clean desktop. Browser lockdown secures the tab, but ChatGPT on a phone, a second laptop, or a native desktop app all live entirely outside it. This is why watching the screen has quietly stopped being evidence of anything — a clean screen is exactly what these tools are engineered to produce. It is also why suspicion so rarely turns into proof. An interviewing.io survey of mostly-FAANG interviewers found that [81% suspect candidates are using AI to cheat, but only about a third have ever caught someone](https://interviewing.io/blog/how-is-ai-changing-interview-processes-not-much-and-a-whole-lot).
+
+## Signals that separate assisted code from authored code
+
+No single signal is proof. You are weighing a pattern across the timeline, tied to the moment each thing happens. These are the tells worth watching in a technical round.
+
+![An interview timeline showing uneven human keystroke clusters beside an evenly-spaced AI paste burst, with three uniform-latency gaps and one flagged marker glowing lime.](/marketing/detect-ai-coding-interviews/signals.webp)
+
+- **Impossible velocity and keystroke rhythm.** Real coding is noisy — false starts, backspacing, a variable renamed halfway through, a pause mid-line to think. AI-sourced code arrives as a clean block or in fast, even bursts with almost no correction. That low keystroke entropy is measurable; [keystroke-dynamics detection runs 75–86% accurate in controlled conditions](https://spacecomplexity.ai/blog/ai-cheating-coding-interviews). A large paste seconds after the problem loads is the loudest version of this.
+- **Idiomatic but inconsistent code.** The solution uses a polished idiom — a slick comprehension, a precise standard-library call — that does not match how the same person writes the rest of the session. Style that swings between expert and shaky, function to function, often means two authors: the candidate and a model.
+- **Narration gaps.** Ask the candidate to explain a specific line, or to walk through why they chose that structure. If they wrote it, they can. If a tool produced it, the explanation lags the code that already appeared on screen, gets vague, or describes something the code does not actually do.
+- **No debugging struggle.** Most strong engineers reach for something workable and refine it. They hit a bug, add a print, fix an off-by-one. A solution that is optimal and complete on the first attempt with no visible path to it — no wrong turn, no dead end — is worth a second look precisely because it skips the part humans can't skip.
+- **Uniform latency.** External-solver pipelines need a near-constant [3-to-5-second delay after every question regardless of difficulty](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews). Human thinking is variable — easy questions get quick answers, hard ones get longer pauses. A metronomic delay before everything, including the trivial parts, is mathematically odd.
+
+Coding rounds attract this more than any other format. In Fabric's analysis of 19,368 live interviews, [technical roles were flagged for cheating at 48% versus 12% for sales](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews) — roughly four times as often. Public, well-documented problems with one known optimal shape are exactly what a model answers best.
+
+## Guard against false positives
+
+The same signals that catch a cheater can catch an honest person having a rough day, and treating a nervous candidate as a fraud is its own kind of failure. Hold two guardrails.
+
+First, honest candidates trip these tells too. A junior who over-prepared on LeetCode, a non-native English speaker whose narration lags their code, or someone using an autocomplete tool you explicitly allowed can all look clean-and-fast without cheating. Second, never act on one isolated signal. A single fast paste is nothing; a fast paste plus a narration gap plus a metronomic delay, repeated across the session, is a pattern. Weigh the timeline, keep a human in the call, and let the candidate explain before it becomes a decision.
+
+## Design the round so cheating doesn't work
+
+The strongest defense is not tighter surveillance — it is a coding round a solution-fetching tool cannot answer for the candidate. Interview design does most of the work, and it is worth investing in, because catching it after the fact is unreliable: in Fabric's data, [61% of flagged cheaters scored above the pass threshold and would have advanced without detection](https://fabrichq.ai/blogs/state-of-ai-interview-cheating-in-2026-insights-from-19-368-interviews).
+
+![An abstract puzzle-like code block being reshaped mid-transformation as a lime outline traces a new requirement emerging from the old shape.](/marketing/detect-ai-coding-interviews/design-round.webp)
+
+- **Make them build on their own code.** Once a solution lands, change the requirements live: "now handle duplicates," "refactor this to O(n) space," "what breaks if the input is streamed?" A tool that produced a canned answer struggles to iterate on it under questioning.
+- **Prefer problems the model hasn't memorized.** Use a snippet of your own codebase, or a messy, ambiguous scenario with no textbook answer. Public algorithm puzzles are the tools' home turf; a novel or domain-specific problem takes them off it.
+- **Score reasoning, not just the result.** Weight the round toward how the candidate debugs, thinks aloud, and handles curveballs. Assisted candidates optimize for a correct final answer — the exact part a machine supplies best.
+- **Set the rule in writing.** State your AI policy before the interview, including whether in-editor autocomplete is allowed, and mention that the session uses consent-based integrity monitoring. Honest candidates want a level field, and a clear rule gives you firm ground if you do find a problem.
+
+## Where real-time integrity monitoring fits
+
+A sharp interviewer can read a lot of this live. But tracking paste cadence, latency, and narration while also running a genuinely good technical interview is a lot to hold in your head, and an impression is not evidence. That is the gap that turns 81% suspicion into a caught-someone rate of about a third.
+
+This is where consent-first, real-time monitoring earns its place. [Trueyy reads device-level signals on the candidate's machine](/features) — apps and screen activity, keystroke and paste patterns, and voice — and scores risk roughly every 30 seconds beside your existing Zoom, Meet, or Teams call. No browser lockdown, no heavy candidate install. It recognizes ChatGPT, Copilot, Claude, Interview Coder, and 50-plus tools by the structure of what they produce, not a keyword blocklist. No video is recorded or stored on Trueyy servers; audio is transcribed and screenshots captured, encrypted, and retained per policy, and a human stays in the final decision. It turns scattered impressions into a timeline you can review.
+
+## Frequently asked questions
+
+### Can you detect ChatGPT use in a coding interview?
+
+Not by looking for the app, but by reading its effect on the round. ChatGPT sits outside the editor, so a candidate using it shows a uniform delay before answers, code that appears wholesale after a context switch, and narration that lags the solution or can't explain specific lines. Weighed together across the session, those signals are far more reliable than any single one.
+
+### Is using GitHub Copilot in a coding interview cheating?
+
+It depends entirely on your stated policy. Copilot is a normal, legitimate tool on the job, so many teams allow it and design the round around it; others turn it off to see unaided reasoning. The important thing is to decide in advance and tell the candidate in writing, so an honest person using an allowed tool is never mistaken for a cheater.
+
+### How do you catch someone using Interview Coder in a technical round?
+
+You catch it through behavior, not screen share — its overlay renders beneath the layer Zoom and Meet capture, so a clean screen proves nothing. The tells are a single-paste optimal solution, an inability to modify or explain the code, reading glances toward a blank screen region, and a constant answer delay. Our [Interview Coder detection guide](/resources/detect-interview-coder) walks through each one.
+
+### Does screen sharing stop AI cheating in coding interviews?
+
+No. Screen sharing captures the composited image of the candidate's windows, while interview overlays render below it and phones or second devices sit entirely outside the frame. Screen share is a reasonable baseline, but a clean shared screen is exactly what these tools are built to show, so it should never be treated as proof on its own.
+
+### How do you tell AI-written code from human-written code in an interview?
+
+Look for the absence of struggle. Human coding leaves a trail — false starts, backspacing, a workable-then-refined path, real debugging — while AI-sourced code arrives polished, in even bursts, optimal on the first try, with style that doesn't match the rest of the person's work. Ask them to change or extend the code live; authorship shows up fast under that pressure.
+
+---
+
+The pristine first-try solution stopped being proof the moment AI coding tools learned to sit outside the screen. The fix is not more suspicion — it is a better-designed round, signals read fairly across the timeline, and a human in the final decision. [Book a demo](/demo) to see how Trueyy turns those signals into a timeline you can trust.
