@@ -674,6 +674,38 @@ img.post-thumb { object-fit: cover; width: 100%; height: 100%; }
 .article-body p { color: var(--text-mut); }
 .article-body strong { color: var(--text); font-weight: 600; }
 .article-body a { color: var(--green-ink); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; transition: color .2s; }
+
+/* Markdown tables (remark-gfm renders a bare <table>): borders, padding,
+   header emphasis, zebra rows, and horizontal scroll on narrow screens. */
+.article-body table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.article-body thead th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+.article-body th,
+.article-body td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  border-right: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+.article-body th:last-child,
+.article-body td:last-child { border-right: none; }
+.article-body tbody tr:last-child td { border-bottom: none; }
+.article-body tbody td:first-child { font-weight: 600; color: var(--text); }
+.article-body tbody tr:nth-child(even) { background: var(--bg-2); }
 .article-body a:hover { color: var(--green); }
 .article-body ul { padding-left: 22px; list-style: disc outside; }
 .article-body ol { list-style: decimal outside; }
