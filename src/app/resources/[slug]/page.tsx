@@ -9,6 +9,7 @@ import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ShareButtons } from '@/components/ui/ShareButtons';
+import { AiSummarizeButtons } from '@/components/ui/AiSummarizeButtons';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/resources');
 const SITE = 'https://www.trueyy.com';
@@ -239,6 +240,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <h1 className="article-title reveal" data-d="1">{fm.title}</h1>
             <p className="post-meta reveal" data-d="2">{fm.readTime} &middot; {fm.author}</p>
             <ShareButtons url={url} title={fm.title} />
+            <AiSummarizeButtons url={url} title={fm.title} />
             {fm.image && (
               <img className="article-hero reveal" data-d="2" src={fm.image} alt={fm.imageAlt || fm.title} width={1672} height={941} />
             )}
