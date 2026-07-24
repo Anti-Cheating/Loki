@@ -1,0 +1,100 @@
+---
+title: "How to detect AI meeting assistants and note-takers in interviews"
+category: "Detection Guide"
+excerpt: "How to detect AI note taker in interview calls: how Otter, Read AI, Fireflies, and Cluely-style overlays show up, and how to spot and handle them."
+readTime: "8 min read"
+date: "2026-07-28"
+updated: "2026-07-28"
+author: "Trueyy Team"
+image: "/marketing/detect-ai-meeting-assistants/hero.webp"
+imageAlt: "Abstract video-call tile grid on a dark cyan background with one anonymous AI note-taker tile marked by a glowing cyan microphone glyph linked to a note panel."
+---
+
+You start a remote interview, glance at the participant tray, and there is an extra name under the candidate's: "Otter.ai Notetaker." Or the call looks clean, but the candidate keeps tilting toward a phone propped just off-camera, and answers arrive a half-beat behind a device you cannot see. AI meeting assistants have become office furniture, and they wander into interviews too, sometimes to take innocent notes, sometimes to feed answers.
+
+Most of these tools are built for regular meetings, not cheating. But an interview is not a regular meeting. A live transcript, a running summary, or an AI listening in the room changes what "your own answer" means. This guide covers the AI meeting assistants you will actually run into, how each one shows up, and how to handle it without treating an honest candidate like a suspect.
+
+## Why note-takers matter in an interview
+
+In a normal work meeting, an AI note-taker is mundane. [Fellow's 2025 research found 75% of professionals now use an AI note-taker in their work meetings](https://fellow.ai/blog/ai-notetaker-statistics/), so a candidate who brings one into an interview may simply be running the same setup they use every day. That is worth remembering before you jump to conclusions.
+
+The problem is what these tools have quietly become. A transcript is passive. But the same category now includes assistants that summarize in real time, surface "suggested responses," and pair with an LLM that can answer the question while it is still being asked. The line between "helping me remember" and "answering for me" is thin, and in an interview it is the whole game.
+
+There is also a consent problem baked in. The same Fellow research found that [84% of people modify what they say when an AI note-taker is present](https://fellow.ai/blog/ai-notetaker-statistics/) — people know these tools are listening and reshape their behavior around them. In an interview, silent recording of you and your questions is not neutral, and in all-party-consent states it may not even be legal.
+
+## The three ways they show up
+
+Whatever the brand name, an AI assistant reaches an interview through one of three doors.
+
+![Diagram of three glowing cyan pathways converging on a single microphone node, showing an AI assistant joining as a bot, via desktop audio capture, and on a second phone.](/marketing/detect-ai-meeting-assistants/access-paths.webp)
+
+- **As a bot in the participant list.** The classic note-taker joins the call as its own named guest, usually through a calendar integration. It appears in the tray, often with a generic avatar, and on Zoom it frequently waits in a lobby the host has to admit. This is the easiest kind to catch, because it announces itself.
+- **As desktop audio capture.** Some tools skip the bot entirely and record system audio locally on the candidate's machine. Nothing joins the meeting. The candidate's mic and speakers are the only trace, and there is no extra name to notice.
+- **As a second device listening to the room.** A phone or tablet running an assistant app, sitting just out of frame, hears the question through the air and shows an answer on its screen. From your side the call looks completely normal. This is the hardest to see and the easiest for a candidate to deny.
+
+Knowing which door a tool uses tells you where to look. The bot is a naming problem. The other two are behavior-and-signal problems.
+
+## Tool by tool: Otter, Read AI, Fireflies, and overlays
+
+**Otter.ai** is the most common name you will see in a tray. It joins as "Otter.ai Notetaker," typically via a linked Google, Zoom, or Teams calendar, and transcribes in real time. It is also the one facing the sharpest scrutiny: a [class action filed in August 2025 in the Northern District of California alleges Otter recorded conversations without the consent of all participants, including non-users](https://www.fisherphillips.com/en/insights/insights/new-lawsuit-highlights-concerns-about-ai-notetakers). Those are allegations, not findings, but they capture the core risk: the bot can arrive without anyone in the room actively agreeing to it.
+
+**Read AI** markets itself around live meeting analytics, sentiment, and summaries. It also joins as a named participant via calendar auto-join, so like Otter it shows up in the list if you are watching.
+
+**Fireflies.ai** is enormous and enterprise-embedded — Nudge Security reports [Fireflies has more than 20 million users across 500,000 organizations, including 75% of the Fortune 500](https://www.nudgesecurity.com/post/shadow-ai-is-taking-notes-the-growing-risk-of-ai-meeting-assistants). Its bot joins as a guest, and the same report describes how these tools spread through [permissive calendar permissions that auto-add the assistant to future meetings](https://www.nudgesecurity.com/post/shadow-ai-is-taking-notes-the-growing-risk-of-ai-meeting-assistants) — exactly how a note-taker ends up in an interview the candidate never consciously invited it to.
+
+**Cluely-style overlays** are the different, more deliberate case. These are not note-takers. They listen to the call, read the screen, and feed the candidate answers in a floating panel rendered below the screen-share layer, so they never join as a participant and never appear in a share. There is no bot to spot. We cover this class in depth in our guide on [how to detect Cluely in interviews](/resources/detect-cluely-interviews); the short version is that you catch them by behavior, not by looking for the app.
+
+## How to spot them
+
+Match the check to the door.
+
+![Illustration of a cyan scan line tracking across an off-frame screen with regular pulse marks, suggesting a candidate reading answers with machine-regular latency.](/marketing/detect-ai-meeting-assistants/reading-gaze.webp)
+
+- **Scan the participant list, every time.** Before you start, read every name in the tray out loud in your head. A guest named after a vendor, a duplicate of the candidate's name with a tag, or a lobby request mid-interview is the most common tell. If you see one, you have found a bot-based note-taker.
+- **Listen for the recording tell.** Many bots trigger a spoken or on-screen "this meeting is being recorded" notice, or the platform shows a recording indicator. If recording starts and you did not start it, something else did.
+- **Watch for the second-device tilt.** Eyes and head repeatedly angling to a fixed off-camera spot, a face lit from below by a screen you cannot see, or a hand resting near a phone. On its own this means nothing. Paired with the next tell, it means more.
+- **Track answer latency and structure.** An assistant feeding answers adds a consistent delay that does not scale with question difficulty, and the answers come out unusually tidy — clean lists, textbook phrasing, no false starts. A human's pauses vary; a pipeline's do not.
+- **Notice the reading gaze.** Eyes tracking in smooth lines and snapping back, rather than the wandering look of someone recalling from memory, suggests they are reading something off to the side.
+
+No single signal is proof. People pause, glance around, and speak in lists by habit. Weigh the combination, tied to the moment it happens, and never decide on one tell alone.
+
+## How to handle it fairly
+
+The goal is a level field, not a gotcha. A calm process beats an accusation.
+
+1. **Set the policy in writing, before the call.** State whether AI assistants and note-takers are allowed, and say the session may use consent-based integrity monitoring. Honest candidates appreciate a clear rule; it also removes the "I didn't know" defense.
+2. **If you see a bot, name it and pause.** "I see a note-taker in the room — can you remove it before we start?" is neutral and reasonable. Most candidates will comply instantly, and a flat refusal is itself information.
+3. **Don't accuse on a single signal.** A tilt, a pause, or a tidy answer is not a verdict. If something feels off, pivot the interview instead: ask them to expand on a prior answer, walk through the hardest part of a project, or explain the same idea a different way. Assistants lose the thread on fast pivots; real experts get more specific.
+4. **Keep a human in the final decision.** Signals inform judgment; they do not replace it. Guard against false positives as carefully as you guard against cheating, because a wrongly flagged honest candidate is a real cost.
+
+## Where real-time integrity monitoring fits
+
+A sharp interviewer can catch a lot of this by hand. But scanning the tray, clocking latency, and watching gaze while also running a good interview is a lot to hold at once, and memory is not evidence. That is the gap real-time monitoring fills.
+
+[Trueyy](/features) sits beside your existing Zoom, Meet, or Teams call and reads device-level signals on the candidate machine, with their consent — no browser lockdown, no heavy install. It scores risk roughly every 30 seconds across apps and screen activity, keystroke and paste patterns, and voice signals, and it recognizes 50-plus assistant and answer-feeding tools by the structure of what they produce rather than a keyword list. No video is recorded or stored on Trueyy servers, and a human stays in the final call. The point is to turn scattered impressions into a timeline you can actually review.
+
+## Frequently asked questions
+
+### How do I know if a candidate is using an AI note-taker in an interview?
+
+Start with the participant list — bot-based tools like Otter, Read AI, and Fireflies join as a named guest and often trigger a recording notice. For the tools that do not join the call, watch behavior instead: a consistent answer delay that ignores question difficulty, unusually tidy structured answers, a reading gaze, or repeated glances at an off-camera device. Weigh the signals together, never one alone.
+
+### Are AI meeting assistants like Otter or Read AI cheating?
+
+Not inherently. Plenty of people run a note-taker in every meeting out of habit, and taking notes is not the same as having answers fed to you. The concern is when a tool crosses from passive transcription into real-time suggested responses, or when it records the interview without everyone's consent. Set a clear policy up front so the expectation is not ambiguous.
+
+### Can an AI note-taker join a meeting without everyone knowing?
+
+Yes. Many assistants auto-join through calendar integrations using broad permissions, so a note-taker can appear that the candidate never consciously invited. Others skip the bot entirely and capture desktop audio locally or run on a second device, leaving no name in the tray at all. That is why the participant list is a starting point, not the whole check.
+
+### Is it legal to monitor an interview for AI assistants?
+
+It depends on where you and the candidate are, and it cuts both ways. In all-party-consent jurisdictions, [recording without informing every participant can run into wiretapping and privacy laws](https://www.smithlaw.com/newsroom/publications/the-silent-guest-in-your-meetings-legal-risks-of-ai-note-takers) — which is exactly the issue at the center of the Otter litigation. Consent-first monitoring, where the candidate agrees before anything is captured, is the safe path. Trueyy is built that way, with no biometric identification and a human in the final decision.
+
+### What is the difference between a note-taker and a Cluely-style overlay?
+
+A note-taker records and summarizes the conversation and usually joins as a visible bot. A Cluely-style overlay does the opposite: it hides, listens, and feeds the candidate live answers in a panel that never appears in a screen share or the participant list. You catch note-takers by looking; you catch overlays by reading behavior. Our [Cluely detection guide](/resources/detect-cluely-interviews) covers the second case in detail.
+
+---
+
+The extra name in the tray is the easy case. The phone off-camera and the local recorder are the ones that decide interviews quietly. The fix is not more suspicion — it is a clear policy plus better signals tied to the moment they happen. [Book a demo](/demo) to see how Trueyy turns those signals into a timeline you can trust.
