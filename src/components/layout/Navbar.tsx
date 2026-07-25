@@ -73,16 +73,22 @@ export function Navbar() {
             <img src="/trueyy-logo-light.svg" alt="Trueyy" className="nav-logo" />
           </Link>
           <nav className="nav-links" aria-label="Primary">
-            {NAV_LINKS.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={pathname === href ? "active" : ""}
-                onClick={() => setNavOpen(false)}
-              >
-                {label}
-              </Link>
-            ))}
+            {NAV_LINKS.map(({ href, label }) => {
+              const external = href.startsWith("http");
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={pathname === href ? "active" : ""}
+                  onClick={() => setNavOpen(false)}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
+                  {label}
+                </Link>
+              );
+            })}
             <a
               className="btn btn--primary nav-cta-mobile"
               href="https://app.trueyy.com/signup"
