@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { href: "/comparison", label: "Compare" },
   { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
+  { href: "https://docs.trueyy.com", label: "Docs" },
 ];
 
 export function Navbar() {

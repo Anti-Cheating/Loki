@@ -19,6 +19,7 @@ export function Footer() {
             <Link href="/how-it-works">How it works</Link>
             <Link href="/comparison">Compare</Link>
             <Link href="/pricing">Pricing</Link>
+            <Link href="https://docs.trueyy.com">Docs</Link>
           </div>
           <div className="foot-col">
             <h4>Company</h4>
