@@ -33,11 +33,11 @@ const FAQS = [
   },
   {
     q: 'What does the Starter plan include?',
-    a: '10 interviews per month, up to 10 interviewer seats, 100 minutes per interview, ATS integrations, and 24/7 chat support. Additional interviews can be added at ₹1,000 each (minimum 100). Starter costs ₹10,000/month or ₹96,000/year (₹8,000/month).',
+    a: '10 interviews per month, up to 10 interviewer seats, 100 minutes per interview, SDK integration on annual plans, and 24/7 chat support. Additional interviews can be added at ₹1,000 each (minimum 100). Starter costs ₹10,000/month or ₹96,000/year (₹8,000/month).',
   },
   {
     q: 'What does the Growth plan include?',
-    a: '300 interviews per month, up to 100 interviewer seats, 100 minutes per interview, ATS integrations, and 24/7 chat plus a shared account manager. Additional interviews are available at ₹500 each. Growth costs ₹1,50,000/month or ₹14,40,000/year (₹1,20,000/month).',
+    a: '300 interviews per month, up to 100 interviewer seats, 100 minutes per interview, SDK integration, and 24/7 chat plus a shared account manager. Additional interviews are available at ₹500 each. Growth costs ₹1,50,000/month or ₹14,40,000/year (₹1,20,000/month).',
   },
   {
     q: 'Is there a discount for annual billing?',

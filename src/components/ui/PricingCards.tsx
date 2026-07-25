@@ -21,12 +21,13 @@ const TRIAL_FEATURES = [
   'Community support',
 ];
 
+// SDK integration is a yearly-plan perk on Starter (monthly Starter has none),
+// so it's inserted conditionally below rather than living in the base list.
 const STARTER_FEATURES = [
   '10 interviews / month',
   'Up to 10 interviewer seats',
   '100 min per interview',
   'Add-on: ₹1,000 / extra interview',
-  'ATS integrations',
   '24/7 chat support',
 ];
 
@@ -35,12 +36,18 @@ const GROWTH_FEATURES = [
   'Up to 100 interviewer seats',
   '100 min per interview',
   'Add-on: ₹500 / extra interview',
-  'ATS integrations',
+  'SDK integration',
   '24/7 chat + shared account manager',
 ];
 
 export function PricingCards() {
   const [yearly, setYearly] = useState(false);
+
+  // Starter gets SDK integration only on the annual plan — insert it before
+  // the support line when yearly is selected.
+  const starterFeatures = yearly
+    ? [...STARTER_FEATURES.slice(0, 4), 'SDK integration', ...STARTER_FEATURES.slice(4)]
+    : STARTER_FEATURES;
 
   return (
     <div>
@@ -83,7 +90,7 @@ export function PricingCards() {
           {yearly && <p className="price-billed">₹96,000 billed annually</p>}
           <p className="price-desc">Hiring teams running a steady flow of interviews every month.</p>
           <div className="price-features">
-            {STARTER_FEATURES.map(f => (
+            {starterFeatures.map(f => (
               <div key={f} className="checkrow"><span className="ck">{CHECK_ICON}</span><span>{f}</span></div>
             ))}
           </div>
