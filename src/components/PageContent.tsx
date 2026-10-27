@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { Marquee } from '@/components/sections/Marquee';
 import { Problem } from '@/components/sections/Problem';
+import { DemoVideo } from '@/components/sections/DemoVideo';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Features } from '@/components/sections/Features';
 import { DashboardPreview } from '@/components/sections/DashboardPreview';
@@ -46,6 +47,7 @@ export default function PageContent() {
         <Hero />
         <Marquee />
         <Problem />
+        <DemoVideo />
         <HowItWorks />
         <Features />
         <DashboardPreview />
