@@ -1,3 +1,5 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { ImageResponse } from 'next/og';
 import { getAllArticles, getArticleMeta, COVER_SIZE } from '@/lib/resources';
 
@@ -7,18 +9,10 @@ export async function generateStaticParams() {
   return (await getAllArticles()).map((a) => ({ slug: a.slug }));
 }
 
-// Sora (the site font) at 700 for the title. Google Fonts serves TTF when no
-// browser UA is sent, which is what next/og needs. On any failure we fall back
-// to the default font rather than failing the build.
-async function loadSora(): Promise<ArrayBuffer | null> {
-  try {
-    const css = await (await fetch('https://fonts.googleapis.com/css2?family=Sora:wght@700')).text();
-    const url = css.match(/src: url\((.+?)\) format\('(opentype|truetype)'\)/)?.[1];
-    return url ? await (await fetch(url)).arrayBuffer() : null;
-  } catch {
-    return null;
-  }
-}
+// Sora 700 (the site font, OFL) ships in the repo. Fetching it from Google at
+// build time broke production: a non-font response parsed as a font crashed
+// the prerender. Reading a local file keeps the build offline and stable.
+const SORA_BOLD = path.join(process.cwd(), 'src/assets/fonts/Sora-Bold.ttf');
 
 // Long titles step down in size so they stay on 2–3 lines.
 const titleSize = (t: string) => (t.length > 70 ? 54 : t.length > 48 ? 62 : 72);
@@ -28,7 +22,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
   const meta = await getArticleMeta(slug);
   if (!meta) return new Response('Not found', { status: 404 });
 
-  const sora = await loadSora();
+  const sora = await fs.readFile(SORA_BOLD);
 
   // Content is centered so it survives object-fit: cover cropping in cards.
   return new ImageResponse(
@@ -69,7 +63,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
             color: '#FFFFFF',
             fontSize: titleSize(meta.title),
             fontWeight: 700,
-            fontFamily: sora ? 'Sora' : undefined,
+            fontFamily: 'Sora',
             letterSpacing: -1,
             lineHeight: 1.12,
             marginTop: 36,
@@ -88,7 +82,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     ),
     {
       ...COVER_SIZE,
-      fonts: sora ? [{ name: 'Sora', data: sora, weight: 700, style: 'normal' }] : undefined,
+      fonts: [{ name: 'Sora', data: sora, weight: 700, style: 'normal' }],
     }
   );
 }
