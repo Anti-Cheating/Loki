@@ -658,6 +658,9 @@ img.post-thumb { object-fit: cover; width: 100%; height: 100%; }
 .post-feature .post-thumb { aspect-ratio: auto; min-height: 340px; }
 .post-feature .post-body { padding: 44px; justify-content: center; }
 .post-feature h3 { font-size: 1.55rem; }
+/* Generated text covers must never be cropped (cover-fit would cut the title
+   on narrow cards). Fit them and fill the gap with the cover's own base color. */
+img.post-thumb--cover { object-fit: contain; background: #0B1A10; }
 
 /* article (resources/[slug]) */
 .article { padding: 176px 0 96px; }
@@ -795,6 +798,7 @@ img.post-thumb { object-fit: cover; width: 100%; height: 100%; }
   .feat-row .feat-media { order: -1; }
   .post-grid { grid-template-columns: 1fr; }
   .post-feature { grid-template-columns: 1fr; }
+  .post-feature .post-thumb, .post-feature img.post-thumb { min-height: 0; aspect-ratio: 16/9; }
   .split { grid-template-columns: 1fr; gap: 36px; }
   .tl-item { grid-template-columns: 64px 1fr; gap: 20px; }
   .inline-stats { gap: 28px; }
