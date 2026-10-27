@@ -51,3 +51,14 @@ export async function getAllArticles(): Promise<ArticleMeta[]> {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime() || a.slug.localeCompare(b.slug)
   );
 }
+
+// Branded cover generated from frontmatter (see app/resources/[slug]/cover).
+// Used whenever an article has no hand-made `image`, so publishing never
+// waits on art.
+export const COVER_SIZE = { width: 1200, height: 675 };
+export const coverUrl = (slug: string) => `/resources/${slug}/cover`;
+export const articleImage = (slug: string, image?: string) => image ?? coverUrl(slug);
+
+export async function getArticleMeta(slug: string): Promise<ArticleMeta | null> {
+  return (await getAllArticles()).find((a) => a.slug === slug) ?? null;
+}
