@@ -172,7 +172,7 @@ Start free. Scale as you hire. Founding-cohort pricing locked in during early ac
 - 10 monitored interviews per month
 - Up to 10 interviewer seats
 - 100 minutes per interview
-- ATS integrations
+- SDK integration (annual plans)
 - 24/7 chat support
 - Additional interviews at ₹1,000 each (minimum 100)
 
@@ -180,7 +180,7 @@ Start free. Scale as you hire. Founding-cohort pricing locked in during early ac
 - 300 monitored interviews per month
 - Up to 100 interviewer seats
 - 100 minutes per interview
-- ATS integrations
+- SDK integration
 - 24/7 chat support plus a shared account manager
 - Additional interviews at ₹500 each
 

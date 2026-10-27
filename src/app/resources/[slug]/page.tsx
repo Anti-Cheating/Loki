@@ -9,12 +9,12 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
+import { coverUrl, COVER_SIZE } from '@/lib/resources';
 import { ShareButtons } from '@/components/ui/ShareButtons';
 import { AiSummarizeButtons } from '@/components/ui/AiSummarizeButtons';
 
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/resources');
 const SITE = 'https://www.trueyy.com';
-const DEFAULT_OG_IMAGE = `${SITE}/trueyy-logo-bg.png`;
 const TWITTER_HANDLE = '@trueyyhq';
 
 // Schema.org / OpenGraph datetimes want full ISO 8601 with a timezone.
@@ -132,7 +132,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ogTitle = fm.ogTitle ?? metaTitle;
   const ogDescription = fm.ogDescription ?? metaDescription;
   const hasArticleImage = !!(fm.ogImage || fm.image);
-  const ogImageUrl = toAbsUrl(fm.ogImage) ?? toAbsUrl(fm.image) ?? DEFAULT_OG_IMAGE;
+  // No hand-made art -> the generated branded cover (title + category).
+  const ogImageUrl = toAbsUrl(fm.ogImage) ?? toAbsUrl(fm.image) ?? toAbsUrl(coverUrl(slug))!;
   const twitterImageUrl = toAbsUrl(fm.twitterImage) ?? ogImageUrl;
 
   const published = toIsoDateTime(fm.date) ?? fm.date;
@@ -159,7 +160,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images: [
         hasArticleImage
           ? { url: ogImageUrl, width: 1672, height: 941, alt: fm.imageAlt ?? fm.title }
-          : { url: ogImageUrl, alt: 'Trueyy' },
+          : { url: ogImageUrl, ...COVER_SIZE, alt: fm.title },
       ],
     },
     twitter: {
@@ -183,7 +184,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const publishedIso = toIsoDateTime(fm.date) ?? fm.date;
   // Keep the structured data in lockstep with the page metadata (same
   // description + image resolution).
-  const schemaImage = toAbsUrl(fm.ogImage) ?? toAbsUrl(fm.image) ?? DEFAULT_OG_IMAGE;
+  const schemaImage = toAbsUrl(fm.ogImage) ?? toAbsUrl(fm.image) ?? toAbsUrl(coverUrl(slug))!;
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -244,8 +245,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <p className="post-meta reveal" data-d="2">{fm.readTime} &middot; {fm.author}</p>
             <ShareButtons url={url} title={fm.title} />
             <AiSummarizeButtons url={url} title={fm.title} />
-            {fm.image && (
+            {fm.image ? (
               <img className="article-hero reveal" data-d="2" src={fm.image} alt={fm.imageAlt || fm.title} width={1672} height={941} />
+            ) : (
+              <img className="article-hero reveal" data-d="2" src={coverUrl(slug)} alt={fm.title} {...COVER_SIZE} />
             )}
             <div className="article-body">{article.content}</div>
             <hr className="hairline" style={{ margin: '44px 0 26px' }} />
