@@ -83,6 +83,37 @@ export default function PrivacyPage() {
         sub-processors is available on request.
       </p>
 
+      <h2>Google user data</h2>
+      <p>
+        If you connect your Google Calendar, Trueyy requests the{' '}
+        <strong>calendar.events</strong> scope together with your email address.
+        We use that access for one purpose only: to create a calendar event with
+        a Google Meet link for an interview you schedule in Trueyy, to update
+        that event if the interview is rescheduled, and to remove it if the
+        interview is cancelled. We read your email address so the dashboard can
+        show you which Google account is connected.
+      </p>
+      <p>
+        We do not read, index, or store the rest of your calendar, and we do not
+        use Google user data to train or improve any AI model. We never sell it,
+        never use it for advertising, and never share it with third parties
+        except the sub-processors needed to run the service. You can disconnect
+        at any time from the Trueyy dashboard, which revokes our access and
+        deletes the stored credential.
+      </p>
+      <p>
+        Trueyy&rsquo;s use and transfer of information received from Google APIs
+        adheres to the{' '}
+        <a
+          href="https://developers.google.com/terms/api-services-user-data-policy"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Google API Services User Data Policy
+        </a>
+        , including the Limited Use requirements.
+      </p>
+
       <h2>Retention</h2>
       <p>
         Retention of session signal data is{' '}
