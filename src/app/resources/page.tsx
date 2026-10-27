@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { PageScrollReveal } from '@/components/layout/PageScrollReveal';
 import { NewsletterForm } from '@/components/ui/NewsletterForm';
-import { getAllArticles } from '@/lib/resources';
+import { getAllArticles, articleImage } from '@/lib/resources';
 
 export const metadata: Metadata = {
   title: 'Resources | Trueyy Interview Integrity',
@@ -74,7 +74,7 @@ export default async function ResourcesPage() {
         <section className="section--tight">
           <div className="wrap">
             <article className="post-feature reveal">
-              <img className="post-thumb" src={featured?.image} alt={featured?.title} width={1672} height={941} loading="lazy" />
+              <img className="post-thumb" src={featured ? articleImage(featured.slug, featured.image) : undefined} alt={featured?.title} width={1672} height={941} loading="lazy" />
               <div className="post-body">
                 <span className="post-cat">{featured?.category}</span>
                 <h3>{featured?.title}</h3>
@@ -93,7 +93,7 @@ export default async function ResourcesPage() {
             <div className="post-grid">
               {gridPosts.map((p, i) => (
                 <Link key={p.slug} className="post-card reveal" href={`/resources/${p.slug}`} data-d={String((i % 3) + 1)}>
-                  <img className="post-thumb" src={p.image ?? `/marketing/resource-${i + 1}.webp`} alt={p.title} width={1672} height={941} loading="lazy" />
+                  <img className="post-thumb" src={articleImage(p.slug, p.image)} alt={p.title} width={1672} height={941} loading="lazy" />
                   <div className="post-body">
                     <span className="post-cat">{p.category}</span>
                     <h3>{p.title}</h3>
